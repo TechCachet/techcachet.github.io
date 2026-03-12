@@ -14,7 +14,8 @@ This may include:
 • Issue keys  
 • Issue link relationships  
 • SLA status information  
-• Issue metadata necessary to display SLA results
+• Assignee and reporter information (used only for notifications and @mentions as configured by the administrator)  
+• Issue metadata necessary to display SLA results  
 
 The app only accesses data that the Jira user already has permission to view.
 
@@ -26,11 +27,19 @@ The app does not maintain external databases or store user information.
 
 Any data accessed by the app is processed temporarily within Atlassian's Forge platform and is not retained by Tech Cache.
 
+If you enable Slack or email webhooks in the app's configuration, notification messages (which may include issue keys and user identifiers) are sent to those services at your direction. Use of that data is governed by those services' privacy policies.
+
 ## Data Storage
 
 SLA Link Inspector does not store customer data outside of Atlassian infrastructure.
 
+The app stores configuration (for example, notification and trigger settings) and temporary state (for example, to avoid duplicate notifications) within Atlassian Forge storage. No data is sent to or stored on Tech Cache servers.
+
 All processing occurs within Atlassian Forge functions.
+
+## Admin-Configured Integrations
+
+If you configure Slack or email webhook URLs in the app's settings, the app will send notification content (including issue keys and any user names used in messages) to those endpoints. Use of that data is governed by those services' privacy policies (for example, Slack, Zapier, Make).
 
 ## Third-Party Sharing
 
