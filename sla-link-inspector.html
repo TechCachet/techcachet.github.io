@@ -1,1 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>SLA Link Inspector | Tech Cache</title>
+
+<meta name="description"
+content="SLA Link Inspector is a Jira Cloud app that displays SLA status for linked issues and alerts teams before breaches occur.">
+
+<style>
+:root{
+  --bg:#0b1020;
+  --card:#121933;
+  --text:#e8ecf3;
+  --muted:#aab4c8;
+  --accent:#7dd3fc;
+  --accent2:#38bdf8;
+  --border:#24304f;
+  --button-text:#06111f;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#0b1020 0%,#11182f 100%);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.container{
+  max-width:920px;
+  margin:auto;
+  padding:40px 20px 60px;
+}
+
+h1{
+  font-size:2.3rem;
+  margin-bottom:10px;
+}
+
+h2{
+  margin-top:0;
+}
+
+.card{
+  background:rgba(18,25,51,0.9);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:22px;
+}
+
+.badge{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(125,211,252,0.12);
+  border:1px solid rgba(125,211,252,0.3);
+  color:var(--accent);
+  font-size:0.85rem;
+  font-weight:700;
+}
+
+.cta{
+  display:inline-block;
+  background:var(--accent2);
+  color:#06111f;
+  padding:12px 22px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
+  margin-top:10px;
+}
+
+.cta:hover{
+  opacity:.95;
+}
+
+.footer{
+  text-align:center;
+  margin-top:30px;
+  color:var(--muted);
+}
+
+a{
+  color:var(--accent);
+  text-decoration:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>SLA Link Inspector</h1>
+
+<p>
+SLA Link Inspector is a Jira Cloud app that gives teams immediate visibility
+into the SLA status of linked issues. Instead of manually checking multiple
+tickets across different queues, the app displays SLA status directly inside
+the issue view.
+</p>
+
+<div class="card">
+
+<div class="badge">Atlassian Forge App</div>
+
+<h2>Key Features</h2>
+
+<ul>
+<li>View SLA status for linked Jira issues directly in the issue panel</li>
+<li>Color indicators for healthy, at-risk, and breached SLAs</li>
+<li>Automatic alerts when linked tickets approach SLA risk</li>
+<li>Configurable notification recipients and message templates</li>
+<li>Optional integrations with Slack or email workflows</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Why It Helps</h2>
+
+<p>
+Engineering and support teams often rely on work being completed in other
+queues before their own SLAs can be met. SLA Link Inspector helps teams see
+those risks earlier, giving engineers time to escalate or coordinate before
+deadlines are missed.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Availability</h2>
+
+<p>
+SLA Link Inspector is currently preparing for release on the Atlassian
+Marketplace.
+</p>
+
+<a class="cta" href="mailto:techcache@proton.me">
+Request early access
+</a>
+
+</div>
+
+<div class="card">
+
+<h2>About Tech Cache</h2>
+
+<p>
+Tech Cache builds practical tools and integrations that help teams improve
+visibility and reduce operational risk within Atlassian environments.
+</p>
+
+<p>
+<a href="index.html">← Back to Tech Cache</a>
+</p>
+
+</div>
+
+<div class="footer">
+© 2026 Tech Cache
+</div>
+
+</div>
+
+</body>
+</html>
