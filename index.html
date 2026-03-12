@@ -1,19 +1,431 @@
-<h1>Tech Cache</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech Cache | Atlassian Apps & Security Services</title>
 
-<p>Tech Cache builds practical tools and integrations for the Atlassian ecosystem.</p>
+<meta name="description"
+content="Tech Cache builds practical Atlassian tools and provides affordable cybersecurity services, including SLA Link Inspector for Jira and Website Security Snapshot reviews for small business websites.">
 
-<h2>Apps</h2>
-<ul>
-<li><b>SLA Link Inspector</b> – Monitor SLA status for linked Jira issues.</li>
-</ul>
+<style>
+:root{
+  --bg:#0b1020;
+  --card:#121933;
+  --text:#e8ecf3;
+  --muted:#aab4c8;
+  --accent:#7dd3fc;
+  --accent2:#38bdf8;
+  --border:#24304f;
+  --button-text:#06111f;
+}
 
-<h2>Services</h2>
-<ul>
-<li><a href="/security-review.html">Website Security Snapshot</a></li>
-</ul>
+*{
+  box-sizing:border-box;
+}
 
-<h2>Links</h2>
-<ul>
-<li><a href="/privacy">Privacy Policy</a></li>
-<li><a href="/terms">Terms</a></li>
-</ul>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#0b1020 0%,#11182f 100%);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.container{
+  max-width:980px;
+  margin:0 auto;
+  padding:40px 20px 60px;
+}
+
+.hero{
+  text-align:center;
+  margin-bottom:36px;
+}
+
+.brand-header{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.logo{
+  max-width:180px;
+  height:auto;
+  margin-bottom:0;
+}
+
+.brand{
+  font-size:1.65rem;
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:1px;
+  margin:0;
+}
+
+h1{
+  margin:0 0 10px;
+  font-size:2.5rem;
+  color:white;
+}
+
+.tagline{
+  font-size:1.2rem;
+  color:var(--accent);
+  margin-bottom:12px;
+  font-weight:700;
+}
+
+.subtext{
+  max-width:760px;
+  margin:0 auto 12px;
+  color:var(--muted);
+  font-size:1rem;
+}
+
+.location{
+  color:var(--muted);
+  font-size:0.95rem;
+  margin-top:8px;
+}
+
+.cta-wrap{
+  margin-top:24px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+}
+
+.cta-button{
+  display:inline-block;
+  background:var(--accent2);
+  color:var(--button-text);
+  padding:12px 22px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
+  transition:transform 0.15s ease, opacity 0.15s ease;
+}
+
+.cta-button:hover{
+  text-decoration:none;
+  opacity:0.95;
+  transform:translateY(-1px);
+}
+
+.cta-secondary{
+  display:inline-block;
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:12px 22px;
+  border-radius:10px;
+  font-weight:700;
+  text-decoration:none;
+  background:rgba(255,255,255,0.03);
+  transition:transform 0.15s ease, opacity 0.15s ease, border-color 0.15s ease;
+}
+
+.cta-secondary:hover{
+  text-decoration:none;
+  opacity:0.95;
+  transform:translateY(-1px);
+  border-color:var(--accent2);
+}
+
+.card{
+  background:rgba(18,25,51,0.9);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:22px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.highlight-card{
+  border-color:#2d4d7a;
+  background:linear-gradient(180deg, rgba(20,31,61,0.95) 0%, rgba(18,25,51,0.92) 100%);
+}
+
+h2{
+  margin-top:0;
+  color:white;
+  font-size:1.35rem;
+}
+
+h3{
+  margin-top:0;
+}
+
+p{
+  margin-top:0;
+}
+
+ul{
+  margin:12px 0 0 20px;
+  padding:0;
+}
+
+li{
+  margin-bottom:8px;
+  color:var(--text);
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.service{
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:rgba(255,255,255,0.02);
+  height:100%;
+}
+
+.service.featured{
+  border:1px solid #3b82f6;
+  background:rgba(59,130,246,0.08);
+}
+
+.service h3{
+  margin:0 0 8px;
+  color:var(--accent);
+  font-size:1.1rem;
+}
+
+.price{
+  font-weight:bold;
+  color:white;
+  margin-bottom:8px;
+  font-size:1.2rem;
+}
+
+.badge{
+  display:inline-block;
+  margin-bottom:10px;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(125,211,252,0.12);
+  border:1px solid rgba(125,211,252,0.3);
+  color:var(--accent);
+  font-size:0.85rem;
+  font-weight:700;
+}
+
+.link-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.link-list li{
+  margin-bottom:10px;
+}
+
+.contact-box{
+  text-align:center;
+}
+
+.contact-info{
+  font-size:1.05rem;
+  margin-top:10px;
+}
+
+.small-note{
+  color:var(--muted);
+  font-size:0.92rem;
+}
+
+a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+a:hover{
+  color:var(--accent2);
+  text-decoration:underline;
+}
+
+.footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:0.9rem;
+  margin-top:24px;
+}
+
+@media (max-width:700px){
+  .grid-2{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:640px){
+  h1{
+    font-size:2rem;
+  }
+
+  .brand{
+    font-size:1.4rem;
+  }
+
+  .container{
+    padding-top:28px;
+  }
+
+  .logo{
+    max-width:150px;
+  }
+
+  .cta-button,
+  .cta-secondary{
+    width:100%;
+    max-width:340px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <header class="hero">
+    <div class="brand-header">
+      <img src="assets/logo.png" alt="Tech Cache logo" class="logo">
+      <div class="brand">Tech Cache</div>
+    </div>
+
+    <h1>Practical Tools and Security Services</h1>
+
+    <div class="tagline">Built for teams that want better visibility, smarter workflows, and stronger security</div>
+
+    <p class="subtext">
+      Tech Cache builds practical tools for the Atlassian ecosystem and provides
+      affordable cybersecurity services for small businesses. Our focus is on
+      solving real operational pain points with clear, lightweight, and useful solutions.
+    </p>
+
+    <p class="subtext">
+      From Jira workflow visibility to website security reviews, Tech Cache is
+      designed to make technical improvements more accessible and actionable.
+    </p>
+
+    <div class="location">Based in Tampa, Florida.</div>
+
+    <div class="cta-wrap">
+      <a href="#apps-services" class="cta-button">Explore Tech Cache</a>
+      <a href="mailto:techcache@proton.me" class="cta-secondary">Contact</a>
+    </div>
+  </header>
+
+  <section class="card highlight-card">
+    <h2>What Tech Cache Offers</h2>
+    <p>
+      Tech Cache combines software tooling and security services to help teams
+      improve visibility, reduce risk, and respond faster. Whether you need a
+      Jira app that surfaces hidden SLA risk or a concise website security review,
+      the goal is the same: practical improvements with clear value.
+    </p>
+  </section>
+
+  <section class="card" id="apps-services">
+    <h2>Apps and Services</h2>
+
+    <div class="grid-2">
+      <div class="service featured">
+        <div class="badge">Atlassian App</div>
+        <h3>SLA Link Inspector</h3>
+        <p>
+          A Jira Cloud app that displays SLA status for linked issues directly in
+          the issue view and helps teams detect at-risk or breached SLAs before
+          they become operational surprises.
+        </p>
+        <ul>
+          <li>Linked issue SLA visibility in Jira</li>
+          <li>Color-coded at-risk and breached indicators</li>
+          <li>Automatic notifications and escalation options</li>
+          <li>Admin-configurable recipients and templates</li>
+        </ul>
+        <p style="margin-top:14px;">
+          <a href="https://github.com/TechCache/sla-link-inspector" target="_blank" rel="noopener noreferrer">
+            View project →
+          </a>
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="badge">Security Service</div>
+        <h3>Website Security Snapshot</h3>
+        <div class="price">$99</div>
+        <p>
+          A concise, professional cybersecurity review for small business websites,
+          focused on common real-world issues such as email spoofing protections,
+          WordPress exposure, missing browser defenses, and insecure configurations.
+        </p>
+        <ul>
+          <li>Passive, non-intrusive review</li>
+          <li>Written findings with remediation guidance</li>
+          <li>Affordable for small organizations</li>
+          <li>Follow-up recheck option available</li>
+        </ul>
+        <p style="margin-top:14px;">
+          <a href="security-review.html">Learn more →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Built With Practicality in Mind</h2>
+    <p>
+      Tech Cache is focused on practical improvements that teams can actually use.
+      The goal is not complexity for its own sake, but better visibility, better
+      communication, and clearer action when something needs attention.
+    </p>
+    <ul>
+      <li>Lightweight tools that fit into existing workflows</li>
+      <li>Clear communication for both technical and non-technical audiences</li>
+      <li>Security-conscious design and transparent documentation</li>
+      <li>Built by a cybersecurity professional with hands-on experience in threat and vulnerability management</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Resources</h2>
+    <ul class="link-list">
+      <li><a href="privacy">Privacy Policy</a></li>
+      <li><a href="terms">Terms of Service</a></li>
+      <li><a href="https://github.com/TechCache" target="_blank" rel="noopener noreferrer">GitHub Organization</a></li>
+    </ul>
+  </section>
+
+  <section class="card contact-box">
+    <h2>Contact Tech Cache</h2>
+    <p>
+      Questions about the app, support, or security review services?
+      Reach out directly.
+    </p>
+
+    <div class="contact-info">
+      📧 <a href="mailto:techcache@proton.me">techcache@proton.me</a>
+    </div>
+
+    <div class="contact-info">
+      📱 <a href="tel:+18139069247">813-906-9247</a> (Call or Text)
+    </div>
+  </section>
+
+  <div class="footer">
+    © 2026 Tech Cache — Practical tools and security services.
+  </div>
+
+</div>
+
+</body>
+</html>
