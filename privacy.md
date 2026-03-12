@@ -3,7 +3,7 @@ Last updated: March 2026
 
 Tech Cache ("we", "our", or "us") develops tools designed to enhance workflows within Atlassian products such as Jira and Confluence.
 
-This Privacy Policy describes how the SLA Link Inspector app handles information.
+Tech Cache respects your privacy and is committed to protecting customer data. This Privacy Policy explains how the SLA Link Inspector app accesses and processes information.
 
 ## Information We Access
 
@@ -33,7 +33,7 @@ If you enable Slack or email webhooks in the app's configuration, notification m
 
 SLA Link Inspector does not store customer data outside of Atlassian infrastructure.
 
-The app stores configuration (for example, notification and trigger settings) and temporary state (for example, to avoid duplicate notifications) within Atlassian Forge storage. No data is sent to or stored on Tech Cache servers.
+The app stores configuration (for example, notification and trigger settings) and temporary state (for example, to avoid duplicate notifications) within Atlassian Forge storage. Forge storage is managed and secured by Atlassian. No data is sent to or stored on Tech Cache servers.
 
 All processing occurs within Atlassian Forge functions.
 
@@ -43,11 +43,15 @@ If you configure Slack or email webhook URLs in the app's settings, the app will
 
 ## Third-Party Sharing
 
-Tech Cache does not sell, share, or distribute customer data to third parties.
+Tech Cache does not sell, rent, or distribute customer data to third parties.
 
 ## Security
 
-Tech Cache relies on Atlassian Forge infrastructure to securely handle application execution and data access.
+The application runs entirely on Atlassian Forge infrastructure, which provides security controls, access management, and data isolation.
+
+## Data Retention
+
+SLA Link Inspector does not retain customer issue data. Configuration settings remain stored within Atlassian Forge storage only while the application is installed.
 
 ## Changes to this Policy
 
