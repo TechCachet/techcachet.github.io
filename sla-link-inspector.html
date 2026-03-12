@@ -35,6 +35,29 @@ body{
   padding:40px 20px 60px;
 }
 
+.brand-header{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:24px;
+}
+
+.logo{
+  max-width:180px;
+  height:auto;
+  margin-bottom:0;
+}
+
+.brand{
+  font-size:1.65rem;
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:1px;
+  margin:0;
+}
+
 h1{
   font-size:2.3rem;
   margin-bottom:10px;
@@ -96,6 +119,11 @@ a{
 <body>
 
 <div class="container">
+
+  <div class="brand-header">
+    <a href="index.html" aria-label="Tech Cache home"><img src="assets/logo.png" alt="Tech Cache logo" class="logo"></a>
+    <div class="brand">Tech Cache</div>
+  </div>
 
 <h1>SLA Link Inspector</h1>
 
