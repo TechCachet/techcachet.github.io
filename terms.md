@@ -5,7 +5,7 @@ These Terms of Service govern the use of software applications developed by Tech
 
 ## Use of the Application
 
-Linked SLA Alerts is provided to notify linked Jira issues when an issue has an SLA, so other queues stay in the loop without needing access to the host project. The app relays SLA status and expiry to linked tickets via comments and @mentions, with optional Slack and at-risk/breach alerts.
+Linked SLA Alerts notifies people when an SLA is at risk or breached. The app runs on the parent Jira issue that has the SLA and can post comments on linked tickets (and optional Slack or email) from the “Send SLA Alert to Linked Tickets” panel or on a schedule when the parent’s SLA hits configured triggers (e.g. at risk, breached, 30 minutes remaining). Linked tickets receive the parent’s SLA status and expiry and can be @mentioned (assignee, reporter, watchers, and configurable custom fields). Configuration is managed in the app’s Configurations page.
 
 The application is provided on an "as-is" basis.
 

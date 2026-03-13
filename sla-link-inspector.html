@@ -7,7 +7,7 @@
 <title>Linked SLA Alerts | Tech Cache</title>
 
 <meta name="description"
-content="Linked SLA Alerts notifies linked Jira issues when this issue has an SLA, so other queues stay in the loop without needing access to the host project. SLA relay panel sends status and expiration to linked tickets (comment + @mentions) and optional Slack with clickable links.">
+content="Linked SLA Alerts notifies people when an SLA is at risk or breached. Lives on the parent Jira issue with the SLA; posts comments on linked tickets and optional Slack/email. Configurable triggers, @mentions, and templates.">
 
 <style>
 :root{
@@ -128,12 +128,12 @@ a{
 <h1>Linked SLA Alerts</h1>
 
 <p>
-Linked SLA Alerts notifies linked Jira issues when this issue has an SLA, so
-other queues stay in the loop without needing access to the host project. From
-the <strong>SLA relay</strong> panel you send this issue’s SLA status and
-expiration to linked tickets—each gets a Jira comment with status (At-Risk,
-Breached, or In SLA range), date of expiration, and @mentions for assignees.
-Optional Slack sends the same summary with clickable links to the posted tickets.
+Linked SLA Alerts notifies people when an SLA is at risk or breached. The app
+lives on the <strong>parent</strong> Jira issue that has an SLA. That issue can
+have <strong>linked issues</strong> (standard Jira issue links). The app uses
+the parent’s SLA only—linked issues don’t need their own SLA. You can send
+alerts from the panel on demand or on a schedule to linked tickets (Jira
+comment + @mentions, and optional Slack or email).
 </p>
 
 <div class="card">
@@ -143,12 +143,9 @@ Optional Slack sends the same summary with clickable links to the posted tickets
 <h2>Key Features</h2>
 
 <ul>
-<li><strong>SLA relay panel</strong> — Notify linked tickets of this issue’s SLA status and expiry. Shows how many issues are linked; choose “All linked tickets” or “Only these” (specific keys), then click “Send SLA to linked tickets.”</li>
-<li><strong>Send to linked tickets</strong> — For each chosen linked ticket, the app posts one Jira comment with status (At-Risk, Breached, In SLA range), date of expiration, and @mentions assignee (and reporter if different).</li>
-<li><strong>Send to all or specific tickets</strong> — Send to all linked tickets or list which issue keys to notify (e.g. OCV2-4, OCV2-5).</li>
-<li><strong>Optional Slack</strong> — Same message to a Slack channel with clickable links to the posted tickets. When Slack is enabled in admin, one Slack message includes “(Posted to: [links to tickets]).”</li>
-<li><strong>At-risk/breach alerts</strong> — When a linked issue’s SLA goes at risk or breached, the app can post on the parent (current) issue and notify assignee, reporter, watchers, and send to Slack/email (configurable).</li>
-<li><strong>Admin configuration</strong> — Triggers, who to notify, Jira comments, Slack (webhook or Bot token), custom templates, and optional SLA field ID when auto-detect doesn’t find your SLA field. Jira Service Management SLA is supported (API fallback).</li>
+<li><strong>Panel: Send SLA Alert to Linked Tickets</strong> — In the issue sidebar (panel title: Linked SLA Alerts), the in-panel heading is “Send SLA Alert to Linked Tickets.” Choose “all linked tickets” or specific issue keys, then click the button. The app posts a comment on each chosen linked ticket with the parent’s SLA status and expiry, and can send the same summary to Slack with clickable Jira links. The message is configurable via the admin “Send SLA Alert to Linked Tickets” template.</li>
+<li><strong>Scheduled alerts</strong> — When the parent’s SLA goes at risk, breached, or 30 minutes remaining (configurable), the app posts a comment on <strong>each linked ticket</strong> (not on the parent) about the parent’s SLA and @mentions that linked ticket’s people: assignee, reporter, watchers, and users from configurable custom fields (e.g. Request Participants). Comment text is configurable via the “Custom message template” in admin; <code>{{issueKey}}</code> there is the parent (the ticket with the SLA).</li>
+<li><strong>Admin (Configurations)</strong> — Browser title: “Linked SLA Alerts – Configuration.” Configure: optional SLA field override, triggers (at risk / breached / 30‑min), who gets @mentioned per trigger (assignee, reporter, watchers, extra users, and “notify from linked-ticket fields”), notification channels (Jira comment, Slack webhook or Bot + channel, email webhook), and two templates (alerts on linked tickets vs “Send to linked tickets” message). Slack bot token is stored in Forge Key-Value Store (encrypted at rest); token is masked in API responses and clearable via “Clear saved token” in the UI. The panel includes a “Configure app” link to the admin page.</li>
 </ul>
 
 </div>
@@ -158,15 +155,17 @@ Optional Slack sends the same summary with clickable links to the posted tickets
 <h2>How It Works</h2>
 
 <p>
-You’re on the <strong>host ticket</strong> (the issue that has the SLA). The
-SLA relay panel shows how many issues are linked. If this issue has no SLA
-data, you’ll see: “This issue has no SLA data. Add an SLA to this issue to
-send it to linked tickets.” Once there is SLA data, you choose whether to
-send to all linked tickets or only specific keys, then click “Send SLA to
-linked tickets.” Each selected <strong>linked ticket</strong> receives one
-comment with the status wording (At-Risk, Breached, In SLA range), the date of
-expiration (or “—” when not available), and @mentions. No table or cross-queue
-visibility is required—you relay this issue’s SLA to the tickets that need to know.
+You open the <strong>parent issue</strong>—the one that has the SLA. The app
+panel (Linked SLA Alerts) shows “Send SLA Alert to Linked Tickets.” You
+choose whether to send to all linked tickets or only specific keys, then click
+the button. The app posts one comment on each selected <strong>linked
+ticket</strong> with the parent’s SLA status and expiration; optionally it
+sends the same summary to Slack with clickable links to those tickets.
+Separately, when the parent’s SLA hits a configured trigger (at risk, breached,
+or 30 min remaining), the app automatically posts a comment on each linked
+ticket and @mentions that ticket’s assignee, reporter, watchers, and any
+users from configured custom fields. Linked tickets never need their own SLA;
+they only receive notifications about the parent’s SLA.
 </p>
 
 </div>
@@ -177,10 +176,23 @@ visibility is required—you relay this issue’s SLA to the tickets that need t
 
 <p>
 Support, escalation, and engineering queues often depend on work in other
-queues. Linked SLA Alerts lets the queue that owns the SLA keep other queues
-informed without granting them access to the host project. Best for teams
-that need to relay SLA status and due dates to linked work across queues or
-projects.
+queues. Linked SLA Alerts lets the queue that owns the SLA keep linked tickets
+informed—whether in the same project or another—without those tickets needing
+access to the parent project or their own SLA. Best for teams that need to
+notify downstream work when an SLA is at risk or breached.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Security &amp; Pricing</h2>
+
+<p>
+The app runs on Atlassian Forge. Configuration and the Slack bot token are
+stored in Forge Key-Value Store (encrypted at rest per Atlassian). The token
+is masked in API responses and can be cleared from the UI. Pricing is under
+consideration (e.g. 7‑day trial, then tiered by size).
 </p>
 
 </div>

@@ -6,7 +6,7 @@
 <title>Tech Cache | Atlassian Apps & Security Services</title>
 
 <meta name="description"
-content="Tech Cache builds practical Atlassian tools and affordable cybersecurity services, including Linked SLA Alerts for Jira and Website Security Snapshot reviews for small business websites.">
+content="Tech Cache builds practical Atlassian tools and affordable cybersecurity services, including Linked SLA Alerts for Jira (notify when SLA is at risk or breached) and Website Security Snapshot reviews for small business websites.">
 
 <style>
 :root{
@@ -342,17 +342,17 @@ a:hover{
         <div class="badge">Atlassian App</div>
         <h3>Linked SLA Alerts</h3>
         <p>
-          Notifies linked Jira issues when this issue has an SLA, so other queues
-          stay in the loop without needing access to the host project. The SLA relay
-          panel sends this issue’s SLA status and expiration to linked tickets
-          (comment + @mention assignees) and can send the same summary to Slack.
+          Notifies people when an SLA is at risk or breached. The app lives on
+          the parent Jira issue that has the SLA; that issue can have linked
+          issues. The app uses the parent’s SLA only—linked tickets don’t need
+          their own SLA. Send alerts from the panel or on a schedule to linked
+          tickets (comment + @mentions) and optional Slack or email.
         </p>
         <ul>
-          <li>SLA relay panel — send status and expiry to linked tickets</li>
-          <li>Comment on each linked ticket with At-Risk, Breached, or In SLA range</li>
-          <li>Send to all linked tickets or only selected keys</li>
-          <li>Optional Slack with clickable links to posted tickets</li>
-          <li>At-risk/breach alerts on the parent issue; admin-configurable</li>
+          <li>Panel: “Send SLA Alert to Linked Tickets” — choose all or specific linked tickets, then post a comment on each with the parent’s SLA status and expiry; optional Slack with clickable Jira links</li>
+          <li>Scheduled alerts: when the parent’s SLA goes at risk, breached, or 30 min remaining (configurable), post a comment on each linked ticket and @mention that ticket’s assignee, reporter, watchers, and configurable fields (e.g. Request Participants)</li>
+          <li>Admin: triggers, who to @mention per trigger, Jira comment / Slack (webhook or Bot + channel) / email webhook, and two configurable message templates</li>
+          <li>Optional SLA field override; Slack token stored securely in Forge (masked, clearable)</li>
         </ul>
         <p style="margin-top:14px;">
           <a href="sla-link-inspector.html">
