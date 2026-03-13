@@ -6,7 +6,7 @@
 <title>Tech Cache | Atlassian Apps & Security Services</title>
 
 <meta name="description"
-content="Tech Cache builds practical Atlassian tools and provides affordable cybersecurity services, including SLA Link Inspector for Jira and Website Security Snapshot reviews for small business websites.">
+content="Tech Cache builds practical Atlassian tools and affordable cybersecurity services, including Linked SLA Alerts for Jira and Website Security Snapshot reviews for small business websites.">
 
 <style>
 :root{
@@ -329,7 +329,7 @@ a:hover{
     <p>
       Tech Cache combines software tooling and security services to help teams
       improve visibility, reduce risk, and respond faster. Whether you need a
-      Jira app that surfaces hidden SLA risk or a concise website security review,
+      Jira app that relays SLA status to linked queues or a concise website security review,
       the goal is the same: practical improvements with clear value.
     </p>
   </section>
@@ -340,17 +340,19 @@ a:hover{
     <div class="grid-2">
       <div class="service featured">
         <div class="badge">Atlassian App</div>
-        <h3>SLA Link Inspector</h3>
+        <h3>Linked SLA Alerts</h3>
         <p>
-          A Jira Cloud app that displays SLA status for linked issues directly in
-          the issue view and helps teams detect at-risk or breached SLAs before
-          they become operational surprises.
+          Notifies linked Jira issues when this issue has an SLA, so other queues
+          stay in the loop without needing access to the host project. The SLA relay
+          panel sends this issue’s SLA status and expiration to linked tickets
+          (comment + @mention assignees) and can send the same summary to Slack.
         </p>
         <ul>
-          <li>Linked issue SLA visibility in Jira</li>
-          <li>Color-coded at-risk and breached indicators</li>
-          <li>Automatic notifications and escalation options</li>
-          <li>Admin-configurable recipients and templates</li>
+          <li>SLA relay panel — send status and expiry to linked tickets</li>
+          <li>Comment on each linked ticket with At-Risk, Breached, or In SLA range</li>
+          <li>Send to all linked tickets or only selected keys</li>
+          <li>Optional Slack with clickable links to posted tickets</li>
+          <li>At-risk/breach alerts on the parent issue; admin-configurable</li>
         </ul>
         <p style="margin-top:14px;">
           <a href="sla-link-inspector.html">

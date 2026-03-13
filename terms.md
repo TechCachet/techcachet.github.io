@@ -5,7 +5,7 @@ These Terms of Service govern the use of software applications developed by Tech
 
 ## Use of the Application
 
-SLA Link Inspector is provided to enhance visibility of Jira issue SLA status for linked issues.
+Linked SLA Alerts is provided to notify linked Jira issues when an issue has an SLA, so other queues stay in the loop without needing access to the host project. The app relays SLA status and expiry to linked tickets via comments and @mentions, with optional Slack and at-risk/breach alerts.
 
 The application is provided on an "as-is" basis.
 

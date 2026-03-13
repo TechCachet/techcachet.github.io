@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SLA Link Inspector | Tech Cache</title>
+<title>Linked SLA Alerts | Tech Cache</title>
 
 <meta name="description"
-content="SLA Link Inspector is a Jira Cloud app that displays SLA status for linked issues and alerts teams before breaches occur.">
+content="Linked SLA Alerts notifies linked Jira issues when this issue has an SLA, so other queues stay in the loop without needing access to the host project. SLA relay panel sends status and expiration to linked tickets (comment + @mentions) and optional Slack with clickable links.">
 
 <style>
 :root{
@@ -125,13 +125,15 @@ a{
     <div class="brand">Tech Cache</div>
   </div>
 
-<h1>SLA Link Inspector</h1>
+<h1>Linked SLA Alerts</h1>
 
 <p>
-SLA Link Inspector is a Jira Cloud app that gives teams immediate visibility
-into the SLA status of linked issues. Instead of manually checking multiple
-tickets across different queues, the app displays SLA status directly inside
-the issue view.
+Linked SLA Alerts notifies linked Jira issues when this issue has an SLA, so
+other queues stay in the loop without needing access to the host project. From
+the <strong>SLA relay</strong> panel you send this issue’s SLA status and
+expiration to linked tickets—each gets a Jira comment with status (At-Risk,
+Breached, or In SLA range), date of expiration, and @mentions for assignees.
+Optional Slack sends the same summary with clickable links to the posted tickets.
 </p>
 
 <div class="card">
@@ -141,12 +143,31 @@ the issue view.
 <h2>Key Features</h2>
 
 <ul>
-<li>View SLA status for linked Jira issues directly in the issue panel</li>
-<li>Color indicators for healthy, at-risk, and breached SLAs</li>
-<li>Automatic alerts when linked tickets approach SLA risk</li>
-<li>Configurable notification recipients and message templates</li>
-<li>Optional integrations with Slack or email workflows</li>
+<li><strong>SLA relay panel</strong> — Notify linked tickets of this issue’s SLA status and expiry. Shows how many issues are linked; choose “All linked tickets” or “Only these” (specific keys), then click “Send SLA to linked tickets.”</li>
+<li><strong>Send to linked tickets</strong> — For each chosen linked ticket, the app posts one Jira comment with status (At-Risk, Breached, In SLA range), date of expiration, and @mentions assignee (and reporter if different).</li>
+<li><strong>Send to all or specific tickets</strong> — Send to all linked tickets or list which issue keys to notify (e.g. OCV2-4, OCV2-5).</li>
+<li><strong>Optional Slack</strong> — Same message to a Slack channel with clickable links to the posted tickets. When Slack is enabled in admin, one Slack message includes “(Posted to: [links to tickets]).”</li>
+<li><strong>At-risk/breach alerts</strong> — When a linked issue’s SLA goes at risk or breached, the app can post on the parent (current) issue and notify assignee, reporter, watchers, and send to Slack/email (configurable).</li>
+<li><strong>Admin configuration</strong> — Triggers, who to notify, Jira comments, Slack (webhook or Bot token), custom templates, and optional SLA field ID when auto-detect doesn’t find your SLA field. Jira Service Management SLA is supported (API fallback).</li>
 </ul>
+
+</div>
+
+<div class="card">
+
+<h2>How It Works</h2>
+
+<p>
+You’re on the <strong>host ticket</strong> (the issue that has the SLA). The
+SLA relay panel shows how many issues are linked. If this issue has no SLA
+data, you’ll see: “This issue has no SLA data. Add an SLA to this issue to
+send it to linked tickets.” Once there is SLA data, you choose whether to
+send to all linked tickets or only specific keys, then click “Send SLA to
+linked tickets.” Each selected <strong>linked ticket</strong> receives one
+comment with the status wording (At-Risk, Breached, In SLA range), the date of
+expiration (or “—” when not available), and @mentions. No table or cross-queue
+visibility is required—you relay this issue’s SLA to the tickets that need to know.
+</p>
 
 </div>
 
@@ -155,10 +176,11 @@ the issue view.
 <h2>Why It Helps</h2>
 
 <p>
-Engineering and support teams often rely on work being completed in other
-queues before their own SLAs can be met. SLA Link Inspector helps teams see
-those risks earlier, giving engineers time to escalate or coordinate before
-deadlines are missed.
+Support, escalation, and engineering queues often depend on work in other
+queues. Linked SLA Alerts lets the queue that owns the SLA keep other queues
+informed without granting them access to the host project. Best for teams
+that need to relay SLA status and due dates to linked work across queues or
+projects.
 </p>
 
 </div>
@@ -168,7 +190,7 @@ deadlines are missed.
 <h2>Availability</h2>
 
 <p>
-SLA Link Inspector is currently preparing for release on the Atlassian
+Linked SLA Alerts is currently preparing for release on the Atlassian
 Marketplace.
 </p>
 
