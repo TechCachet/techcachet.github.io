@@ -28,8 +28,6 @@ The app does not maintain external databases or store user information.
 
 Any data accessed by the app is processed temporarily within Atlassian's Forge platform and is not retained by Tech Cache.
 
-If you enable Slack or email webhooks in the app's configuration, notification messages (which may include issue keys and user identifiers) are sent to those services at your direction. Use of that data is governed by those services' privacy policies.
-
 ## Data Storage
 
 Linked SLA Alerts does not store customer data outside of Atlassian infrastructure.
@@ -56,7 +54,11 @@ Linked SLA Alerts does not retain customer issue data. Configuration settings re
 
 ## Changes to this Policy
 
-This policy may be updated as the application evolves.
+We will update the Last updated date at the top of this page when changes are made. Continued use of the app after changes constitutes acceptance.
+
+## User Rights
+
+Users may contact us at techcache@proton.me to request information about data the app has accessed or to request deletion.
 
 ## Contact
 
