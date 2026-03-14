@@ -38,4 +38,4 @@ We will update the Last updated date at the top of this page when changes are ma
 
 For questions or support:
 
-[Tech Cache](mailto:techcache@proton.me)
+techcache@proton.me
