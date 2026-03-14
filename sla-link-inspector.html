@@ -128,12 +128,12 @@ a{
 <h1>Linked SLA Alerts</h1>
 
 <p>
-Linked SLA Alerts notifies people when an SLA is at risk or breached. The app
-lives on the <strong>parent</strong> Jira issue that has an SLA. That issue can
-have <strong>linked issues</strong> (standard Jira issue links). The app uses
-the parent’s SLA only—linked issues don’t need their own SLA. You can send
-alerts from the panel on demand or on a schedule to linked tickets (Jira
-comment + @mentions, and optional Slack or email).
+Linked SLA Alerts notifies people when an SLA is at risk or breached.
+<strong>Linked tickets don’t need their own SLA</strong>—the app uses only the
+parent issue’s SLA and sends comments and alerts to linked tickets (Jira comment
++ @mentions, optional Slack or email). The app lives on the parent Jira issue
+that has the SLA; that issue can have linked issues (standard Jira issue links).
+Send alerts from the panel on demand or on a schedule.
 </p>
 
 <div class="card">
@@ -186,13 +186,12 @@ notify downstream work when an SLA is at risk or breached.
 
 <div class="card">
 
-<h2>Security &amp; Pricing</h2>
+<h2>Security</h2>
 
 <p>
 The app runs on Atlassian Forge. Configuration and the Slack bot token are
 stored in Forge Key-Value Store (encrypted at rest per Atlassian). The token
-is masked in API responses and can be cleared from the UI. Pricing is under
-consideration (e.g. 7‑day trial, then tiered by size).
+is masked in API responses and can be cleared from the UI.
 </p>
 
 </div>
@@ -202,13 +201,8 @@ consideration (e.g. 7‑day trial, then tiered by size).
 <h2>Availability</h2>
 
 <p>
-Linked SLA Alerts is currently preparing for release on the Atlassian
-Marketplace.
+<a href="https://marketplace.atlassian.com/" target="_blank" rel="noopener noreferrer">Available on the Atlassian Marketplace</a>.
 </p>
-
-<a class="cta" href="mailto:techcache@proton.me">
-Request early access
-</a>
 
 </div>
 
