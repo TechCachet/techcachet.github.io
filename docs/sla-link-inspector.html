@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Linked SLA Alerts – Documentation | Tech Cache</title>
+
+<meta name="description"
+content="Documentation for Linked SLA Alerts: getting started, configuration, triggers, Slack setup, and FAQ.">
+
+<style>
+:root{
+  --bg:#0b1020;
+  --card:#121933;
+  --text:#e8ecf3;
+  --muted:#aab4c8;
+  --accent:#7dd3fc;
+  --accent2:#38bdf8;
+  --border:#24304f;
+  --button-text:#06111f;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#0b1020 0%,#11182f 100%);
+  color:var(--text);
+  line-height:1.6;
+}
+
+.container{
+  max-width:920px;
+  margin:auto;
+  padding:40px 20px 60px;
+}
+
+.brand-header{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:24px;
+}
+
+.logo{
+  max-width:180px;
+  height:auto;
+  margin-bottom:0;
+}
+
+.brand{
+  font-size:1.65rem;
+  font-weight:700;
+  color:var(--accent);
+  letter-spacing:1px;
+  margin:0;
+}
+
+h1{
+  font-size:2.3rem;
+  margin-bottom:10px;
+}
+
+h2{
+  margin-top:0;
+}
+
+h3{
+  font-size:1.1rem;
+  margin:1.25em 0 0.5em;
+  color:var(--accent);
+}
+
+h3:first-child{
+  margin-top:0;
+}
+
+code{
+  font-family:monospace;
+  background:rgba(0,0,0,0.25);
+  padding:2px 6px;
+  border-radius:4px;
+  font-size:0.9em;
+}
+
+.card{
+  background:rgba(18,25,51,0.9);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:22px;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.footer{
+  text-align:center;
+  margin-top:30px;
+  color:var(--muted);
+}
+
+a{
+  color:var(--accent);
+  text-decoration:none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="brand-header">
+    <a href="../index.html" aria-label="Tech Cache home"><img src="../assets/logo.png" alt="Tech Cache logo" class="logo"></a>
+    <div class="brand">Tech Cache</div>
+  </div>
+
+<h1>Linked SLA Alerts</h1>
+
+<p class="muted" style="margin-top:0; font-size:0.95rem;">Version 1.1.15 | Atlassian Forge App for Jira</p>
+
+<p>
+Linked SLA Alerts notifies linked tickets when a parent issue’s SLA goes at risk or breached. The app lives on the parent issue that owns the SLA. <strong>Linked tickets do not need their own SLA.</strong>
+</p>
+
+<div class="card">
+
+<h2>Getting Started</h2>
+
+<ol>
+<li>Install Linked SLA Alerts from the Atlassian Marketplace.</li>
+<li>Open any Jira issue that has an SLA and linked tickets.</li>
+<li>The Linked SLA Alerts panel appears in the issue sidebar.</li>
+<li>Click <strong>Configure app</strong> in the panel to set up triggers and notifications.</li>
+</ol>
+
+</div>
+
+<div class="card">
+
+<h2>How It Works</h2>
+
+<p>
+The app operates on the parent issue (the ticket with the SLA). When that issue’s SLA hits a configured trigger, the app posts a comment on each linked ticket and @mentions the configured people on that linked ticket.
+</p>
+<p>
+Linked tickets receive notifications about the parent’s SLA. They do not need their own SLA field.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Configuration</h2>
+
+<p>
+Go to Jira admin settings and select Linked SLA Alerts under Marketplace apps, or click <strong>Configure app</strong> in the panel.
+</p>
+
+<h3>SLA Field (Optional)</h3>
+<p>
+The app auto-detects SLA fields by name. If your site uses a non-standard field name or a different language, enter the custom field ID (for example, <code>customfield_10005</code>) to ensure the app reads the correct SLA.
+</p>
+
+<h3>Trigger Conditions</h3>
+<p>Configure when alerts fire on linked tickets:</p>
+<ul>
+<li><strong>At risk</strong> — fires when the parent issue’s SLA enters at-risk status</li>
+<li><strong>Breached</strong> — fires when the parent issue’s SLA is breached</li>
+<li><strong>30 minutes remaining</strong> — fires when 30 minutes remain on the parent’s SLA (uses the At Risk notify list)</li>
+<li><strong>Only notify if linked issue is still open</strong> — skips alerts for resolved or done linked tickets</li>
+</ul>
+
+<h3>Who Gets Notified</h3>
+<p>Configure separately for At Risk and Breached triggers. Notifications are posted as comments on each linked ticket and @mention:</p>
+<ul>
+<li>Assignee</li>
+<li>Reporter</li>
+<li>Watchers</li>
+<li>Additional users (search by name or email)</li>
+<li>Users from custom fields (for example, Request Participants)</li>
+</ul>
+
+<h3>Notification Channels</h3>
+<ul>
+<li><strong>Jira Comment</strong> — posts a comment on each linked ticket</li>
+<li><strong>Jira @Mention</strong> — includes @mentions in the comment</li>
+<li><strong>Slack</strong> — send via incoming webhook URL or Bot token and channel ID</li>
+<li><strong>Email webhook</strong> — send via Zapier, Make, or similar webhook URL</li>
+</ul>
+
+<h3>Message Templates</h3>
+<p>Two templates are configurable:</p>
+<p><strong>Alerts template</strong> — used when automatic triggers fire. Available variables:</p>
+<ul>
+<li><code>{{issueKey}}</code> — the parent issue key</li>
+<li><code>{{slaName}}</code> — SLA field name</li>
+<li><code>{{remainingTime}}</code> — time remaining or overdue</li>
+<li><code>{{status}}</code> — at risk, breached, or 30 minutes remaining</li>
+<li><code>{{assignee}}</code> — @mentions as configured</li>
+</ul>
+<p><strong>Send SLA Alert to Linked Tickets template</strong> — used when you click the button in the panel. Available variables:</p>
+<ul>
+<li><code>{{issueKey}}</code> — the parent issue key</li>
+<li><code>{{slaStatus}}</code> — At-Risk, Breached, or In SLA range</li>
+<li><code>{{expiryDate}}</code> — formatted expiration date</li>
+<li><code>{{assignee}}</code> — @mentions of the linked ticket’s assignee and reporter</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Send SLA Alert to Linked Tickets Panel</h2>
+
+<p>
+From any parent issue with linked tickets, the panel lets you send an on-demand SLA status update:
+</p>
+<ul>
+<li>Choose <strong>All linked tickets</strong> or select <strong>Only these</strong> and enter specific issue keys.</li>
+<li>Click <strong>Send SLA to linked tickets</strong>.</li>
+<li>The app posts a comment on each selected linked ticket with the parent’s SLA status and expiry date.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Security</h2>
+
+<p>
+Linked SLA Alerts runs entirely on Atlassian Forge. No data is sent to or stored on Tech Cache servers.
+</p>
+<ul>
+<li>Configuration is stored in Atlassian Forge Key-Value Store, encrypted at rest.</li>
+<li>Slack bot tokens are masked in API responses and never sent to the browser.</li>
+<li>Tokens can be cleared at any time via <strong>Clear saved token</strong> in the Configurations page.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Slack Setup</h2>
+
+<p><strong>Option 1 — Incoming Webhook:</strong></p>
+<p>Create a webhook at api.slack.com, then paste the URL into the Slack webhook field in Configurations.</p>
+
+<p><strong>Option 2 — Bot Token and Channel:</strong></p>
+<ul>
+<li>Create a Slack app at api.slack.com.</li>
+<li>Under OAuth and Permissions, copy the Bot User OAuth Token.</li>
+<li>Paste the token into the bot token field in Configurations.</li>
+<li>Enter the channel ID (open the channel in Slack, click the channel name, and select View channel details).</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>FAQ</h2>
+
+<p><strong>Do linked tickets need their own SLA?</strong><br>
+No. The app uses only the parent issue’s SLA. Linked tickets just need to exist as standard Jira issue links on the parent.</p>
+
+<p><strong>Does the app work across projects?</strong><br>
+Yes. Linked tickets can be in any project on the same Jira site.</p>
+
+<p><strong>What happens if a linked ticket is already resolved?</strong><br>
+If “Only notify if linked issue is still open” is enabled in Configurations, the app skips resolved or done tickets.</p>
+
+<p><strong>Where is my Slack token stored?</strong><br>
+In Atlassian Forge Key-Value Store, encrypted at rest by Atlassian. It is never sent to the browser or stored outside Atlassian infrastructure.</p>
+
+<p><strong>How do I find my SLA custom field ID?</strong><br>
+In Jira, go to Project settings, then Fields, and copy the field ID for your SLA field.</p>
+
+</div>
+
+<div class="card">
+
+<h2>Support</h2>
+
+<p>For questions or to report a bug:</p>
+<ul>
+<li>Email: techcache@proton.me</li>
+<li>GitHub Issues: <a href="https://github.com/TechCache/sla-link-inspector/issues" target="_blank" rel="noopener noreferrer">https://github.com/TechCache/sla-link-inspector/issues</a></li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>About Tech Cache</h2>
+
+<p>
+Tech Cache builds practical tools and integrations that help teams improve
+visibility and reduce operational risk within Atlassian environments.
+</p>
+
+<p>
+<a href="../sla-link-inspector.html">← Linked SLA Alerts</a> · <a href="../index.html">← Back to Tech Cache</a>
+</p>
+
+</div>
+
+<div class="footer">
+Tech Cache | <a href="https://techcache.github.io" target="_blank" rel="noopener noreferrer">techcache.github.io</a>
+</div>
+
+</div>
+
+</body>
+</html>
