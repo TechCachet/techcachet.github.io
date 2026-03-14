@@ -1,4 +1,4 @@
-# Tech Cache — Terms of Service
+# Terms of Service
 
 Last updated: March 2026
 
@@ -38,4 +38,4 @@ We will update the Last updated date at the top of this page when changes are ma
 
 For questions or support:
 
-techcache@proton.me
+[Tech Cache](mailto:techcache@proton.me)

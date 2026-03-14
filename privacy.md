@@ -58,10 +58,10 @@ We will update the Last updated date at the top of this page when changes are ma
 
 ## User Rights
 
-Users may contact us at techcache@proton.me to request information about data the app has accessed or to request deletion.
+Users may contact us at [Tech Cache](mailto:techcache@proton.me) to request information about data the app has accessed or to request deletion.
 
 ## Contact
 
 If you have questions about this policy, contact:
 
-techcache@proton.me
+[Tech Cache](mailto:techcache@proton.me)
