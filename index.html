@@ -43,6 +43,38 @@ body{
   margin-bottom:36px;
 }
 
+.hero-banner-wrap{
+  margin:0 0 20px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 12px 40px rgba(0,0,0,0.35);
+  line-height:0;
+}
+
+.hero-banner{
+  width:100%;
+  height:auto;
+  display:block;
+  vertical-align:bottom;
+}
+
+.hero-cta{
+  margin-top:8px;
+}
+
+.visually-hidden{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
 .brand-header{
   display:flex;
   flex-direction:column;
@@ -282,6 +314,12 @@ a:hover{
     max-width:150px;
   }
 
+  .hero-banner-wrap{
+    margin-left:-8px;
+    margin-right:-8px;
+    border-radius:10px;
+  }
+
   .cta-button,
   .cta-secondary{
     width:100%;
@@ -296,31 +334,24 @@ a:hover{
 <div class="container">
 
   <header class="hero">
-    <div class="brand-header">
-      <a href="index.html" aria-label="Tech Cache home"><img src="assets/logo.png" alt="Tech Cache logo" class="logo"></a>
-      <div class="brand">Tech Cache</div>
+    <h1 class="visually-hidden">Tech Cache — Practical tools for Atlassian teams. Linked SLA Alerts for Jira.</h1>
+
+    <div class="hero-banner-wrap">
+      <img
+        class="hero-banner"
+        src="assets/hero-banner.png"
+        width="1024"
+        height="287"
+        alt="Tech Cache: Practical Tools for Atlassian Teams. Linked SLA Alerts — notify when an SLA is at risk or breached across linked Jira tickets. Explore Apps and Contact."
+      >
     </div>
 
-    <h1>Practical Tools for Atlassian Teams</h1>
-
-    <div class="tagline">Built for teams that want better visibility, smarter workflows, and clearer SLA communication</div>
-
-    <p class="subtext">
-      Tech Cache builds practical tools for the Atlassian ecosystem. Our focus is on
-      solving real operational pain points with clear, lightweight, and useful solutions.
-    </p>
-
-    <p class="subtext">
-      From Jira workflow visibility to cross-queue SLA alerts, Tech Cache is
-      designed to make technical improvements more accessible and actionable.
-    </p>
-
-    <div class="location">Based in Tampa, Florida.</div>
-
-    <div class="cta-wrap">
-      <a href="#apps-services" class="cta-button">Explore Tech Cache</a>
+    <div class="cta-wrap hero-cta">
+      <a href="#apps-services" class="cta-button">Explore Apps</a>
       <a href="mailto:techcache@proton.me" class="cta-secondary">Contact</a>
     </div>
+
+    <div class="location">Based in Tampa, Florida.</div>
   </header>
 
   <section class="card highlight-card">
