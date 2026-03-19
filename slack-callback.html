@@ -314,7 +314,7 @@
       <p class="hint" style="margin-top:0;">
         Click below to install Linked SLA Alerts to your Slack workspace.
       </p>
-      <a href="https://slack.com/oauth/v2/authorize?client_id=76626825879.10695713658177&amp;scope=im:write,chat:write,users:read,users:read.email&amp;user_scope=&amp;redirect_uri=https://techcache.github.io/slack-callback.html" rel="noopener noreferrer">
+      <a href="https://slack.com/oauth/v2/authorize?client_id=76626825879.10695713658177&amp;scope=im:write,chat:write,users:read,users:read.email&amp;user_scope=" rel="noopener noreferrer">
         <img alt="Add to Slack" height="40" width="139"
           src="https://platform.slack-edge.com/img/add_to_slack.png"
           srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
@@ -395,10 +395,9 @@
   'use strict';
 
   const SLACK_CLIENT_ID = '76626825879.10695713658177';
-  const SLACK_REDIRECT_URI = 'https://techcache.github.io/slack-callback.html';
 
-  /** Same as SLACK_REDIRECT_URI; used for token exchange and curl. */
-  var REDIRECT_URI = SLACK_REDIRECT_URI;
+  /** OAuth redirect (must match Slack app settings); used for token exchange and curl only. */
+  var REDIRECT_URI = 'https://techcache.github.io/slack-callback.html';
 
   /**
    * Browsers enforce CORS: Slack's oauth.v2.access endpoint does not send
@@ -603,7 +602,6 @@
     document.getElementById('clientSecret').required = true;
     exchangeStatus.innerHTML =
       '<div class="msg msg-warning">Auto-exchange failed — use the manual options below.</div>' +
-      '<div class="msg msg-neutral">Enter your Slack app <strong>client secret</strong> below and click <strong>Get Bot Token</strong>, or use the manual curl command.</div>' +
       (extraHint ? '<p class="hint">' + extraHint + '</p>' : '');
   }
 
