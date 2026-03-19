@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slack App OAuth Callback | Tech Cache</title>
+  <style>
+    :root {
+      --header-bg: #0c1220;
+      --page-bg: #f5f6f8;
+      --card-bg: #ffffff;
+      --border: #e0e0e0;
+      --hint: #6b6b6b;
+      --accent: #4a9eff;
+      --success: #16a34a;
+      --error: #dc2626;
+      --timer-warn: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--page-bg);
+      color: #1a1a1a;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: #fff;
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    header p {
+      margin: 0.35rem 0 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    main {
+      flex: 1;
+      max-width: 640px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.25rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .card + .card {
+      margin-top: 1.25rem;
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      font-size: 1.1rem;
+      color: #111;
+    }
+
+    .msg {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .msg-success {
+      background: rgba(22, 163, 74, 0.12);
+      color: #14532d;
+      border: 1px solid rgba(22, 163, 74, 0.35);
+    }
+
+    .msg-error {
+      background: rgba(220, 38, 38, 0.1);
+      color: #991b1b;
+      border: 1px solid rgba(220, 38, 38, 0.35);
+    }
+
+    .msg-neutral {
+      background: #eef0f3;
+      color: #374151;
+      border: 1px solid var(--border);
+    }
+
+    .hint {
+      font-size: 0.85rem;
+      color: var(--hint);
+      margin-top: 0.5rem;
+    }
+
+    .code-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: stretch;
+      margin: 0.75rem 0;
+    }
+
+    .code-box code,
+    .code-box pre {
+      flex: 1;
+      min-width: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.8rem;
+      background: #f0f2f5;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.65rem 0.75rem;
+      word-break: break-all;
+      margin: 0;
+    }
+
+    .code-box pre {
+      white-space: pre-wrap;
+      width: 100%;
+    }
+
+    button.btn {
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 8px;
+      border: none;
+      padding: 0.5rem 0.85rem;
+      font-family: inherit;
+    }
+
+    button.btn-secondary {
+      background: #e8eaed;
+      color: #333;
+    }
+
+    button.btn-secondary:hover {
+      background: #dde0e4;
+    }
+
+    button.btn-primary {
+      background: var(--accent);
+      color: #fff;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    button.btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    button.btn-primary:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .timer {
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 0.5rem 0 0;
+    }
+
+    .timer.warn {
+      color: var(--timer-warn);
+    }
+
+    details.manual {
+      margin-top: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    details.manual summary {
+      padding: 0.65rem 0.85rem;
+      background: #f8f9fa;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    details.manual .manual-body {
+      padding: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin: 0.75rem 0 0.25rem;
+      color: #333;
+    }
+
+    label:first-of-type {
+      margin-top: 0;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.6rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    input[readonly] {
+      background: #f5f6f8;
+      color: #444;
+    }
+
+    .secret-wrap {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .secret-wrap input {
+      flex: 1;
+    }
+
+    .security-note {
+      font-size: 0.75rem;
+      color: var(--hint);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      line-height: 1.45;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 1rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--hint);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    #tokenResult {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tech Cache</h1>
+    <p>Slack App OAuth Callback</p>
+  </header>
+
+  <main>
+    <!-- Step 1: OAuth redirect result -->
+    <div class="card" id="step1">
+      <h2>Authorization result</h2>
+      <div id="step1Content"></div>
+    </div>
+
+    <!-- Step 2: Token exchange (shown when code is present) -->
+    <div class="card hidden" id="step2">
+      <h2>Exchange for Bot Token</h2>
+      <p class="hint" style="margin-top:0;">
+        Enter your Slack app credentials from api.slack.com. Your secret stays in this browser tab only.
+      </p>
+      <form id="exchangeForm" novalidate>
+        <label for="clientId">Client ID</label>
+        <input type="text" id="clientId" name="clientId" autocomplete="off" placeholder="Your Slack app client_id" required>
+
+        <label for="clientSecret">Client Secret</label>
+        <div class="secret-wrap">
+          <input type="password" id="clientSecret" name="clientSecret" autocomplete="off" placeholder="Your Slack app client_secret" required>
+          <button type="button" class="btn btn-secondary" id="toggleSecret" aria-label="Show or hide client secret">Show</button>
+        </div>
+
+        <label for="codeReadonly">Authorization code</label>
+        <input type="text" id="codeReadonly" readonly>
+
+        <label for="redirectReadonly">Redirect URI</label>
+        <input type="text" id="redirectReadonly" readonly>
+
+        <button type="submit" class="btn btn-primary" id="submitExchange">Get Bot Token</button>
+      </form>
+
+      <div id="exchangeStatus"></div>
+      <div id="tokenResult" class="hidden">
+        <div class="msg msg-success" id="tokenSuccessMsg"></div>
+        <div class="code-box">
+          <pre id="tokenDisplay"></pre>
+          <button type="button" class="btn btn-secondary" id="copyToken">Copy token</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="security-note">
+      Your client secret and tokens are never stored or transmitted beyond this page and the Slack API. This page runs entirely in your browser.
+    </p>
+  </main>
+
+  <footer>
+    <span>Tech Cache · Linked SLA Alerts</span><br>
+    <a href="https://techcache.github.io" id="footerLink">https://techcache.github.io</a>
+    <span id="footerYear"></span>
+  </footer>
+
+  <script>
+(function () {
+  'use strict';
+
+  /** Fixed redirect URI registered in the Slack app (must match exactly). */
+  var REDIRECT_URI = 'https://techcache.github.io/slack-callback.html';
+
+  /**
+   * Slack's oauth.v2.access does not send CORS headers, so browsers block
+   * direct fetch() from this static page. We POST through a public CORS proxy
+   * that forwards the request to Slack. See: https://corsproxy.io/
+   * (Replace with your own backend if you need stricter security.)
+   */
+  /** Exact proxy URL as required for browser POST to Slack (see comment above). */
+  var PROXY_OAUTH_URL = 'https://corsproxy.io/?https://slack.com/api/oauth.v2.access';
+
+  var params = new URLSearchParams(window.location.search);
+  var code = params.get('code');
+  var errorParam = params.get('error');
+
+  var step1Content = document.getElementById('step1Content');
+  var step2 = document.getElementById('step2');
+  var codeReadonly = document.getElementById('codeReadonly');
+  var redirectReadonly = document.getElementById('redirectReadonly');
+  var exchangeForm = document.getElementById('exchangeForm');
+  var exchangeStatus = document.getElementById('exchangeStatus');
+  var tokenResult = document.getElementById('tokenResult');
+  var tokenDisplay = document.getElementById('tokenDisplay');
+  var tokenSuccessMsg = document.getElementById('tokenSuccessMsg');
+  var submitBtn = document.getElementById('submitExchange');
+  var timerInterval = null;
+
+  document.getElementById('footerYear').textContent = ' · ' + new Date().getFullYear();
+
+  function escapeHtml(s) {
+    var div = document.createElement('div');
+    div.textContent = s;
+    return div.innerHTML;
+  }
+
+  function copyText(text, buttonEl) {
+    navigator.clipboard.writeText(text).then(function () {
+      var orig = buttonEl.textContent;
+      buttonEl.textContent = 'Copied!';
+      setTimeout(function () { buttonEl.textContent = orig; }, 2000);
+    }).catch(function () {
+      alert('Copy failed. Select the text manually.');
+    });
+  }
+
+  function buildCurlCommand(clientIdPlaceholder, clientSecretPlaceholder, actualCode) {
+    return (
+      'curl -X POST https://slack.com/api/oauth.v2.access \\\n' +
+      '  --data-urlencode "client_id=' + clientIdPlaceholder + '" \\\n' +
+      '  --data-urlencode "client_secret=' + clientSecretPlaceholder + '" \\\n' +
+      '  --data-urlencode "code=' + actualCode + '" \\\n' +
+      '  --data-urlencode "redirect_uri=' + REDIRECT_URI + '"'
+    );
+  }
+
+  function startCountdown(totalSeconds, timerEl, warnEl) {
+    var remaining = totalSeconds;
+    function tick() {
+      var m = Math.floor(remaining / 60);
+      var s = remaining % 60;
+      var label = m + ':' + (s < 10 ? '0' : '') + s;
+      timerEl.textContent = label;
+      timerEl.classList.toggle('warn', remaining <= 120 && remaining > 0);
+      warnEl.textContent =
+        'This code expires in ' + label + ' — exchange it now';
+      if (remaining <= 0) {
+        clearInterval(timerInterval);
+        timerEl.textContent = '0:00';
+        warnEl.textContent = 'This code may have expired. If exchange fails, start the install flow again.';
+        warnEl.style.color = 'var(--error)';
+      }
+      remaining--;
+    }
+    tick();
+    timerInterval = setInterval(tick, 1000);
+  }
+
+  function slackErrorMessage(err) {
+    var map = {
+      invalid_code: 'Code already used or expired. Redo the install flow.',
+      bad_client_secret: 'Check your client secret and try again.',
+      internal_error: 'Slack returned an internal error. Try getting a fresh code.'
+    };
+    return map[err] || (err || 'Unknown error');
+  }
+
+  // --- Render Step 1 based on URL ---
+
+  if (errorParam) {
+    step1Content.innerHTML =
+      '<div class="msg msg-error"><strong>Authorization failed</strong><br>' +
+      escapeHtml(errorParam) +
+      '</div>' +
+      '<p class="hint">Try the Slack install flow again from your app settings.</p>';
+    document.getElementById('step1').classList.remove('hidden');
+  } else if (code) {
+    step1Content.innerHTML =
+      '<div class="msg msg-success">Authorization successful</div>' +
+      '<p class="hint">Copy the code below, then exchange it for a bot token (form below) or use the terminal command.</p>' +
+      '<div class="code-box">' +
+      '  <code id="codeDisplay">' + escapeHtml(code) + '</code>' +
+      '  <button type="button" class="btn btn-secondary" id="copyCode">Copy code</button>' +
+      '</div>' +
+      '<p class="timer" id="countdownDisplay">10:00</p>' +
+      '<p class="hint" id="countdownWarn">This code expires in 10:00 — exchange it now</p>' +
+      '<details class="manual">' +
+      '  <summary>Manual exchange (terminal)</summary>' +
+      '  <div class="manual-body">' +
+      '    <pre id="curlPre"></pre>' +
+      '    <button type="button" class="btn btn-secondary" id="copyCurl">Copy curl command</button>' +
+      '  </div>' +
+      '</details>';
+
+    var curlText = buildCurlCommand('YOUR_CLIENT_ID', 'YOUR_CLIENT_SECRET', code);
+    document.getElementById('curlPre').textContent = curlText;
+
+    document.getElementById('copyCode').addEventListener('click', function () {
+      copyText(code, this);
+    });
+    document.getElementById('copyCurl').addEventListener('click', function () {
+      copyText(curlText, this);
+    });
+
+    startCountdown(600, document.getElementById('countdownDisplay'), document.getElementById('countdownWarn'));
+
+    codeReadonly.value = code;
+    redirectReadonly.value = REDIRECT_URI;
+    step2.classList.remove('hidden');
+  } else {
+    step1Content.innerHTML =
+      '<div class="msg msg-neutral">' +
+      'This page is only used after you authorize a Slack app install. ' +
+      'Slack will redirect here with a <code>code</code> in the URL.' +
+      '</div>' +
+      '<p class="hint">If you are setting up Linked SLA Alerts, start from the Slack app install URL in the Slack API dashboard.</p>';
+  }
+
+  // --- Client secret show/hide ---
+  var secretInput = document.getElementById('clientSecret');
+  var toggleSecret = document.getElementById('toggleSecret');
+  toggleSecret.addEventListener('click', function () {
+    if (secretInput.type === 'password') {
+      secretInput.type = 'text';
+      toggleSecret.textContent = 'Hide';
+    } else {
+      secretInput.type = 'password';
+      toggleSecret.textContent = 'Show';
+    }
+  });
+
+  // --- Token exchange ---
+  document.getElementById('copyToken').addEventListener('click', function () {
+    copyText(tokenDisplay.textContent, this);
+  });
+
+  exchangeForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!code) return;
+
+    var clientId = document.getElementById('clientId').value.trim();
+    var clientSecret = document.getElementById('clientSecret').value.trim();
+
+    exchangeStatus.innerHTML = '';
+    tokenResult.classList.add('hidden');
+
+    if (!clientId || !clientSecret) {
+      exchangeStatus.innerHTML = '<div class="msg msg-error">Enter both Client ID and Client Secret.</div>';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    exchangeStatus.innerHTML = '<p class="hint">Contacting Slack…</p>';
+
+    var body = new URLSearchParams();
+    body.set('client_id', clientId);
+    body.set('client_secret', clientSecret);
+    body.set('code', code);
+    body.set('redirect_uri', REDIRECT_URI);
+
+    fetch(PROXY_OAUTH_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: body.toString()
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        submitBtn.disabled = false;
+        if (data.ok) {
+          var token = data.access_token || '';
+          tokenDisplay.textContent = token;
+          var teamName = (data.team && data.team.name) ? data.team.name : 'your workspace';
+          tokenSuccessMsg.innerHTML =
+            '<strong>Token retrieved successfully.</strong> Paste this into your Jira app config.<br>' +
+            '<span style="font-weight:normal">Installed to: <strong>' + escapeHtml(teamName) + '</strong></span>';
+          tokenResult.classList.remove('hidden');
+          exchangeStatus.innerHTML = '';
+        } else {
+          var err = data.error || 'unknown_error';
+          exchangeStatus.innerHTML =
+            '<div class="msg msg-error"><strong>Exchange failed</strong><br>' +
+            escapeHtml(slackErrorMessage(err)) +
+            (err && !['invalid_code', 'bad_client_secret', 'internal_error'].includes(err)
+              ? '<br><span style="font-size:0.85rem">(' + escapeHtml(err) + ')</span>'
+              : '') +
+            '</div>';
+        }
+      })
+      .catch(function (err) {
+        submitBtn.disabled = false;
+        exchangeStatus.innerHTML =
+          '<div class="msg msg-error">Network error: ' + escapeHtml(err.message) +
+          '. The CORS proxy may be unavailable; try the manual curl command or try again later.</div>';
+      });
+  });
+})();
+  </script>
+</body>
+</html>
