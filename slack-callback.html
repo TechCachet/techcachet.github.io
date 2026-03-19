@@ -102,6 +102,12 @@
       border: 1px solid var(--border);
     }
 
+    .msg-warning {
+      background: rgba(234, 179, 8, 0.14);
+      color: #713f12;
+      border: 1px solid rgba(202, 138, 4, 0.45);
+    }
+
     .hint {
       font-size: 0.85rem;
       color: var(--hint);
@@ -269,8 +275,29 @@
       display: none !important;
     }
 
-    #tokenResult {
+    #tokenResult,
+    #globalTokenResult {
       margin-top: 1rem;
+    }
+
+    #installCard > a {
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    #installCard > a img {
+      display: block;
+    }
+
+    .install-success-heading {
+      margin: 0 0 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .loading-msg {
+      font-size: 0.95rem;
+      color: #333;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -281,13 +308,41 @@
   </header>
 
   <main>
+    <!-- Install: always at top -->
+    <div class="card" id="installCard">
+      <h2>Install to a Workspace</h2>
+      <p class="hint" style="margin-top:0;">
+        Click below to install Linked SLA Alerts to your Slack workspace.
+      </p>
+      <a href="https://slack.com/oauth/v2/authorize?client_id=76626825879.10695713658177&amp;scope=im:write,chat:write,users:read,users:read.email&amp;user_scope=&amp;redirect_uri=https://techcache.github.io/slack-callback.html" rel="noopener noreferrer">
+        <img alt="Add to Slack" height="40" width="139"
+          src="https://platform.slack-edge.com/img/add_to_slack.png"
+          srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" />
+      </a>
+    </div>
+
+    <!-- Shown only while automatic token exchange runs (code in URL) -->
+    <div class="card hidden" id="exchangeLoadingCard">
+      <p class="loading-msg" id="exchangeLoadingText">Exchanging code for token...</p>
+      <p class="hint">Please wait. This uses a CORS proxy to reach Slack from your browser.</p>
+    </div>
+
     <!-- Step 1: OAuth redirect result -->
-    <div class="card" id="step1">
+    <div class="card hidden" id="step1">
       <h2>Authorization result</h2>
       <div id="step1Content"></div>
     </div>
 
-    <!-- Step 2: Token exchange (shown when code is present) -->
+    <!-- Token success (auto or manual) -->
+    <div class="card hidden" id="globalTokenResult">
+      <div class="msg msg-success" id="globalTokenSuccessMsg"></div>
+      <div class="code-box">
+        <pre id="globalTokenDisplay"></pre>
+        <button type="button" class="btn btn-secondary" id="copyGlobalToken">Copy token</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Token exchange (shown after auto-exchange fails when code present, or always when no code path) -->
     <div class="card hidden" id="step2">
       <h2>Exchange for Bot Token</h2>
       <p class="hint" style="margin-top:0;">
@@ -297,10 +352,12 @@
         <label for="clientId">Client ID</label>
         <input type="text" id="clientId" name="clientId" autocomplete="off" placeholder="Your Slack app client_id" required>
 
-        <label for="clientSecret">Client Secret</label>
-        <div class="secret-wrap">
-          <input type="password" id="clientSecret" name="clientSecret" autocomplete="off" placeholder="Your Slack app client_secret" required>
-          <button type="button" class="btn btn-secondary" id="toggleSecret" aria-label="Show or hide client secret">Show</button>
+        <div id="clientSecretGroup" class="hidden">
+          <label for="clientSecret">Client Secret</label>
+          <div class="secret-wrap">
+            <input type="password" id="clientSecret" name="clientSecret" autocomplete="off" placeholder="Your Slack app client_secret">
+            <button type="button" class="btn btn-secondary" id="toggleSecret" aria-label="Show or hide client secret">Show</button>
+          </div>
         </div>
 
         <label for="codeReadonly">Authorization code</label>
@@ -337,24 +394,30 @@
 (function () {
   'use strict';
 
-  /** Fixed redirect URI registered in the Slack app (must match exactly). */
-  var REDIRECT_URI = 'https://techcache.github.io/slack-callback.html';
+  const SLACK_CLIENT_ID = '76626825879.10695713658177';
+  const SLACK_REDIRECT_URI = 'https://techcache.github.io/slack-callback.html';
+
+  /** Same as SLACK_REDIRECT_URI; used for token exchange and curl. */
+  var REDIRECT_URI = SLACK_REDIRECT_URI;
 
   /**
-   * Slack's oauth.v2.access does not send CORS headers, so browsers block
-   * direct fetch() from this static page. We POST through a public CORS proxy
-   * that forwards the request to Slack. See: https://corsproxy.io/
-   * (Replace with your own backend if you need stricter security.)
+   * Browsers enforce CORS: Slack's oauth.v2.access endpoint does not send
+   * Access-Control-Allow-Origin, so a direct fetch() from this static page would
+   * be blocked. We POST through a public CORS proxy that forwards the request to
+   * Slack. If the primary proxy fails, we retry the fallback URL below.
    */
-  /** Exact proxy URL as required for browser POST to Slack (see comment above). */
-  var PROXY_OAUTH_URL = 'https://corsproxy.io/?https://slack.com/api/oauth.v2.access';
+  var PROXY_OAUTH_PRIMARY = 'https://corsproxy.io/?https://slack.com/api/oauth.v2.access';
+  var PROXY_OAUTH_FALLBACK = 'https://api.allorigins.win/raw?url=https://slack.com/api/oauth.v2.access';
 
   var params = new URLSearchParams(window.location.search);
   var code = params.get('code');
   var errorParam = params.get('error');
 
+  var exchangeLoadingCard = document.getElementById('exchangeLoadingCard');
+  var step1 = document.getElementById('step1');
   var step1Content = document.getElementById('step1Content');
   var step2 = document.getElementById('step2');
+  var clientSecretGroup = document.getElementById('clientSecretGroup');
   var codeReadonly = document.getElementById('codeReadonly');
   var redirectReadonly = document.getElementById('redirectReadonly');
   var exchangeForm = document.getElementById('exchangeForm');
@@ -363,9 +426,14 @@
   var tokenDisplay = document.getElementById('tokenDisplay');
   var tokenSuccessMsg = document.getElementById('tokenSuccessMsg');
   var submitBtn = document.getElementById('submitExchange');
+  var globalTokenResult = document.getElementById('globalTokenResult');
+  var globalTokenDisplay = document.getElementById('globalTokenDisplay');
+  var globalTokenSuccessMsg = document.getElementById('globalTokenSuccessMsg');
   var timerInterval = null;
 
   document.getElementById('footerYear').textContent = ' · ' + new Date().getFullYear();
+
+  document.getElementById('clientId').value = SLACK_CLIENT_ID;
 
   function escapeHtml(s) {
     var div = document.createElement('div');
@@ -424,21 +492,82 @@
     return map[err] || (err || 'Unknown error');
   }
 
-  // --- Render Step 1 based on URL ---
+  function knownSlackErrors(err) {
+    return ['invalid_code', 'bad_client_secret', 'internal_error'].indexOf(err) !== -1;
+  }
 
-  if (errorParam) {
-    step1Content.innerHTML =
-      '<div class="msg msg-error"><strong>Authorization failed</strong><br>' +
-      escapeHtml(errorParam) +
-      '</div>' +
-      '<p class="hint">Try the Slack install flow again from your app settings.</p>';
-    document.getElementById('step1').classList.remove('hidden');
-  } else if (code) {
+  /**
+   * POST oauth.v2.access through primary CORS proxy; on failure try allorigins fallback.
+   */
+  function postOAuthExchange(bodyString) {
+    return fetch(PROXY_OAUTH_PRIMARY, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: bodyString
+    })
+      .then(function (res) {
+        if (!res.ok) throw new Error('primary_proxy_http');
+        return res.text();
+      })
+      .then(function (text) {
+        var data;
+        try {
+          data = JSON.parse(text);
+        } catch (e) {
+          throw new Error('primary_proxy_json');
+        }
+        return data;
+      })
+      .catch(function () {
+        return fetch(PROXY_OAUTH_FALLBACK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: bodyString
+        })
+          .then(function (res) {
+            if (!res.ok) throw new Error('fallback_proxy_http');
+            return res.text();
+          })
+          .then(function (text) {
+            try {
+              return JSON.parse(text);
+            } catch (e2) {
+              throw new Error('fallback_proxy_json');
+            }
+          });
+      });
+  }
+
+  function showTokenSuccess(token, teamName, useGlobal) {
+    var name = teamName || 'your workspace';
+    var html =
+      '<p class="install-success-heading"><strong>Installation successful!</strong></p>' +
+      '<p>Installed to: <strong>' + escapeHtml(name) + '</strong></p>' +
+      '<p class="hint" style="margin-bottom:0;">Paste this token into your Jira app config page.</p>';
+    if (useGlobal) {
+      globalTokenDisplay.textContent = token;
+      globalTokenSuccessMsg.innerHTML = html;
+      globalTokenSuccessMsg.className = 'msg msg-success';
+      globalTokenResult.classList.remove('hidden');
+      exchangeLoadingCard.classList.add('hidden');
+      step1.classList.add('hidden');
+      step2.classList.add('hidden');
+    } else {
+      tokenDisplay.textContent = token;
+      tokenSuccessMsg.innerHTML = html;
+      tokenSuccessMsg.className = 'msg msg-success';
+      tokenResult.classList.remove('hidden');
+      exchangeStatus.innerHTML = '';
+    }
+  }
+
+  function renderCodeUI(c) {
+    step1.classList.remove('hidden');
     step1Content.innerHTML =
       '<div class="msg msg-success">Authorization successful</div>' +
       '<p class="hint">Copy the code below, then exchange it for a bot token (form below) or use the terminal command.</p>' +
       '<div class="code-box">' +
-      '  <code id="codeDisplay">' + escapeHtml(code) + '</code>' +
+      '  <code id="codeDisplay">' + escapeHtml(c) + '</code>' +
       '  <button type="button" class="btn btn-secondary" id="copyCode">Copy code</button>' +
       '</div>' +
       '<p class="timer" id="countdownDisplay">10:00</p>' +
@@ -451,28 +580,82 @@
       '  </div>' +
       '</details>';
 
-    var curlText = buildCurlCommand('YOUR_CLIENT_ID', 'YOUR_CLIENT_SECRET', code);
+    var curlText = buildCurlCommand('YOUR_CLIENT_ID', 'YOUR_CLIENT_SECRET', c);
     document.getElementById('curlPre').textContent = curlText;
 
     document.getElementById('copyCode').addEventListener('click', function () {
-      copyText(code, this);
+      copyText(c, this);
     });
     document.getElementById('copyCurl').addEventListener('click', function () {
       copyText(curlText, this);
     });
 
     startCountdown(600, document.getElementById('countdownDisplay'), document.getElementById('countdownWarn'));
+  }
 
+  function showManualExchangeAfterAutoFail(extraHint) {
+    exchangeLoadingCard.classList.add('hidden');
+    renderCodeUI(code);
     codeReadonly.value = code;
     redirectReadonly.value = REDIRECT_URI;
     step2.classList.remove('hidden');
+    clientSecretGroup.classList.remove('hidden');
+    document.getElementById('clientSecret').required = true;
+    exchangeStatus.innerHTML =
+      '<div class="msg msg-warning">Auto-exchange failed — use the manual options below.</div>' +
+      '<div class="msg msg-neutral">Enter your Slack app <strong>client secret</strong> below and click <strong>Get Bot Token</strong>, or use the manual curl command.</div>' +
+      (extraHint ? '<p class="hint">' + extraHint + '</p>' : '');
+  }
+
+  /**
+   * On redirect with code: one automatic oauth.v2.access attempt (Slack requires client_secret;
+   * without it Slack returns an error). Then we show the code UI and manual form with secret field.
+   */
+  function runAutoExchange() {
+    exchangeLoadingCard.classList.remove('hidden');
+    step1.classList.add('hidden');
+    step2.classList.add('hidden');
+    globalTokenResult.classList.add('hidden');
+
+    var body = new URLSearchParams();
+    body.set('client_id', SLACK_CLIENT_ID);
+    body.set('client_secret', '');
+    body.set('code', code);
+    body.set('redirect_uri', REDIRECT_URI);
+
+    postOAuthExchange(body.toString())
+      .then(function (data) {
+        if (data && data.ok && data.access_token) {
+          showTokenSuccess(data.access_token, data.team && data.team.name, true);
+        } else {
+          showManualExchangeAfterAutoFail();
+        }
+      })
+      .catch(function () {
+        showManualExchangeAfterAutoFail('Network or proxy error during automatic exchange. Use the form or curl below.');
+      });
+  }
+
+  // --- Initial render ---
+
+  if (errorParam) {
+    step1.classList.remove('hidden');
+    step1Content.innerHTML =
+      '<div class="msg msg-error"><strong>Authorization failed</strong><br>' +
+      escapeHtml(errorParam) +
+      '</div>' +
+      '<p class="hint">Try the Slack install flow again from your app settings.</p>';
+  } else if (code) {
+    runAutoExchange();
   } else {
+    step1.classList.remove('hidden');
     step1Content.innerHTML =
       '<div class="msg msg-neutral">' +
       'This page is only used after you authorize a Slack app install. ' +
       'Slack will redirect here with a <code>code</code> in the URL.' +
       '</div>' +
-      '<p class="hint">If you are setting up Linked SLA Alerts, start from the Slack app install URL in the Slack API dashboard.</p>';
+      '<p class="hint">If you are setting up Linked SLA Alerts, use <strong>Install to a Workspace</strong> above or the Slack API dashboard.</p>';
+    step2.classList.add('hidden');
   }
 
   // --- Client secret show/hide ---
@@ -488,20 +671,27 @@
     }
   });
 
-  // --- Token exchange ---
   document.getElementById('copyToken').addEventListener('click', function () {
     copyText(tokenDisplay.textContent, this);
   });
+  document.getElementById('copyGlobalToken').addEventListener('click', function () {
+    copyText(globalTokenDisplay.textContent, this);
+  });
 
+  // --- Manual token exchange ---
   exchangeForm.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (!code) return;
+    if (!code) {
+      exchangeStatus.innerHTML = '<div class="msg msg-error">Install the app first so Slack redirects here with a code in the URL.</div>';
+      return;
+    }
 
     var clientId = document.getElementById('clientId').value.trim();
     var clientSecret = document.getElementById('clientSecret').value.trim();
 
     exchangeStatus.innerHTML = '';
     tokenResult.classList.add('hidden');
+    globalTokenResult.classList.add('hidden');
 
     if (!clientId || !clientSecret) {
       exchangeStatus.innerHTML = '<div class="msg msg-error">Enter both Client ID and Client Secret.</div>';
@@ -517,31 +707,17 @@
     body.set('code', code);
     body.set('redirect_uri', REDIRECT_URI);
 
-    fetch(PROXY_OAUTH_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: body.toString()
-    })
-      .then(function (res) { return res.json(); })
+    postOAuthExchange(body.toString())
       .then(function (data) {
         submitBtn.disabled = false;
-        if (data.ok) {
-          var token = data.access_token || '';
-          tokenDisplay.textContent = token;
-          var teamName = (data.team && data.team.name) ? data.team.name : 'your workspace';
-          tokenSuccessMsg.innerHTML =
-            '<strong>Token retrieved successfully.</strong> Paste this into your Jira app config.<br>' +
-            '<span style="font-weight:normal">Installed to: <strong>' + escapeHtml(teamName) + '</strong></span>';
-          tokenResult.classList.remove('hidden');
-          exchangeStatus.innerHTML = '';
+        if (data && data.ok && data.access_token) {
+          showTokenSuccess(data.access_token, data.team && data.team.name, false);
         } else {
-          var err = data.error || 'unknown_error';
+          var err = (data && data.error) || 'unknown_error';
           exchangeStatus.innerHTML =
             '<div class="msg msg-error"><strong>Exchange failed</strong><br>' +
             escapeHtml(slackErrorMessage(err)) +
-            (err && !['invalid_code', 'bad_client_secret', 'internal_error'].includes(err)
+            (!knownSlackErrors(err)
               ? '<br><span style="font-size:0.85rem">(' + escapeHtml(err) + ')</span>'
               : '') +
             '</div>';
@@ -551,7 +727,7 @@
         submitBtn.disabled = false;
         exchangeStatus.innerHTML =
           '<div class="msg msg-error">Network error: ' + escapeHtml(err.message) +
-          '. The CORS proxy may be unavailable; try the manual curl command or try again later.</div>';
+          '. Try the manual curl command or try again later.</div>';
       });
   });
 })();
