@@ -18,9 +18,9 @@ content="Tech Cache builds practical Atlassian tools, including Linked SLA Alert
   --accent2:#38bdf8;
   --border:#24304f;
   --button-text:#06111f;
-  /* Fluid layout: gutter scales with viewport; used for container + banner bleed */
-  --content-max:980px;
-  --gutter:clamp(14px, 4vw, 24px);
+  /* Fluid layout: wider on desktop, never wider than viewport */
+  --content-max:1320px;
+  --gutter:clamp(14px, 3vw, 36px);
   --section-pad:clamp(16px, 3.5vw, 24px);
 }
 
@@ -40,7 +40,8 @@ body{
 }
 
 .container{
-  max-width:var(--content-max);
+  /* Fill more of the screen on large monitors; cap width for readability */
+  max-width:min(var(--content-max), calc(100vw - 32px));
   width:100%;
   margin:0 auto;
   padding:clamp(28px, 5vw, 44px) var(--gutter) clamp(44px, 8vw, 64px);
