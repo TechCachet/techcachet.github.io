@@ -12,9 +12,9 @@ permalink: /support/
 
 ## How we support customers
 
-**Tech Cache handles customer support directly.** For product questions, configuration help, and bug reports, email us—we’ll work with you using your site and entitlement details as needed.
+**Linked SLA Alerts** is a **paid app on the Atlassian Marketplace**. **Tech Cache** provides **customer support directly**—there is **no other support channel** on this public site (no separate customer portal or ticket system here).
 
-**Email:** [techcache@proton.me](mailto:techcache@proton.me)  
+**Email:** [techcache@proton.me](mailto:techcache@proton.me) — product questions, configuration help, bug reports, and (with the security subject line below) vulnerability reports.
 
 **Scope (typical):** Installation and upgrade questions, permission/consent issues (e.g. new Forge scopes), configuration of triggers, Slack and webhooks, behavior questions, and bug reports. We do **not** guarantee a fixed response time unless agreed in **writing** for your organization.
 
