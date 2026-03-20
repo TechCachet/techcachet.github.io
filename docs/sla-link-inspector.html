@@ -128,7 +128,7 @@ a{
 <p class="muted" style="margin-top:0; font-size:0.95rem;">Version shown for reference only (e.g. 1.1.15)—confirm the current version on the <strong>Atlassian Marketplace</strong> listing. Atlassian Forge app for Jira.</p>
 
 <p>
-Linked SLA Alerts notifies linked tickets when a parent issue’s SLA goes at risk or breached. The app lives on the parent issue that owns the SLA. <strong>Linked tickets do not need their own SLA.</strong>
+Linked SLA Alerts notifies linked tickets about the parent issue’s SLA when <strong>configured conditions match</strong> during a <strong>panel evaluation</strong> (typically when someone <strong>opens or refreshes</strong> the Linked SLA Alerts panel on the parent issue) or when you use <strong>on-demand Send SLA Alert</strong>. The app lives on the parent issue that owns the SLA. <strong>Linked tickets do not need their own SLA.</strong> There is <strong>no</strong> Forge <strong>scheduled trigger</strong> or background cron; deduping uses Forge Key-Value Store. See <a href="#when-do-sla-alerts-run">When do configured SLA alerts run?</a> in the FAQ below.
 </p>
 
 <div class="card">
@@ -139,7 +139,7 @@ Linked SLA Alerts notifies linked tickets when a parent issue’s SLA goes at ri
 <li>Install <strong>Linked SLA Alerts</strong> from the <strong>Atlassian Marketplace</strong>.</li>
 <li>Open a <strong>parent</strong> Jira issue that has an <strong>SLA</strong> and <strong>linked issues</strong> (standard issue links).</li>
 <li>In the issue view, open the <strong>Linked SLA Alerts</strong> panel—use <strong>Send SLA Alert</strong> / <strong>Send SLA Alert to Linked Tickets</strong> on demand as needed.</li>
-<li>To set up <strong>scheduled triggers</strong>, channels (Jira, Slack, automation webhooks), and templates, use <strong>Configure app</strong> in the panel or go to <strong>Jira administration → Apps → Linked SLA Alerts</strong> (Configurations).</li>
+<li>To set up <strong>trigger rules</strong> (at risk, breached, time-left), channels (Jira, Slack, automation webhooks), and templates, use <strong>Configure app</strong> in the panel or go to <strong>Jira administration → Apps → Linked SLA Alerts</strong> (Configurations). Those rules are <strong>evaluated on panel load</strong>—not on a timer.</li>
 </ol>
 
 </div>
@@ -149,10 +149,10 @@ Linked SLA Alerts notifies linked tickets when a parent issue’s SLA goes at ri
 <h2>How It Works</h2>
 
 <p>
-The app operates on the parent issue (the ticket with the SLA). When that issue’s SLA hits a configured trigger, the app posts a comment on each linked ticket and @mentions the configured people on that linked ticket.
+The app operates on the parent issue (the ticket with the SLA). When someone <strong>opens or refreshes</strong> the Linked SLA Alerts <strong>issue panel</strong> on that parent, the app <strong>evaluates</strong> your configured triggers against the current SLA state. If a trigger <strong>matches</strong> and deduping (Forge KVS) allows a new notification, the app posts a comment on each linked ticket and @mentions the configured people on that linked ticket. <strong>Send SLA Alert to Linked Tickets</strong> is a separate, <strong>on-demand</strong> action in the same panel.
 </p>
 <p>
-Linked tickets receive notifications about the parent’s SLA. They do not need their own SLA field.
+Linked tickets receive notifications about the parent’s SLA. They do not need their own SLA field. For timely automated-style notifications, ensure people who care about the SLA <strong>visit the parent issue</strong> (or use Send SLA Alert when needed)—the app does not poll Jira in the background.
 </p>
 
 </div>
@@ -176,12 +176,12 @@ For <strong>Jira Service Management</strong> request SLAs (for example “Time t
 </p>
 
 <h3>Trigger Conditions</h3>
-<p>Configure when alerts fire on linked tickets. In addition to <strong>At risk</strong> and <strong>Breached</strong>, you can add <strong>time-left</strong> rules: one or more thresholds (e.g. <strong>30 minutes</strong> remaining—example only), with amounts and units such as <strong>minutes</strong>, <strong>hours</strong>, or <strong>days</strong>. Each time-left rule can use its <strong>own</strong> recipient list (not necessarily the same as At risk or Breached).</p>
+<p>Configure which SLA states should result in a notification <strong>when the panel evaluates</strong> (on <strong>open or refresh</strong> of the Linked SLA Alerts panel on the parent issue). In addition to <strong>At risk</strong> and <strong>Breached</strong>, you can add <strong>time-left</strong> rules: one or more thresholds (e.g. <strong>30 minutes</strong> remaining—example only), with amounts and units such as <strong>minutes</strong>, <strong>hours</strong>, or <strong>days</strong>. Each time-left rule can use its <strong>own</strong> recipient list (not necessarily the same as At risk or Breached).</p>
 <ul>
-<li><strong>At risk</strong> — fires when the parent issue’s SLA enters at-risk status</li>
-<li><strong>Breached</strong> — fires when the parent issue’s SLA is breached</li>
-<li><strong>Time remaining</strong> — fires when the parent’s SLA crosses configured thresholds (configurable values and units; e.g. 30 minutes remaining)</li>
-<li><strong>Only notify if linked issue is still open</strong> — skips alerts for resolved or done linked tickets</li>
+<li><strong>At risk</strong> — matches when the parent issue’s SLA is in at-risk status <strong>at evaluation time</strong> (panel load)</li>
+<li><strong>Breached</strong> — matches when the parent issue’s SLA is breached <strong>at evaluation time</strong></li>
+<li><strong>Time remaining</strong> — matches when the parent’s SLA crosses your configured thresholds <strong>at evaluation time</strong> (configurable values and units; e.g. 30 minutes remaining)</li>
+<li><strong>Only notify if linked issue is still open</strong> — skips notifications for resolved or done linked tickets</li>
 </ul>
 
 <h3>Who Gets Notified</h3>
@@ -204,7 +204,7 @@ For <strong>Jira Service Management</strong> request SLAs (for example “Time t
 
 <h3>Message Templates</h3>
 <p>Two templates are configurable:</p>
-<p><strong>Alerts template</strong> — used when automatic triggers fire. Available variables:</p>
+<p><strong>Alerts template</strong> — used when a <strong>panel evaluation</strong> sends a notification (trigger matched + deduping). Available variables:</p>
 <ul>
 <li><code>{{issueKey}}</code> — the parent issue key</li>
 <li><code>{{slaName}}</code> — SLA field name</li>
@@ -307,6 +307,9 @@ In Atlassian Forge Key-Value Store, encrypted at rest by Atlassian. It is never 
 <p><strong>How do I find my SLA custom field ID?</strong><br>
 In Jira, go to Project settings, then Fields, and copy the field ID for your SLA field.</p>
 
+<p id="when-do-sla-alerts-run"><strong>When do configured SLA alerts run? Is there a cron or 24/7 monitor?</strong><br>
+<strong>No.</strong> Linked SLA Alerts does <strong>not</strong> use a Forge <strong>scheduled trigger</strong> or background cron. Configurable triggers are evaluated when someone <strong>opens or refreshes</strong> the Linked SLA Alerts <strong>issue panel</strong> on the parent issue (the resolver that loads linked SLA data). <strong>Deduping</strong> uses Forge <strong>Key-Value Store</strong>. <strong>Send SLA Alert to Linked Tickets</strong> is separate and runs when you use that action on demand.</p>
+
 </div>
 
 <div class="card">
@@ -316,7 +319,7 @@ In Jira, go to Project settings, then Fields, and copy the field ID for your SLA
 <p><strong>Linked SLA Alerts</strong> is a <strong>paid Atlassian Marketplace</strong> app. <strong>Tech Cache</strong> handles <strong>customer support by email only</strong>—product questions, bugs, and configuration help.</p>
 <ul>
 <li><strong>Email:</strong> <a href="mailto:techcache@proton.me">techcache@proton.me</a></li>
-<li><strong>Security:</strong> same address; subject line <strong>“Security report — Linked SLA Alerts”</strong> (see <a href="../support/">Support &amp; Security</a>)</li>
+<li><strong>Security:</strong> same address—<strong>private email only</strong>; subject line <strong>“Security report — Linked SLA Alerts”</strong>. Do not post vulnerabilities to GitHub or a public tracker (see <a href="../support/">Support &amp; Security</a>)</li>
 <li><a href="../legal/">Legal &amp; Trust</a> — Privacy Policy, Terms of Service, Subprocessors &amp; Infrastructure, Security Overview, and Support &amp; Security</li>
 </ul>
 

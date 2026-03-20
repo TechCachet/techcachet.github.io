@@ -43,9 +43,9 @@ Outbound calls from the app are limited to **hostnames allowed** in the publishe
 
 ## Vulnerability disclosure
 
-To report a security issue in the **Linked SLA Alerts** app, email **techcache@proton.me** with a description, reproduction steps, and impact.
+To report a security issue in the **Linked SLA Alerts** app, email **techcache@proton.me** (subject **“Security report — Linked SLA Alerts”**) with a description, reproduction steps, and impact. Reports are handled **privately** through this mailbox—**not** via a public tracker and **not** by posting to **GitHub**; you are **not** required to publish vulnerabilities.
 
-**Full policy** (supported versions, timelines, scope, coordinated disclosure): **[SECURITY.md](https://github.com/TechCache/techcache.github.io/blob/main/SECURITY.md)** in this site’s GitHub repository.
+**Full policy** (supported versions, timelines, scope, coordinated disclosure): **[Vulnerability disclosure policy](/vulnerability-disclosure/)**.
 
 ---
 
@@ -61,6 +61,6 @@ Notifications will aim to include: **what happened**, **what categories of data*
 
 ## Contact (general security questions)
 
-**techcache@proton.me** — use subject line **“Security report — Linked SLA Alerts”** for vulnerabilities (see **SECURITY.md** on GitHub).
+**techcache@proton.me** — use subject line **“Security report — Linked SLA Alerts”** for vulnerabilities; **private email only** (see **[Vulnerability disclosure policy](/vulnerability-disclosure/)**).
 
 For product support and policy links, see **[Support & Security](/support/)** and **[Legal & Trust](/legal/)**.

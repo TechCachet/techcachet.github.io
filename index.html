@@ -9,7 +9,7 @@
 <title>Tech Cache | Atlassian Apps</title>
 
 <meta name="description"
-content="Tech Cache builds practical Atlassian tools, including Linked SLA Alerts for Jira: notify when an SLA is at risk or breached and relay status to linked tickets.">
+content="Tech Cache builds practical Atlassian tools, including Linked SLA Alerts for Jira: relay parent SLA status to linked tickets when the issue panel evaluates triggers (open/refresh), on-demand Send SLA Alert, and optional Slack or email—no Forge scheduled trigger/cron.">
 
 <style>
 :root{
@@ -717,8 +717,7 @@ a:hover{
 <section class="hero splash-hero" aria-label="Welcome">
   <h1 class="visually-hidden">
     Tech Cache — Built for Atlassian teams. Keep every linked Jira ticket moving together.
-    Turn SLA pressure into coordinated action with automatic alerts for linked tickets.
-    Automatic linked-ticket alerts, Jira comments and mentions, optional Slack and email.
+    Turn SLA pressure into coordinated action: configurable SLA notifications when someone opens or refreshes the Linked SLA Alerts panel on the parent issue, plus on-demand Send SLA Alert; Jira comments and mentions; optional Slack and email. No background scheduler or Forge cron.
     Less chasing, less manual follow-up, more teams staying aligned. Linked SLA Alerts for Jira.
   </h1>
 
@@ -731,7 +730,7 @@ a:hover{
       sizes="(max-width: 768px) calc(100vw - 48px), min(1320px, calc(100vw - 80px))"
       width="1024"
       height="434"
-      alt="Linked SLA Alerts by Tech Cache: Built for Atlassian teams — Keep every linked Jira ticket moving together. Parent ticket at risk with SLA time flowing to linked issues (on track, at risk, breached). Automatic linked-ticket alerts, Jira comments and mentions, optional Slack and email."
+      alt="Linked SLA Alerts by Tech Cache: Built for Atlassian teams — Keep every linked Jira ticket moving together. Parent ticket at risk with SLA time flowing to linked issues (on track, at risk, breached). Configurable notifications when the issue panel runs on the parent; on-demand Send SLA Alert; Jira comments and mentions; optional Slack and email."
       decoding="sync"
       fetchpriority="high"
     >
@@ -746,7 +745,7 @@ a:hover{
       Tech Cache builds software for teams that need better visibility and faster
       coordination on the work they already track in Jira. The goal is practical
       improvements with clear value: less manual checking, clearer handoffs, and
-      alerts when SLAs need attention.
+      timely SLA visibility on linked work when your team uses the issue panel and on-demand actions.
     </p>
   </section>
 
@@ -761,15 +760,15 @@ a:hover{
         <div class="badge">Atlassian App</div>
         <h3>Linked SLA Alerts</h3>
         <p>
-          Notifies people when an SLA is at risk or breached. The app lives on
+          Helps linked tickets stay informed about the parent issue’s SLA. The app lives on
           the parent Jira issue that has the SLA; that issue can have linked
           issues. The app uses the parent’s SLA only—linked tickets don’t need
-          their own SLA. Send alerts from the panel or on a schedule to linked
-          tickets (comment + @mentions) and optional Slack or email.
+          their own SLA. Use <strong>Send SLA Alert to Linked Tickets</strong> on demand, or rely on
+          <strong>configurable triggers</strong> evaluated when someone <strong>opens or refreshes</strong> the Linked SLA Alerts <strong>panel</strong> on the parent (not a Forge scheduled job or cron). Comments + @mentions on linked tickets; optional Slack or email.
         </p>
         <ul>
-          <li>Panel: “Send SLA Alert to Linked Tickets” — choose all or specific linked tickets, then post a comment on each with the parent’s SLA status and expiry; optional Slack with clickable Jira links</li>
-          <li>Scheduled alerts: when the parent’s SLA hits configured triggers (at risk, breached, or configurable time-left thresholds—e.g. 30 minutes remaining—with separate recipient sets per rule where supported), post a comment on each linked ticket and @mention that ticket’s assignee, reporter, watchers, and configurable fields (e.g. Request Participants)</li>
+          <li>Panel: “Send SLA Alert to Linked Tickets” — choose all or specific linked tickets, then post a comment on each with the parent’s SLA status and expiry; optional Slack with clickable Jira links (on-demand)</li>
+          <li>Configurable SLA notifications: when you <strong>open or refresh</strong> the panel on the parent, the app evaluates your configured triggers (at risk, breached, or time-left thresholds—e.g. 30 minutes remaining—with separate recipient sets per rule where supported). If conditions match and deduping (Forge KVS) allows, it posts a comment on each linked ticket and @mentions that ticket’s assignee, reporter, watchers, and configurable fields (e.g. Request Participants). Teams often rely on natural visits to the parent issue so the panel runs.</li>
           <li>Admin: triggers, who to @mention per trigger, Jira comment / Slack (webhook or Bot + channel) / email webhook, and two configurable message templates</li>
           <li>Optional SLA field override; Slack token stored securely in Forge (masked, clearable)</li>
         </ul>

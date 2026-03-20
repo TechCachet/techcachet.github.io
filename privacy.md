@@ -19,7 +19,7 @@ This Privacy Policy describes how Linked SLA Alerts accesses, uses, stores, and 
 ## 1. Summary
 
 - Linked SLA Alerts runs on **Atlassian Forge**. Core processing and **Forge app storage (Key-Value Store)** are on **Atlassian’s infrastructure**. Tech Cache does **not** operate **long-lived application servers** that host the app’s core logic or store Jira issue bodies for routine operation **as of the last updated date**. If we add **optional external backends** (for example Forge Remote or other services) later, we will **update this policy** and relevant Marketplace materials.
-- The app reads Jira **issue**, **link**, and (where applicable) **SLA** data to power the issue panel, **comments**, **@mentions**, and **optional** notifications via **Slack** or **customer-configured HTTPS webhooks** (e.g. email automation).
+- The app reads Jira **issue**, **link**, and (where applicable) **SLA** data to power the issue panel, **comments**, **@mentions**, and **optional** notifications via **Slack** or **customer-configured HTTPS webhooks** (e.g. email automation)—typically when someone **opens or refreshes** the panel on the parent issue (configurable triggers + deduping) or uses **on-demand Send SLA Alert**, not on a Forge **scheduled** background job.
 - **Personal data** is processed where needed for those features—including **Jira account identifiers**, **display names**, **email addresses** when exposed to the app by Jira for permitted APIs, and **work content** in issues referenced in messages.
 - **Data leaves** Atlassian’s Jira/Forge boundary when **your organization** enables integrations to **allowlisted** destinations (Slack, Zapier/Make, etc.—see **`external.fetch`** in **`manifest.yml`**). That is **customer-controlled**, not a fixed Tech Cache “data pipeline.”
 - **Billing** for Marketplace apps is typically handled by **Atlassian** (and its payment partners) under **their** terms. **Payment card data** and checkout for the Marketplace subscription are handled by **Atlassian** (or its payment partners)—**not** collected or stored by Linked SLA Alerts in the app.
@@ -57,7 +57,7 @@ Tech Cache may act as a **controller** for **narrow** activities (e.g. **this ma
 | **Forge Key-Value Store** | Runtime | Admin config, dedupe keys, Slack ID map, Marketplace license status used for entitlement checks |
 | **Invoking user context** | Forge / `asUser` where used | Who ran an action; test flows (e.g. **/myself**) |
 
-We do **not** describe a **bulk export** of your entire Jira database or a **continuous off-site replica** of Jira; processing is **event-driven** around SLA/linked-issue flows and configuration.
+We do **not** describe a **bulk export** of your entire Jira database or a **continuous off-site replica** of Jira; processing is **event-driven**—primarily when a user **opens or refreshes** the **Linked SLA Alerts** issue **panel** on the parent issue (and when you use **on-demand Send SLA Alert**), plus admin configuration saves—not a Forge **scheduled** job watching issues in the background.
 
 ---
 
@@ -65,7 +65,7 @@ We do **not** describe a **bulk export** of your entire Jira database or a **con
 
 - Show **linked issues** and **SLA** context in the **issue panel**.  
 - **Post comments** on linked issues (including optional **@mentions**).  
-- **Notify** recipients when SLA rules fire—via **Jira**, **Slack** (channel or DM), or **webhook** payloads.  
+- **Notify** recipients when **configured SLA conditions match** during a **panel evaluation** (typically when someone **opens or refreshes** the Linked SLA Alerts **panel** on the parent issue; deduping in **Forge KVS**), or when you use **on-demand Send SLA Alert**—via **Jira**, **Slack** (channel or DM), or **webhook** payloads.  
 - **Match** Jira users to Slack (**email** and/or **Slack member ID**).  
 - **Deduplicate** notifications (KVS).  
 - **Marketplace** entitlement checks (e.g. to show upgrade prompts or restrict features when no active paid license in production).  
@@ -110,7 +110,7 @@ DMs appear as messages from **your** Slack app/bot. Content may identify individ
 
 ## 9. Admin-configured integrations (email / webhooks)
 
-If you enable an **email or automation webhook** via an integration whose **endpoint hostname** is on the app’s Forge **`external.fetch`** allowlist (e.g. **Zapier** or **Make**—not arbitrary URLs), the app sends **HTTPS POST** requests to that endpoint when notifications fire. JSON bodies typically include **event type**, **parent and linked issue keys**, **SLA status and timing**, **message and subject** text from your templates, and **recipient-related fields** where your settings supply them. **Only configure endpoints you trust.** Outbound calls are limited to hostnames on the Forge **`external.fetch`** allowlist in the **published** **`manifest.yml`** for your app version (exact entries can change between releases—**check the manifest** for the current list). Illustrative categories include **Atlassian** product domains (e.g. `*.atlassian.net`), **Slack** (`hooks.slack.com`, `slack.com`), **Zapier** (`hooks.zapier.com`), and **Make** regional webhook hosts (e.g. `hook.eu1.make.com`, `hook.us1.make.com`—**subject to change** in the manifest).
+If you enable an **email or automation webhook** via an integration whose **endpoint hostname** is on the app’s Forge **`external.fetch`** allowlist (e.g. **Zapier** or **Make**—not arbitrary URLs), the app sends **HTTPS POST** requests to that endpoint when a **notification is actually sent** (after a panel evaluation or on-demand action matches your rules and deduping). JSON bodies typically include **event type**, **parent and linked issue keys**, **SLA status and timing**, **message and subject** text from your templates, and **recipient-related fields** where your settings supply them. **Only configure endpoints you trust.** Outbound calls are limited to hostnames on the Forge **`external.fetch`** allowlist in the **published** **`manifest.yml`** for your app version (exact entries can change between releases—**check the manifest** for the current list). Illustrative categories include **Atlassian** product domains (e.g. `*.atlassian.net`), **Slack** (`hooks.slack.com`, `slack.com`), **Zapier** (`hooks.zapier.com`), and **Make** regional webhook hosts (e.g. `hook.eu1.make.com`, `hook.us1.make.com`—**subject to change** in the manifest).
 
 ---
 

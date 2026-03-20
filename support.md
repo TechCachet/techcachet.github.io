@@ -34,11 +34,13 @@ permalink: /support/
 
 ## Security reporting
 
-Use **the same email:** [techcache@proton.me](mailto:techcache@proton.me)
+**Channel:** **Private email only** — [techcache@proton.me](mailto:techcache@proton.me)
 
-**Subject line:** **“Security report — Linked SLA Alerts”**
+**Subject line:** **“Security report — Linked SLA Alerts”** (helps us triage quickly)
 
-Include enough detail to reproduce or understand the issue; avoid unrelated personal data. A clear subject helps us prioritize security work.
+Send findings **directly to us by email**. We handle them **confidentially** through this address—**not** via a public bug tracker, **not** by opening issues or posting details on **GitHub** (our repositories are private; there is **no** expectation or requirement that you publish vulnerabilities publicly). The coordinated disclosure rules in our **[Vulnerability disclosure policy](/vulnerability-disclosure/)** describe **your** responsibility not to disclose before a fix where applicable; they do **not** mean you must file anything in public.
+
+Include enough detail to reproduce or understand the issue; avoid unrelated personal data.
 
 We do **not** run a public bug-bounty program unless we state otherwise on this page.
 

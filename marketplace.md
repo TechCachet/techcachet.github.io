@@ -42,7 +42,7 @@ permalink: /marketplace/
 ## Disclosure snippets (verify against your `manifest.yml`)
 
 **What the app does (short):**  
-Linked SLA Alerts runs on **Atlassian Forge**. It reads **parent issue SLA** and **linked issue** data in Jira Cloud, shows context in the issue panel, can **post comments** and **@mentions** on linked issues, and can send **optional** notifications to **Slack** or **customer-configured HTTPS webhooks** when SLA rules fire. Configuration and secrets (e.g. Slack token) are stored in **Forge app storage**.
+Linked SLA Alerts runs on **Atlassian Forge**. It reads **parent issue SLA** and **linked issue** data in Jira Cloud, shows context in the issue panel, can **post comments** and **@mentions** on linked issues, and can send **optional** notifications to **Slack** or **customer-configured HTTPS webhooks** when **configured SLA conditions match** during a **panel evaluation** (typically when someone **opens or refreshes** the Linked SLA Alerts panel on the parent issue—not a Forge **scheduled** trigger/cron) or when someone uses **on-demand Send SLA Alert**. Deduping uses **Forge KVS**. Configuration and secrets (e.g. Slack token) are stored in **Forge app storage**.
 
 **Where data is processed:**  
 Primarily **Atlassian (Jira Cloud + Forge)**. Data is sent to **Slack** or **other HTTPS endpoints** only when the **customer** configures those integrations.
@@ -63,7 +63,7 @@ An internal development repository may use a different **codename** (e.g. `sla-l
 ## Inputs for legal review
 
 - [Privacy Policy](/privacy) · [Terms of Service](/terms) · [Legal & Trust](/legal/) · [Subprocessors & Infrastructure](/subprocessors)  
-- [docs/marketplace-slack-dm.md](https://github.com/TechCache/techcache.github.io/blob/main/docs/marketplace-slack-dm.md) (Slack/DM notes on **this** website repo)  
+- `docs/marketplace-slack-dm.md` in this repository (Slack/DM notes for listing prep)  
 - Forge **`manifest.yml`** (scopes + `external.fetch` allowlist)  
 - Whether **Tech Cache** receives any **direct** customer payments or only via **Atlassian** (affects liability context in Terms)  
 - Whether you **log PII** in Forge (audit `console.log` / APM)
