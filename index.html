@@ -344,7 +344,7 @@ body{
   padding-bottom:max(clamp(44px, 8vw, 64px), env(safe-area-inset-bottom));
 }
 
-/* Splash hero — inset from viewport; capped width so it doesn’t dominate ultra-wide screens */
+/* Splash hero — same horizontal band as .container (cards below); gutters only, not a narrow island */
 .hero.splash-hero{
   width:100%;
   max-width:min(var(--content-max), calc(100vw - 32px));
@@ -357,11 +357,11 @@ body{
 
 .splash-stage{
   width:100%;
-  max-width:min(1000px, 100%);
+  max-width:100%;
   margin:0 auto;
   padding:0;
   border:none;
-  border-radius:clamp(10px, 1.5vw, 16px);
+  border-radius:clamp(8px, 1.2vw, 14px);
   box-shadow:none;
   background:transparent;
   line-height:0;
@@ -742,7 +742,7 @@ a:hover{
       class="splash-art"
       src="assets/splash-hero.png"
       srcset="assets/splash-hero.png 1024w, assets/splash-hero-2x.png 2048w"
-      sizes="(max-width: 768px) calc(100vw - 48px), min(1000px, calc(100vw - 80px))"
+      sizes="(max-width: 768px) calc(100vw - 48px), min(1320px, calc(100vw - 80px))"
       width="1024"
       height="483"
       alt="Tech Cache: Built for Atlassian teams — Keep every linked Jira ticket moving together. Parent ticket at risk with SLA time flowing to linked issues (breached, at risk, on track). Automatic linked-ticket alerts, Jira comments and mentions, optional Slack and email."
