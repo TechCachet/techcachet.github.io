@@ -58,7 +58,7 @@ You are responsible for **lawful use**, correct **configuration** (Slack, webhoo
 
 ## 7. Privacy
 
-See the **[Privacy Policy](/privacy)**, **[Subprocessors](/subprocessors)**, and **[Legal information](/legal)**. EU/UK businesses may request a **DPA** at **[techcache@proton.me](mailto:techcache@proton.me)**.
+See the **[Privacy Policy](/privacy)**, **[Subprocessors](/subprocessors)**, and **[Legal & trust](/legal/)** (index of policies and security overview). EU/UK businesses may request a **DPA** at **[techcache@proton.me](mailto:techcache@proton.me)**.
 
 ---
 

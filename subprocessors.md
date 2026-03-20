@@ -49,4 +49,4 @@ Tech Cache **does not sell** personal data from the app to data brokers.
 
 Update this page when you add **manifest** fetch hosts, **analytics**, or **support tools**.
 
-**Contact:** [techcache@proton.me](mailto:techcache@proton.me) · [Support & security](/support)
+**Contact:** [techcache@proton.me](mailto:techcache@proton.me) · [Support & security](/support) · [Legal & trust](/legal/)
