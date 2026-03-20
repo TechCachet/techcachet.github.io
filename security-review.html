@@ -77,7 +77,7 @@ a:hover{color:var(--accent2);text-decoration:underline;}
 
   <div class="card">
     <h2>Optional integrations (customer-controlled)</h2>
-    <p>When <strong>you</strong> configure Slack (webhook, bot token, channel, DMs) or <strong>HTTPS webhooks</strong> (e.g. automation tools), notification payloads leave Atlassian for those endpoints over <strong>HTTPS</strong>. Content may include issue keys, SLA text, and user-related fields consistent with your templates.</p>
+    <p>When <strong>you</strong> configure Slack (webhook, bot token, channel, DMs) or <strong>HTTPS webhooks</strong> to automation tools (e.g. Zapier, Make), notification payloads leave Atlassian for those endpoints over <strong>HTTPS</strong> only when the destination <strong>hostname</strong> is on the Forge <strong><code>external.fetch</code></strong> allowlist in the app’s <strong><code>manifest.yml</code></strong>—not arbitrary customer URLs. Content may include issue keys, SLA text, and user-related fields consistent with your templates.</p>
     <ul>
       <li><strong>Secrets</strong> (e.g. Slack bot token) are stored in Forge storage; treat as sensitive customer configuration.</li>
       <li><strong>Email-related APIs</strong> may be used for Slack matching when enabled—see <a href="privacy">Privacy Policy</a> (<code>read:email-address:jira</code> where declared).</li>

@@ -33,12 +33,12 @@ If you add **ticketing**, **analytics**, or **CRM**, update this table and the P
 
 ## C. Customer-configured third parties (optional; not “Tech Cache subprocessors”)
 
-When **your organization** turns on integrations in the app UI, data flows **you initiate** may go to:
+When **your organization** turns on integrations in the app UI, data flows **you initiate** may go to **allowlisted** destinations only—the Forge app calls **only** hostnames permitted in **`external.fetch`** in the published **`manifest.yml`** (e.g. `*.atlassian.net`, Slack, Zapier, Make regional webhook hosts—not free-form “any HTTPS URL”).
 
 | Type | Examples | Notes |
 |------|----------|--------|
 | **Slack** | `slack.com`, `hooks.slack.com`, etc. | Message content, API calls, tokens **you** supply |
-| **Automation / webhooks** | Zapier, Make, **your** HTTPS endpoint | JSON payloads per **your** URL |
+| **Automation / webhooks** | Zapier, Make, and other providers whose **hostnames** are on the **`external.fetch`** allowlist | JSON payloads to **permitted** endpoints **you** configure within that allowlist—see **[Privacy Policy](/privacy)** §9–10 |
 | **Jira Cloud** | `*.atlassian.net` | Core APIs—not optional third party |
 
 Tech Cache **does not sell** personal data from the app to data brokers.

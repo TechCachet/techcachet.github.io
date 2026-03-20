@@ -38,7 +38,7 @@ You may not: misuse the app; reverse engineer it beyond what the law allows; use
 - **Charges, invoices, refunds, and taxes** are handled under **Atlassian’s** checkout and Marketplace terms—not summarized here.  
 - **Trials** follow **Atlassian’s** trial rules, if available.  
 - **Renewal and cancellation** are managed in **Atlassian** account / Marketplace controls, unless you have a **separate written agreement** with Tech Cache.  
-- The app may check **Marketplace license status** through Forge (for example `getAppContext().license`) to show or enforce paid access in **production**.
+- The app may check **Marketplace license status** through Forge (for example, `getAppContext().license`) to show or enforce paid access in **production**.
 
 ---
 

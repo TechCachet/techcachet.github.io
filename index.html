@@ -769,7 +769,7 @@ a:hover{
         </p>
         <ul>
           <li>Panel: “Send SLA Alert to Linked Tickets” — choose all or specific linked tickets, then post a comment on each with the parent’s SLA status and expiry; optional Slack with clickable Jira links</li>
-          <li>Scheduled alerts: when the parent’s SLA goes at risk, breached, or 30 min remaining (configurable), post a comment on each linked ticket and @mention that ticket’s assignee, reporter, watchers, and configurable fields (e.g. Request Participants)</li>
+          <li>Scheduled alerts: when the parent’s SLA hits configured triggers (at risk, breached, or configurable time-left thresholds—e.g. 30 minutes remaining—with separate recipient sets per rule where supported), post a comment on each linked ticket and @mention that ticket’s assignee, reporter, watchers, and configurable fields (e.g. Request Participants)</li>
           <li>Admin: triggers, who to @mention per trigger, Jira comment / Slack (webhook or Bot + channel) / email webhook, and two configurable message templates</li>
           <li>Optional SLA field override; Slack token stored securely in Forge (masked, clearable)</li>
         </ul>

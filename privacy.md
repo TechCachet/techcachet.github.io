@@ -2,8 +2,9 @@
 
 **Last updated:** March 2026  
 
-**App:** Linked SLA Alerts (Atlassian Forge app for Jira Cloud)  
-**Publisher:** Tech Cache  
+**App:** Linked SLA Alerts (Atlassian Forge app for Jira Cloud).
+
+**Publisher:** Tech Cache.
 
 This Privacy Policy describes how Linked SLA Alerts accesses, uses, stores, and shares information when a customer installs and uses the app in their Jira Cloud site. It also briefly describes our marketing site (this site). **This document supports transparency and Marketplace review; it is not legal advice—involve counsel for DPA wording, EU/UK roles, and enterprise procurement.**
 

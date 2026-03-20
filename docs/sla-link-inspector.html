@@ -125,7 +125,7 @@ a{
 
 <h1>Linked SLA Alerts</h1>
 
-<p class="muted" style="margin-top:0; font-size:0.95rem;">Version 1.1.15 | Atlassian Forge App for Jira</p>
+<p class="muted" style="margin-top:0; font-size:0.95rem;">Version shown for reference only (e.g. 1.1.15)—confirm the current version on the <strong>Atlassian Marketplace</strong> listing. Atlassian Forge app for Jira.</p>
 
 <p>
 Linked SLA Alerts notifies linked tickets when a parent issue’s SLA goes at risk or breached. The app lives on the parent issue that owns the SLA. <strong>Linked tickets do not need their own SLA.</strong>
@@ -136,10 +136,10 @@ Linked SLA Alerts notifies linked tickets when a parent issue’s SLA goes at ri
 <h2>Getting Started</h2>
 
 <ol>
-<li>Install Linked SLA Alerts from the Atlassian Marketplace.</li>
-<li>Open any Jira issue that has an SLA and linked tickets.</li>
-<li>The Linked SLA Alerts panel appears in the issue sidebar.</li>
-<li>Click <strong>Configure app</strong> in the panel to set up triggers and notifications.</li>
+<li>Install <strong>Linked SLA Alerts</strong> from the <strong>Atlassian Marketplace</strong>.</li>
+<li>Open a <strong>parent</strong> Jira issue that has an <strong>SLA</strong> and <strong>linked issues</strong> (standard issue links).</li>
+<li>In the issue view, open the <strong>Linked SLA Alerts</strong> panel—use <strong>Send SLA Alert</strong> / <strong>Send SLA Alert to Linked Tickets</strong> on demand as needed.</li>
+<li>To set up <strong>scheduled triggers</strong>, channels (Jira, Slack, automation webhooks), and templates, use <strong>Configure app</strong> in the panel or go to <strong>Jira administration → Apps → Linked SLA Alerts</strong> (Configurations).</li>
 </ol>
 
 </div>
@@ -170,17 +170,22 @@ Go to Jira admin settings and select Linked SLA Alerts under Marketplace apps, o
 The app auto-detects SLA fields by name. If your site uses a non-standard field name or a different language, enter the custom field ID (for example, <code>customfield_10005</code>) to ensure the app reads the correct SLA.
 </p>
 
+<h3>Jira Service Management (optional)</h3>
+<p>
+For <strong>Jira Service Management</strong> request SLAs (for example “Time to resolution”) that are not exposed as a normal issue field, the app can read <strong>request SLA</strong> data where the installed scopes allow—see scope <code>read:request.sla:jira-service-management</code> in <code>manifest.yml</code>. Availability depends on your JSM setup and issue type.
+</p>
+
 <h3>Trigger Conditions</h3>
-<p>Configure when alerts fire on linked tickets:</p>
+<p>Configure when alerts fire on linked tickets. In addition to <strong>At risk</strong> and <strong>Breached</strong>, you can add <strong>time-left</strong> rules: one or more thresholds (e.g. <strong>30 minutes</strong> remaining—example only), with amounts and units such as <strong>minutes</strong>, <strong>hours</strong>, or <strong>days</strong>. Each time-left rule can use its <strong>own</strong> recipient list (not necessarily the same as At risk or Breached).</p>
 <ul>
 <li><strong>At risk</strong> — fires when the parent issue’s SLA enters at-risk status</li>
 <li><strong>Breached</strong> — fires when the parent issue’s SLA is breached</li>
-<li><strong>30 minutes remaining</strong> — fires when 30 minutes remain on the parent’s SLA (uses the At Risk notify list)</li>
+<li><strong>Time remaining</strong> — fires when the parent’s SLA crosses configured thresholds (configurable values and units; e.g. 30 minutes remaining)</li>
 <li><strong>Only notify if linked issue is still open</strong> — skips alerts for resolved or done linked tickets</li>
 </ul>
 
 <h3>Who Gets Notified</h3>
-<p>Configure separately for At Risk and Breached triggers. Notifications are posted as comments on each linked ticket and @mention:</p>
+<p>Configure <strong>@mentions</strong> separately per trigger type—including <strong>At risk</strong>, <strong>Breached</strong>, and each <strong>time-left</strong> rule where the product supports it. Notifications are posted as comments on each linked ticket and @mention:</p>
 <ul>
 <li>Assignee</li>
 <li>Reporter</li>
@@ -194,7 +199,7 @@ The app auto-detects SLA fields by name. If your site uses a non-standard field 
 <li><strong>Jira Comment</strong> — posts a comment on each linked ticket</li>
 <li><strong>Jira @Mention</strong> — includes @mentions in the comment</li>
 <li><strong>Slack</strong> — send via incoming webhook URL or Bot token and channel ID</li>
-<li><strong>Email webhook</strong> — send via Zapier, Make, or similar webhook URL</li>
+<li><strong>Email webhook</strong> — send via Zapier, Make, or another integration whose endpoint host is on the app’s Forge <strong><code>external.fetch</code></strong> allowlist (see <strong>Privacy Policy</strong> and <code>manifest.yml</code>)</li>
 </ul>
 
 <h3>Message Templates</h3>
@@ -204,10 +209,10 @@ The app auto-detects SLA fields by name. If your site uses a non-standard field 
 <li><code>{{issueKey}}</code> — the parent issue key</li>
 <li><code>{{slaName}}</code> — SLA field name</li>
 <li><code>{{remainingTime}}</code> — time remaining or overdue</li>
-<li><code>{{status}}</code> — at risk, breached, or 30 minutes remaining</li>
+<li><code>{{status}}</code> — at risk, breached, or a configured time-left state (e.g. 30 minutes remaining)</li>
 <li><code>{{assignee}}</code> — @mentions as configured</li>
 </ul>
-<p><strong>Send SLA Alert to Linked Tickets template</strong> — used when you click the button in the panel. Available variables:</p>
+<p><strong>Send SLA Alert to Linked Tickets</strong> template — used when you run the on-demand action in the panel (<strong>Send SLA Alert</strong> / <strong>Send SLA Alert to Linked Tickets</strong>). Available variables:</p>
 <ul>
 <li><code>{{issueKey}}</code> — the parent issue key</li>
 <li><code>{{slaStatus}}</code> — At-Risk, Breached, or In SLA range</li>
@@ -219,14 +224,14 @@ The app auto-detects SLA fields by name. If your site uses a non-standard field 
 
 <div class="card">
 
-<h2>Send SLA Alert to Linked Tickets Panel</h2>
+<h2>Send SLA Alert / Send SLA Alert to Linked Tickets</h2>
 
 <p>
-From any parent issue with linked tickets, the panel lets you send an on-demand SLA status update:
+From any parent issue with linked tickets, the <strong>Linked SLA Alerts</strong> panel lets you send an on-demand SLA status update:
 </p>
 <ul>
 <li>Choose <strong>All linked tickets</strong> or select <strong>Only these</strong> and enter specific issue keys.</li>
-<li>Click <strong>Send SLA to linked tickets</strong>.</li>
+<li>Click <strong>Send SLA Alert</strong> (primary action; labeling may show <strong>Send SLA Alert to Linked Tickets</strong> for the full flow).</li>
 <li>The app posts a comment on each selected linked ticket with the parent’s SLA status and expiry date.</li>
 </ul>
 
@@ -241,7 +246,7 @@ Linked SLA Alerts runs on <strong>Atlassian Forge</strong>. Core processing and 
 </p>
 <ul>
 <li>Configuration and operational state are stored in <strong>Forge Key-Value Store</strong> (encrypted at rest per Atlassian).</li>
-<li>When you enable <strong>Slack</strong> or <strong>webhook/email</strong> integrations, payloads are sent only to endpoints <strong>you</strong> configure—subject to those providers’ policies.</li>
+<li>When you enable <strong>Slack</strong> or <strong>webhook/automation</strong> integrations, payloads are sent only to hostnames on the app’s Forge <strong><code>external.fetch</code></strong> allowlist in <strong><code>manifest.yml</code></strong> (e.g. Slack, Zapier, Make—not arbitrary customer URLs), per <strong>your</strong> configuration and those providers’ policies.</li>
 <li>Slack bot tokens are masked in API responses and never sent to the browser.</li>
 <li>Tokens can be cleared at any time via <strong>Clear saved token</strong> in the Configurations page.</li>
 </ul>
