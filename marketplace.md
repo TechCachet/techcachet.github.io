@@ -11,8 +11,10 @@
 | **App name** | Linked SLA Alerts |
 | **Vendor** | Tech Cache |
 | **Support email** | techcache@proton.me |
+| **Support / security page** | `https://techcache.github.io/support` (optional but strong for trust) |
 | **Privacy policy URL** | `https://techcache.github.io/privacy` |
 | **Documentation URL** | `https://techcache.github.io/docs/sla-link-inspector.html` |
+| **Security / trust overview** | `https://techcache.github.io/security-review` (Forge architecture + optional integrations—**no fake certifications**) |
 | **EULA / legal** | Link **Terms**: `https://techcache.github.io/terms` (or Atlassian’s EULA flow if you use it—**counsel**) |
 | **Paid app** | Set **pricing** in Partner Center; clarify **merchant of record** (usually Atlassian for Marketplace) with **counsel** and align **Terms §3** |
 
@@ -22,7 +24,7 @@
 
 | Item | Notes |
 |------|--------|
-| **Security / trust** | Short “Security practices” blurb in listing; link **Privacy §8** or add a dedicated `security.md` later |
+| **Security / trust** | Link **`/security-review`**; Privacy Policy **§12** (security summary); subprocessors page |
 | **Subprocessors** | Link `https://techcache.github.io/subprocessors` in listing or partner questionnaire |
 | **DPA** | Process for EU/UK B2B—contact email in **Terms** and **Privacy** |
 | **Screenshots / video** | Panel, admin config, Slack sample (no real customer PII) |
@@ -45,7 +47,9 @@ Primarily **Atlassian (Jira Cloud + Forge)**. Data is sent to **Slack** or **oth
 
 ## Repo / branding note
 
-Internal repo or package names may still use **`sla-link-inspector`**; the **customer-facing** name is **Linked SLA Alerts**. Align Marketplace listing, docs, and support auto-replies.
+The GitHub repository may remain **`sla-link-inspector`** while the **Marketplace and in-Jira name** is **Linked SLA Alerts**. That is normal; avoid renaming the repo unless you are ready to retool CI, links, and clones. **Do** keep customer-facing copy and support replies on **Linked SLA Alerts**.
+
+**MIT `LICENSE` in the public repo** vs. **paid Marketplace** — see **[Licensing note](/licensing)** and the app repo’s **`sla-link-inspector/docs/LICENSING-NOTE.md`**. Do not change the license file without counsel.
 
 ---
 
