@@ -1,4 +1,4 @@
-# Support & security
+# Support & Security
 
 **Linked SLA Alerts** · Tech Cache  
 
@@ -18,10 +18,10 @@
 
 - [Privacy Policy](/privacy)  
 - [Terms of Service](/terms)  
-- [Subprocessors & infrastructure](/subprocessors)  
-- [Security overview](/security-review.html)  
-- [Product documentation](/docs/sla-link-inspector.html)  
-- **[Legal & trust](/legal/)** — index of the policies above, security overview, and this page  
+- [Subprocessors & Infrastructure](/subprocessors)  
+- [Security Overview](/security-review.html) — short summary of Forge architecture and optional integrations (no certifications claimed)  
+- [Product Documentation](/docs/sla-link-inspector.html)  
+- **[Legal & Trust](/legal/)** — index of the policies above, Security Overview, and this page  
 
 ---
 
@@ -39,15 +39,9 @@ We do **not** run a public bug-bounty program unless we say so explicitly on thi
 
 **Privacy:** [Privacy Policy](/privacy)  
 
-**Policies index:** [Legal & trust](/legal/)  
+**Policies index:** [Legal & Trust](/legal/)  
 
 **DPA / EU-UK:** Business customers may request a DPA at **[techcache@proton.me](mailto:techcache@proton.me)** (counsel to finalize).
-
----
-
-## Trust overview (Forge app)
-
-For a **short, customer-facing** summary of architecture and optional integrations (no certifications claimed), see **[Security overview](/security-review.html)**.
 
 ---
 

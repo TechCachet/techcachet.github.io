@@ -23,7 +23,7 @@ This Privacy Policy describes how Linked SLA Alerts accesses, uses, stores, and 
 
 **Tech Cache** develops Linked SLA Alerts.  
 
-**Contact & support:** [techcache@proton.me](mailto:techcache@proton.me) · [Support & security](/support)  
+**Contact & Support:** [techcache@proton.me](mailto:techcache@proton.me) · [Support & Security](/support)  
 
 ---
 
@@ -65,7 +65,7 @@ We do **not** describe a **bulk export** of your entire Jira database or a **con
 
 ## 6. Subprocessors vs. customer-configured integrations
 
-- **Subprocessors / core infrastructure:** **Atlassian** (Jira Cloud, Forge runtime, Forge KVS, Marketplace billing integration) processes data **on your behalf** when you use the app. See **[Subprocessors & infrastructure](/subprocessors)**.  
+- **Subprocessors / core infrastructure:** **Atlassian** (Jira Cloud, Forge runtime, Forge KVS, Marketplace billing integration) processes data **on your behalf** when you use the app. See **[Subprocessors & Infrastructure](/subprocessors)**.  
 - **Customer-configured integrations:** When you enable **Slack**, **Zapier/Make**, or **custom HTTPS webhooks**, **you** choose the destination. Data is sent **under your configuration**; those providers process data under **their** terms. They are **not** “Tech Cache subprocessors” in the same sense as Atlassian, though your counsel may treat them as **your** subprocessors.
 
 ---
@@ -153,7 +153,7 @@ We **do not** claim SOC 2, ISO 27001, or other certifications **unless** you hav
 
 ## 15. Your rights & requests
 
-For data **in Jira**, contact your **organization admin** and **Atlassian**. For **support mail** or other records Tech Cache holds, contact **[techcache@proton.me](mailto:techcache@proton.me)**. EU/UK business customers may request a **DPA**—see [Terms](/terms) and [Legal & trust](/legal/).
+For data **in Jira**, contact your **organization admin** and **Atlassian**. For **support mail** or other records Tech Cache holds, contact **[techcache@proton.me](mailto:techcache@proton.me)**. EU/UK business customers may request a **DPA**—see [Terms](/terms) and [Legal & Trust](/legal/).
 
 ---
 
@@ -171,4 +171,4 @@ We will update the **Last updated** date when we make material changes. Signific
 
 ## 18. Contact
 
-**Tech Cache** — [techcache@proton.me](mailto:techcache@proton.me) · [Support & security](/support) · [Legal & trust](/legal/)
+**Tech Cache** — [techcache@proton.me](mailto:techcache@proton.me) · [Support & Security](/support) · [Legal & Trust](/legal/)

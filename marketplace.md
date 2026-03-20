@@ -11,11 +11,11 @@
 | **App name** | Linked SLA Alerts |
 | **Vendor** | Tech Cache |
 | **Support email** | techcache@proton.me |
-| **Support / security page** | `https://techcache.github.io/support` |
+| **Support & Security** | `https://techcache.github.io/support` |
 | **Privacy policy URL** | `https://techcache.github.io/privacy` |
 | **Documentation URL** | `https://techcache.github.io/docs/sla-link-inspector.html` |
-| **Security / trust overview** | `https://techcache.github.io/security-review.html` |
-| **Legal & trust (hub)** | `https://techcache.github.io/legal/` (Terms, Privacy, Subprocessors, security overview, support) |
+| **Security Overview** | `https://techcache.github.io/security-review.html` |
+| **Legal & Trust** | `https://techcache.github.io/legal/` (Terms, Privacy, Subprocessors & Infrastructure, Security Overview, Support & Security) |
 | **EULA / legal** | `https://techcache.github.io/terms` (or Atlassian’s flow if you use it—confirm with counsel) |
 | **Paid app** | Set **pricing** in Partner Center; **billing** is typically through **Atlassian** per Marketplace terms |
 
@@ -25,7 +25,7 @@
 
 | Item | Notes |
 |------|--------|
-| **Security / trust** | Link **`/security-review.html`**; [Privacy Policy](/privacy) **§12** (security summary); [Subprocessors](/subprocessors) |
+| **Security / trust** | Link **`/security-review.html`**; [Privacy Policy](/privacy) **§12** (security summary); [Subprocessors & Infrastructure](/subprocessors) |
 | **Subprocessors** | `https://techcache.github.io/subprocessors` |
 | **DPA** | EU/UK B2B—contact **techcache@proton.me** (see Terms) |
 | **Screenshots / video** | Panel, admin, Slack sample (no real customer PII) |
@@ -56,7 +56,7 @@ An internal development repository may use a different **codename** (e.g. `sla-l
 
 ## Inputs for legal review
 
-- [Privacy Policy](/privacy) · [Terms of Service](/terms) · [Legal & trust](/legal/) · [Subprocessors](/subprocessors)  
+- [Privacy Policy](/privacy) · [Terms of Service](/terms) · [Legal & Trust](/legal/) · [Subprocessors & Infrastructure](/subprocessors)  
 - [docs/marketplace-slack-dm.md](https://github.com/TechCache/techcache.github.io/blob/main/docs/marketplace-slack-dm.md) (Slack/DM notes on **this** website repo)  
 - Forge **`manifest.yml`** (scopes + `external.fetch` allowlist)  
 - Whether **Tech Cache** receives any **direct** customer payments or only via **Atlassian** (affects liability context in Terms)  

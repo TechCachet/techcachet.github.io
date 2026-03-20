@@ -1,4 +1,4 @@
-# Subprocessors & infrastructure
+# Subprocessors & Infrastructure
 
 **Last updated:** March 2026  
 
@@ -49,4 +49,4 @@ Tech Cache **does not sell** personal data from the app to data brokers.
 
 Update this page when you add **manifest** fetch hosts, **analytics**, or **support tools**.
 
-**Contact:** [techcache@proton.me](mailto:techcache@proton.me) · [Support & security](/support) · [Legal & trust](/legal/)
+**Contact:** [techcache@proton.me](mailto:techcache@proton.me) · [Support & Security](/support) · [Legal & Trust](/legal/)

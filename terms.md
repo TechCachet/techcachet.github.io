@@ -14,7 +14,7 @@ By **installing**, **configuring**, or **using** the app, you confirm that you h
 
 **Linked SLA Alerts** runs on **Atlassian Forge**. It reads Jira **issue** and **SLA** data (including **linked issues**), may **post comments** and **@mentions** on linked issues, and may send **optional** notifications via **Slack** or **HTTPS webhooks** you configure in the admin UI.
 
-**Docs:** [Product overview](/sla-link-inspector.html) · [Documentation](/docs/sla-link-inspector.html) · [Privacy Policy](/privacy)
+**Docs:** [Product Overview](/sla-link-inspector.html) · [Product Documentation](/docs/sla-link-inspector.html) · [Privacy Policy](/privacy)
 
 ---
 
@@ -58,13 +58,13 @@ You are responsible for **lawful use**, correct **configuration** (Slack, webhoo
 
 ## 7. Privacy
 
-See the **[Privacy Policy](/privacy)**, **[Subprocessors](/subprocessors)**, and **[Legal & trust](/legal/)** (index of policies and security overview). EU/UK businesses may request a **DPA** at **[techcache@proton.me](mailto:techcache@proton.me)**.
+See the **[Privacy Policy](/privacy)**, **[Subprocessors & Infrastructure](/subprocessors)**, and **[Legal & Trust](/legal/)** (index of policies and Security Overview). EU/UK businesses may request a **DPA** at **[techcache@proton.me](mailto:techcache@proton.me)**.
 
 ---
 
-## 8. Support
+## 8. Support & Security
 
-**Email:** [techcache@proton.me](mailto:techcache@proton.me) · Details: **[Support & security](/support)**  
+**Email:** [techcache@proton.me](mailto:techcache@proton.me) · Details: **[Support & Security](/support)**  
 
 We do **not** promise a specific response time unless we agree **in writing** with your organization.
 
@@ -108,4 +108,4 @@ You and Tech Cache agree that the **state and federal courts located in Hillsbor
 
 ## 14. Contact
 
-**Tech Cache** — [techcache@proton.me](mailto:techcache@proton.me) · [Support & security](/support)
+**Tech Cache** — [techcache@proton.me](mailto:techcache@proton.me) · [Support & Security](/support)

@@ -3,7 +3,7 @@
 **Linked SLA Alerts** may send messages to **Slack** (channels or DMs) when a customer configures Slack in the app admin UI. Use this note together with:
 
 - Site **[Privacy Policy](/privacy)** (especially §6, §9)  
-- **[Subprocessors & infrastructure](/subprocessors)**  
+- **[Subprocessors & Infrastructure](/subprocessors)**  
 - Forge **`manifest.yml`** (scopes + `external.fetch` allowlist)  
 - **[Marketplace listing checklist](/marketplace)**  
 
