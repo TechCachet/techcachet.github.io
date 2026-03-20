@@ -735,12 +735,17 @@ a:hover{
   </h1>
 
   <div class="splash-stage">
+    <!-- srcset: high-DPI / wide viewports use splash-hero-2x.png (replace with a native 2× export from design for best sharpness) -->
     <img
       class="splash-art"
       src="assets/splash-hero.png"
+      srcset="assets/splash-hero.png 1024w, assets/splash-hero-2x.png 2048w"
+      sizes="100vw"
       width="1024"
       height="483"
       alt="Tech Cache: Built for Atlassian teams — Keep every linked Jira ticket moving together. Parent ticket at risk with SLA time flowing to linked issues (breached, at risk, on track). Automatic linked-ticket alerts, Jira comments and mentions, optional Slack and email."
+      decoding="sync"
+      fetchpriority="high"
     >
   </div>
 </section>
