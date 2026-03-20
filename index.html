@@ -343,29 +343,62 @@ body{
   padding-bottom:max(clamp(44px, 8vw, 64px), env(safe-area-inset-bottom));
 }
 
-.hero{
+/* Splash hero (octopus artwork) + subtle motion; see prefers-reduced-motion */
+.hero.splash-hero{
   text-align:center;
   margin-bottom:clamp(24px, 5vw, 36px);
 }
 
-.hero-banner-wrap{
-  margin:0 0 clamp(14px, 3vw, 20px);
-  border-radius:clamp(10px, 2vw, 14px);
+.splash-stage{
+  position:relative;
+  margin:0 0 clamp(20px, 4vw, 32px);
+  border-radius:clamp(12px, 2vw, 18px);
   overflow:hidden;
   border:1px solid var(--border);
-  box-shadow:0 12px 40px rgba(0,0,0,0.35);
+  box-shadow:0 16px 52px rgba(0,0,0,0.5);
   line-height:0;
+  background:#060a12;
 }
 
-.hero-banner{
+.splash-glow{
+  position:absolute;
+  inset:-25%;
+  z-index:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 65% 55% at 78% 42%, rgba(56,189,248,0.38) 0%, transparent 52%),
+    radial-gradient(ellipse 45% 45% at 22% 58%, rgba(125,211,252,0.14) 0%, transparent 48%);
+  animation:splash-glow-breathe 5.5s ease-in-out infinite alternate;
+}
+
+.splash-art{
+  position:relative;
+  z-index:1;
   width:100%;
   height:auto;
   display:block;
   vertical-align:bottom;
+  animation:splash-float 8s ease-in-out infinite;
 }
 
-.hero-cta{
-  margin-top:8px;
+@keyframes splash-glow-breathe{
+  from{
+    opacity:0.72;
+    transform:scale(1) translate3d(0,0,0);
+  }
+  to{
+    opacity:1;
+    transform:scale(1.05) translate3d(0,0,0);
+  }
+}
+
+@keyframes splash-float{
+  0%,100%{
+    transform:translate3d(0,0,0);
+  }
+  50%{
+    transform:translate3d(0,-10px,0);
+  }
 }
 
 .visually-hidden{
@@ -631,20 +664,13 @@ a:hover{
     max-width:150px;
   }
 
-  /* Banner uses full content width (cancels horizontal gutter) */
-  .hero-banner-wrap{
+  /* Splash edge-to-edge on small screens */
+  .splash-stage{
     margin-left:calc(-1 * var(--gutter));
     margin-right:calc(-1 * var(--gutter));
     width:calc(100% + 2 * var(--gutter));
     max-width:none;
-    border-radius:clamp(8px, 2vw, 12px);
-  }
-
-  .hero-cta{
-    flex-direction:column;
-    align-items:stretch;
-    gap:10px;
-    padding:0 2px;
+    border-radius:clamp(8px, 2vw, 14px);
   }
 
   .cta-button,
@@ -678,6 +704,11 @@ a:hover{
 @media (prefers-reduced-motion:reduce){
   html{
     scroll-behavior:auto;
+  }
+
+  .splash-glow,
+  .splash-art{
+    animation:none !important;
   }
 
   .cta-button,
@@ -739,24 +770,24 @@ a:hover{
 
 <main class="container">
 
-  <div class="hero">
-    <h1 class="visually-hidden">Tech Cache — Practical tools for Atlassian teams. Better visibility and clearer SLA communication. Linked SLA Alerts for Jira.</h1>
+  <section class="hero splash-hero" aria-label="Welcome">
+    <h1 class="visually-hidden">
+      Tech Cache — Practical Tools for Atlassian Teams. Built to give your team better visibility, faster response,
+      and automatically keep every linked ticket in the loop. Refuse to let things slip through the cracks.
+      Linked SLA Alerts for Jira.
+    </h1>
 
-    <div class="hero-banner-wrap">
+    <div class="splash-stage">
+      <div class="splash-glow" aria-hidden="true"></div>
       <img
-        class="hero-banner"
-        src="assets/hero-banner.png"
+        class="splash-art"
+        src="assets/splash-octopus.png"
         width="1024"
-        height="287"
-        alt="Tech Cache: Practical Tools for Atlassian Teams. Built for teams that want better visibility and clearer SLA communication. Linked SLA Alerts app preview with treasure chest icon."
+        height="506"
+        alt="Practical Tools for Atlassian Teams — better visibility, faster response, and linked tickets kept in the loop. Steampunk teal octopus with Jira-style window and Slack bubble."
       >
     </div>
-
-    <div class="cta-wrap hero-cta">
-      <a href="#apps-services" class="cta-button">Explore Apps</a>
-      <a href="#contact" class="cta-secondary">Contact</a>
-    </div>
-  </div>
+  </section>
 
   <section class="card highlight-card">
     <h2>What Tech Cache Offers</h2>
