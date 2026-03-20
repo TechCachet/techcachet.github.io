@@ -28,6 +28,12 @@ content="Tech Cache builds practical Atlassian tools, including Linked SLA Alert
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+  /* Offset in-page anchors below sticky ribbon */
+  scroll-padding-top:clamp(88px, 18vw, 118px);
+}
+
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
@@ -37,6 +43,281 @@ body{
   /* Respect notched phones (iPhone X+, etc.) */
   padding-left:max(0px, env(safe-area-inset-left));
   padding-right:max(0px, env(safe-area-inset-right));
+}
+
+/* ----- Full-width ribbon header (utility + nav) ----- */
+.site-ribbon{
+  position:sticky;
+  top:0;
+  z-index:200;
+  box-shadow:0 4px 24px rgba(0,0,0,0.35);
+}
+
+.ribbon-util{
+  background:#080d18;
+  border-bottom:1px solid #1a2438;
+  color:var(--muted);
+  font-size:0.8125rem;
+}
+
+.ribbon-util-inner{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px 22px;
+  padding:10px var(--gutter);
+  max-width:min(var(--content-max), calc(100vw - 32px));
+  margin:0 auto;
+}
+
+.ribbon-util a{
+  color:#c5d0e3;
+  text-decoration:none;
+  white-space:nowrap;
+}
+
+.ribbon-util a:hover{
+  color:var(--accent2);
+  text-decoration:none;
+}
+
+.ribbon-util-note{
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+.ribbon-main{
+  position:relative;
+  background:rgba(15,21,40,0.97);
+  backdrop-filter:saturate(1.2) blur(8px);
+  border-bottom:1px solid var(--border);
+}
+
+.ribbon-nav-inner{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px 20px;
+  padding:14px var(--gutter);
+  max-width:min(var(--content-max), calc(100vw - 32px));
+  margin:0 auto;
+}
+
+.ribbon-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:700;
+  font-size:1.2rem;
+  letter-spacing:0.5px;
+}
+
+.ribbon-brand:hover{
+  text-decoration:none;
+  color:var(--text);
+}
+
+.ribbon-brand img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+
+.ribbon-brand-text{
+  line-height:1.15;
+}
+
+.ribbon-brand-text .accent{
+  color:var(--accent);
+}
+
+.ribbon-desktop-nav{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px 28px;
+}
+
+.ribbon-desktop-nav a{
+  color:#c8d4e8;
+  font-size:0.95rem;
+  font-weight:600;
+  text-decoration:none;
+  padding:6px 2px;
+  border-radius:4px;
+}
+
+.ribbon-desktop-nav a:hover{
+  color:var(--accent2);
+  text-decoration:none;
+}
+
+.ribbon-desktop-nav a:focus-visible{
+  outline:2px solid var(--accent2);
+  outline-offset:3px;
+}
+
+.ribbon-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 20px;
+  border-radius:8px;
+  border:1px solid #3d4f72;
+  color:#dce4f5;
+  font-size:0.9rem;
+  font-weight:700;
+  text-decoration:none;
+  background:transparent;
+  transition:border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.ribbon-cta:hover{
+  border-color:var(--accent2);
+  color:var(--accent2);
+  text-decoration:none;
+}
+
+.ribbon-cta:focus-visible{
+  outline:2px solid var(--accent2);
+  outline-offset:3px;
+}
+
+/* Mobile menu (checkbox + flyout) */
+.ribbon-nav-state{
+  position:absolute;
+  opacity:0;
+  width:0;
+  height:0;
+  pointer-events:none;
+}
+
+.ribbon-burger{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:44px;
+  height:44px;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:rgba(255,255,255,0.04);
+  cursor:pointer;
+  flex-shrink:0;
+}
+
+.ribbon-burger span{
+  display:block;
+  height:2px;
+  background:var(--text);
+  border-radius:1px;
+}
+
+.ribbon-burger:hover{
+  border-color:#3d5a80;
+}
+
+.ribbon-flyout{
+  display:none;
+  position:absolute;
+  left:0;
+  right:0;
+  top:100%;
+  background:rgba(14,19,36,0.98);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 16px 40px rgba(0,0,0,0.4);
+  padding:16px var(--gutter) 20px;
+  z-index:50;
+}
+
+.ribbon-flyout-nav{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  max-width:min(var(--content-max), calc(100vw - 32px));
+  margin:0 auto;
+}
+
+.ribbon-flyout-nav a{
+  display:block;
+  padding:14px 12px;
+  border-radius:8px;
+  color:var(--text);
+  font-weight:600;
+  text-decoration:none;
+  border:1px solid transparent;
+}
+
+.ribbon-flyout-nav a:hover{
+  background:rgba(125,211,252,0.08);
+  color:var(--accent2);
+  text-decoration:none;
+}
+
+.ribbon-flyout-nav .ribbon-flyout-cta{
+  margin-top:8px;
+  text-align:center;
+  border:1px solid #3d4f72;
+  color:#dce4f5;
+}
+
+.ribbon-flyout-nav .ribbon-flyout-cta:hover{
+  border-color:var(--accent2);
+}
+
+.ribbon-flyout-close{
+  display:block;
+  margin-top:12px;
+  padding:10px;
+  text-align:center;
+  font-size:0.85rem;
+  color:var(--muted);
+  cursor:pointer;
+  border-radius:6px;
+}
+
+.ribbon-flyout-close:hover{
+  color:var(--accent2);
+}
+
+#ribbon-nav-toggle:checked ~ .ribbon-flyout{
+  display:block;
+}
+
+@media (max-width:768px){
+  .ribbon-desktop-nav,
+  .ribbon-desktop-cta{
+    display:none !important;
+  }
+
+  .ribbon-burger{
+    display:flex;
+  }
+
+  .ribbon-nav-inner{
+    padding:12px var(--gutter);
+  }
+}
+
+@media (min-width:769px){
+  .ribbon-burger{
+    display:none !important;
+  }
+
+  .ribbon-flyout{
+    display:none !important;
+  }
+}
+
+#contact,
+#resources,
+#apps-services{
+  scroll-margin-top:clamp(88px, 18vw, 118px);
 }
 
 .container{
@@ -381,6 +662,10 @@ a:hover{
 }
 
 @media (prefers-reduced-motion:reduce){
+  html{
+    scroll-behavior:auto;
+  }
+
   .cta-button,
   .cta-secondary{
     transition:none;
@@ -396,9 +681,51 @@ a:hover{
 
 <body>
 
-<div class="container">
+<header class="site-ribbon" role="banner">
+  <div class="ribbon-util">
+    <div class="ribbon-util-inner">
+      <a href="tel:+18139069247">📱 813-906-9247</a>
+      <a href="mailto:techcache@proton.me">📧 techcache@proton.me</a>
+      <span class="ribbon-util-note">📍 Based in Tampa, Florida</span>
+    </div>
+  </div>
 
-  <header class="hero">
+  <div class="ribbon-main">
+    <input type="checkbox" id="ribbon-nav-toggle" class="ribbon-nav-state" tabindex="-1">
+    <div class="ribbon-nav-inner">
+      <a class="ribbon-brand" href="/" aria-label="Tech Cache home">
+        <img src="assets/icon.png" width="42" height="42" alt="">
+        <span class="ribbon-brand-text">Tech <span class="accent">Cache</span></span>
+      </a>
+
+      <nav class="ribbon-desktop-nav" aria-label="Primary">
+        <a href="#apps-services">Apps</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contacts</a>
+      </nav>
+
+      <a class="ribbon-cta ribbon-desktop-cta" href="#contact">Contact</a>
+
+      <label for="ribbon-nav-toggle" class="ribbon-burger" aria-label="Open menu" aria-controls="ribbon-flyout-panel" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+
+    <div class="ribbon-flyout" id="ribbon-flyout-panel">
+      <nav class="ribbon-flyout-nav" aria-label="Mobile primary">
+        <a href="#apps-services">Apps</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contacts</a>
+        <a class="ribbon-flyout-cta" href="#contact">Contact</a>
+        <label for="ribbon-nav-toggle" class="ribbon-flyout-close">Close menu</label>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="hero">
     <h1 class="visually-hidden">Tech Cache — Practical tools for Atlassian teams. Better visibility and clearer SLA communication. Linked SLA Alerts for Jira.</h1>
 
     <div class="hero-banner-wrap">
@@ -413,11 +740,9 @@ a:hover{
 
     <div class="cta-wrap hero-cta">
       <a href="#apps-services" class="cta-button">Explore Apps</a>
-      <a href="mailto:techcache@proton.me" class="cta-secondary">Contact</a>
+      <a href="#contact" class="cta-secondary">Contact</a>
     </div>
-
-    <div class="location">Based in Tampa, Florida.</div>
-  </header>
+  </div>
 
   <section class="card highlight-card">
     <h2>What Tech Cache Offers</h2>
@@ -476,7 +801,7 @@ a:hover{
     </ul>
   </section>
 
-  <section class="card">
+  <section class="card" id="resources">
     <h2>Resources</h2>
     <ul class="link-list">
       <li><a href="docs/sla-link-inspector.html">Linked SLA Alerts Documentation</a></li>
@@ -486,7 +811,7 @@ a:hover{
     </ul>
   </section>
 
-  <section class="card contact-box">
+  <section class="card contact-box" id="contact">
     <h2>Contact Tech Cache</h2>
     <p>
       Questions about the app or support? Reach out directly.
@@ -505,7 +830,39 @@ a:hover{
     © 2026 Tech Cache — Practical tools for Atlassian teams.
   </div>
 
-</div>
+</main>
+
+<script>
+(function(){
+  var toggle = document.getElementById('ribbon-nav-toggle');
+  var flyout = document.querySelector('.ribbon-flyout');
+  var burger = document.querySelector('.ribbon-burger');
+  if(!toggle || !flyout) return;
+
+  flyout.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      toggle.checked = false;
+      syncMenuState();
+    });
+  });
+
+  function syncMenuState(){
+    var open = toggle.checked;
+    if(burger) burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  toggle.addEventListener('change', syncMenuState);
+  syncMenuState();
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && toggle.checked){
+      toggle.checked = false;
+      syncMenuState();
+      if(burger) burger.focus();
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
