@@ -2,103 +2,107 @@
 
 **Last updated:** March 2026  
 
-These Terms of Service (“**Terms**”) govern use of software published by **Tech Cache**, including the **Linked SLA Alerts** app for **Jira Cloud** offered through the **Atlassian Marketplace** (including as a **paid** app where applicable).
+These Terms of Service (“**Terms**”) govern use of **Linked SLA Alerts**, a **Jira Cloud** app published by **Tech Cache** and offered through the **Atlassian Marketplace** (including as a **paid** app).
 
-By **installing**, **configuring**, or **using** the app, you represent that you have authority to bind the **organization** whose Jira site the app is installed on, and you agree to these Terms. If you do not agree, do not install or use the app.
+By **installing**, **configuring**, or **using** the app, you confirm that you have authority to bind the **organization** whose Jira site the app is installed on, and you agree to these Terms. If you do not agree, do not use the app.
 
-**Atlassian:** Atlassian’s **Marketplace Terms of Use**, **product terms**, and **privacy policies** apply. **Billing, payment, tax, invoicing, trials (if offered by Atlassian), renewals, cancellations, and refunds** may be handled **entirely by Atlassian** (or its designated payment partners) under **applicable Marketplace and checkout terms**. **These Terms supplement—not replace—Atlassian’s terms.** Where this document and Atlassian’s terms conflict on payment or Marketplace policy, **Atlassian’s terms control** for those subjects.
+**Atlassian:** Atlassian’s **Marketplace Terms of Use**, **product terms**, and **privacy policies** also apply. **Billing, payment, tax, trials, renewals, cancellations, and refunds** are typically handled by **Atlassian** (or its payment partners) under **their** terms. **These Terms add to—not replace—Atlassian’s terms.** If anything here conflicts with Atlassian on **payment or Marketplace rules**, **Atlassian’s terms control** for those topics.
 
 ---
 
 ## 1. The application
 
-**Linked SLA Alerts** is an **Atlassian Forge** application that reads issue and SLA-related data (including linked issues), may **write comments** and **@mentions** on linked issues, and may send **optional notifications** via **Slack** or **customer-configured webhooks**, according to **administrator** configuration.
+**Linked SLA Alerts** runs on **Atlassian Forge**. It reads Jira **issue** and **SLA** data (including **linked issues**), may **post comments** and **@mentions** on linked issues, and may send **optional** notifications via **Slack** or **HTTPS webhooks** you configure in the admin UI.
 
-Documentation: **[Product page](/sla-link-inspector.html)** · **[Detailed docs](/docs/sla-link-inspector.html)** · **[Privacy Policy](/privacy)**
-
----
-
-## 2. Eligibility and authority
-
-You must have **legal authority** to install Marketplace apps on the Jira Cloud site and to accept these Terms on behalf of that **organization** (e.g. as an admin or authorized purchaser). You must comply with **Atlassian** account requirements and your **internal** procurement and security policies.
+**Docs:** [Product overview](/sla-link-inspector.html) · [Documentation](/docs/sla-link-inspector.html) · [Privacy Policy](/privacy)
 
 ---
 
-## 3. License grant
+## 2. Who may install
 
-Subject to these Terms and a **valid entitlement** (including an active **Marketplace subscription** or **trial** where Atlassian offers one), Tech Cache grants a **limited, non-exclusive, non-transferable, revocable** license to use the app **only** in **your** Jira Cloud instance(s) for **internal business purposes**.
-
-You may **not**: reverse engineer beyond what mandatory law allows; use the app to build a competing service; remove proprietary notices; violate law or Atlassian policy; or abuse systems.
+You must be allowed to install **Marketplace apps** on your Jira Cloud site and to accept these Terms for your **organization** (for example, a site admin or authorized buyer). You must follow **Atlassian** account rules and your **own** internal policies.
 
 ---
 
-## 4. Paid plans, subscriptions, billing, trials, renewal, and cancellation
+## 3. License to use
 
-- **Plans and pricing** are set in the **Atlassian Marketplace** (or Partner Center) and may change for **new** purchases as permitted by Atlassian.  
-- **Payment processing, refunds, chargebacks, and tax** are typically governed by **Atlassian** (or its merchant of record). **Do not rely on this page for refund eligibility**—see **Atlassian’s** checkout and Marketplace terms.  
-- **Trials** (if available) are governed by **Atlassian’s** trial rules and duration.  
-- **Renewal and cancellation** of Marketplace subscriptions are managed through **Atlassian** account/Marketplace controls unless you have a **separate** written agreement with Tech Cache.  
-- Tech Cache may use **Forge licensing signals** (e.g. `getAppContext().license`) to **enforce** or **display** entitlement in **production** as implemented in the app.
+Subject to these Terms and a **valid Marketplace entitlement** (paid subscription or **trial**, if Atlassian offers one), Tech Cache grants your organization a **limited, non-exclusive, non-transferable, revocable** right to use the app **only** in **your** Jira Cloud site(s) for **internal business use**.
+
+You may not: misuse the app; reverse engineer it beyond what the law allows; use it to build a competing product; strip legal notices; break the law or Atlassian’s rules; or overload systems.
 
 ---
 
-## 5. Suspension, termination, uninstall, and subscription end
+## 4. Paid access, billing, trials, renewals, and cancellation
 
-- Your right to use the app **ends** when you **uninstall** it, **lose** Marketplace entitlement, **Atlassian** suspends the install, or you **breach** these Terms.  
-- Tech Cache may **stop providing** or **limit** the app where required by law or Atlassian policy.  
-- **Effect of uninstall or subscription end:** Features that depend on a **valid license** may **stop working**; **configuration** in **Forge** storage is subject to **Atlassian’s** app data lifecycle. **You** should export or record configuration separately if your policy requires. **Outbound integrations** stop receiving new app traffic when the app no longer runs or config is removed.
-
----
-
-## 6. Customer responsibilities
-
-You are responsible for **lawful use**, **accurate configuration** (Slack tokens, webhooks, templates, mentions), **secrets** you enter, and compliance with **privacy**, **employment**, and **sector** rules. You must respect **Jira** permission and **email visibility** settings.
+- **Prices and plans** are set on the **Atlassian Marketplace** (and may change for **new** purchases as Atlassian allows).  
+- **Charges, invoices, refunds, and taxes** are handled under **Atlassian’s** checkout and Marketplace terms—not summarized here.  
+- **Trials** follow **Atlassian’s** trial rules, if available.  
+- **Renewal and cancellation** are managed in **Atlassian** account / Marketplace controls, unless you have a **separate written agreement** with Tech Cache.  
+- The app may check **Marketplace license status** through Forge (for example `getAppContext().license`) to show or enforce paid access in **production**.
 
 ---
 
-## 7. Data & privacy
+## 5. End of use (uninstall, expiry, breach)
 
-See the **[Privacy Policy](/privacy)** and **[Subprocessors & infrastructure](/subprocessors)**. EU/UK business customers may request a **DPA** at **[techcache@proton.me](mailto:techcache@proton.me)** (counsel to finalize).
+Your right to use the app **ends** if you **uninstall** it, **lose** Marketplace entitlement, **Atlassian** ends the install, or you **break** these Terms. Tech Cache may **stop offering** the app where required by law or Atlassian policy.
+
+**When the app stops:** Features that need a **valid license** may **stop working**. Settings in **Forge** storage follow **Atlassian’s** rules for app data. **Turn off** Slack and webhooks in the admin UI if you need integrations to stop immediately. Export any configuration **your policies require** before uninstall.
+
+---
+
+## 6. Your responsibilities
+
+You are responsible for **lawful use**, correct **configuration** (Slack, webhooks, templates, mentions), and **secrets** you enter. You must follow **privacy**, **employment**, and **industry** rules that apply to you. You must respect **Jira permissions** and **email visibility** settings.
+
+---
+
+## 7. Privacy
+
+See the **[Privacy Policy](/privacy)**, **[Subprocessors](/subprocessors)**, and **[Legal information](/legal)**. EU/UK businesses may request a **DPA** at **[techcache@proton.me](mailto:techcache@proton.me)**.
 
 ---
 
 ## 8. Support
 
-See **[Support & security](/support)** for channels, scope, and documentation links. Tech Cache does **not** guarantee a specific **SLA** or response time unless set out in a **separate** written agreement.
+**Email:** [techcache@proton.me](mailto:techcache@proton.me) · Details: **[Support & security](/support)**  
+
+We do **not** promise a specific response time unless we agree **in writing** with your organization.
 
 ---
 
-## 9. Availability & changes
+## 9. Availability and updates
 
-The app depends on **Forge**, **Jira APIs**, and **third-party** services **you** enable. Operation is **not** guaranteed uninterrupted. Updates may ship via Marketplace; **material** changes may be noted in listing or documentation.
+The app relies on **Forge**, **Jira**, and any **third-party services you turn on**. We do **not** promise **uninterrupted** or **error-free** operation. We may ship **updates** through the Marketplace; important changes may be noted in the listing or docs.
 
 ---
 
-## 10. Disclaimer of warranties
+## 10. Disclaimer
 
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE APP IS PROVIDED **“AS IS”** AND **“AS AVAILABLE.”** TECH CACHE DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+**TO THE EXTENT THE LAW ALLOWS**, THE APP IS PROVIDED **“AS IS”** AND **“AS AVAILABLE.”** TECH CACHE DISCLAIMS **ALL IMPLIED WARRANTIES**, INCLUDING **MERCHANTABILITY**, **FITNESS FOR A PARTICULAR PURPOSE**, AND **NON-INFRINGEMENT**.
 
 ---
 
 ## 11. Limitation of liability
 
-TO THE MAXIMUM EXTENT PERMITTED BY LAW, TECH CACHE IS NOT LIABLE FOR **INDIRECT**, **CONSEQUENTIAL**, **SPECIAL**, OR **PUNITIVE** DAMAGES, OR LOST PROFITS, DATA, OR GOODWILL, ARISING FROM USE OF THE APP.
+**TO THE EXTENT THE LAW ALLOWS**, TECH CACHE IS **NOT LIABLE** FOR **INDIRECT**, **SPECIAL**, **CONSEQUENTIAL**, OR **PUNITIVE** DAMAGES, OR FOR **LOST PROFITS**, **DATA**, OR **GOODWILL**, ARISING FROM USE OF THE APP.
 
-TECH CACHE’S **AGGREGATE** LIABILITY FOR CLAIMS RELATING TO THE APP IN ANY **TWELVE (12) MONTH** PERIOD SHALL NOT EXCEED THE **GREATER OF** (A) **USD $100** OR (B) **FEES PAID BY YOU TO TECH CACHE** FOR THE APP IN THAT PERIOD **WHEN** Tech Cache is the direct payee. **When fees are paid only through Atlassian and no fees are owed to Tech Cache, (B) may be zero—review with counsel.**
+TECH CACHE’S **TOTAL LIABILITY** FOR CLAIMS ABOUT THE APP IN ANY **12-MONTH PERIOD** IS LIMITED TO THE **GREATER OF** (A) **ONE HUNDRED U.S. DOLLARS (USD $100)** OR (B) **FEES YOU PAID DIRECTLY TO TECH CACHE** FOR THE APP IN THAT PERIOD. If you **only** pay through **Atlassian** and owe **nothing** directly to Tech Cache, (B) is **zero**, so the cap is **USD $100**.
 
-Some jurisdictions do not allow certain limitations; limits apply to the **fullest extent allowed**.
+Some states or countries do not allow certain limits; in those cases our limits apply **only as far as the law allows**.
 
 ---
 
 ## 12. Indemnity
 
-You will defend and indemnify Tech Cache against third-party claims arising from **your** misuse, **your** Jira content, or **your** integration configuration, except to the extent of Tech Cache’s **willful misconduct** (as finally adjudicated).
+You will **defend and reimburse** Tech Cache for claims caused by **your** misuse of the app, **your** Jira content, or **your** integration settings—except where Tech Cache has engaged in **willful misconduct** (as finally decided by a court).
 
 ---
 
-## 13. Governing law & venue
+## 13. Governing law and venue
 
-These Terms are governed by the laws of **[STATE / COUNTRY — UPDATE WITH COUNSEL]**, excluding conflict-of-law rules. Courts in **[VENUE — UPDATE WITH COUNSEL]** have exclusive jurisdiction, unless mandatory law provides otherwise.
+These Terms are governed by the laws of the **State of Florida**, without regard to conflict-of-law rules.
+
+You and Tech Cache agree that the **state and federal courts located in Hillsborough County, Florida** have **exclusive jurisdiction** over disputes arising from these Terms or the app, **except** where applicable law requires a different forum.
 
 ---
 

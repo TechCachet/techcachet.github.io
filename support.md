@@ -14,10 +14,8 @@
 
 - [Product overview](/sla-link-inspector.html)  
 - [Documentation](/docs/sla-link-inspector.html)  
-- [Privacy Policy](/privacy) · [Terms of Service](/terms) · [Subprocessors](/subprocessors)  
+- [Privacy Policy](/privacy) · [Terms of Service](/terms) · [Legal information](/legal) · [Subprocessors](/subprocessors)  
 - [Marketplace checklist](/marketplace) (vendors)  
-
-**Source / issues (developers):** If your team uses the public GitHub repository, issue trackers there may be used as agreed with your process—see repo README.
 
 ---
 

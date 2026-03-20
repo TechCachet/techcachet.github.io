@@ -44,7 +44,7 @@ Tech Cache may act as a **controller** for **narrow** activities (e.g. **this ma
 | **Email addresses** | Jira user/email APIs and issue expand (subject to visibility) | Slack **users.lookupByEmail** and related flows; optional **static** addresses in admin config; webhook payloads **you** configure |
 | **Slack member IDs** | Admin mapping and/or self-service from the issue panel | DMs and mentions **without** email for mapped users |
 | **Secrets & integration config** | Admin UI | Slack bot token, webhook URLs, channel IDs, templates, triggers—stored in **Forge `storage:app`** |
-| **Forge Key-Value Store** | Runtime | Admin config, dedupe keys, Slack ID map, license-related flags as implemented |
+| **Forge Key-Value Store** | Runtime | Admin config, dedupe keys, Slack ID map, Marketplace license status used for entitlement checks |
 | **Invoking user context** | Forge / `asUser` where used | Who ran an action; test flows (e.g. **/myself**) |
 
 We do **not** describe a **bulk export** of your entire Jira database or a **continuous off-site replica** of Jira; processing is **event-driven** around SLA/linked-issue flows and configuration.
@@ -58,7 +58,7 @@ We do **not** describe a **bulk export** of your entire Jira database or a **con
 - **Notify** recipients when SLA rules fire—via **Jira**, **Slack** (channel or DM), or **webhook** payloads.  
 - **Match** Jira users to Slack (**email** and/or **Slack member ID**).  
 - **Deduplicate** notifications (KVS).  
-- **Marketplace licensing** checks as implemented.  
+- **Marketplace** entitlement checks (e.g. to show upgrade prompts or restrict features when no active paid license in production).  
 - **Persist** admin and permitted user settings.
 
 ---
@@ -98,7 +98,7 @@ DMs appear as messages from **your** Slack app/bot. Content may identify individ
 
 ## 9. Admin-configured integrations (email / webhooks)
 
-If you enable an **email or automation webhook** (e.g. Zapier, Make, or a custom HTTPS endpoint), the app sends **HTTPS requests** **you** initiate by saving that URL. Payloads may include **metadata** such as event type, **issue keys**, **SLA status**, **recipient-related fields**, and **message/subject**—**as implemented** in your version. **Validate** your manifest **external fetch** allowlist and UI against what you disclose.
+If you enable an **email or automation webhook** (e.g. Zapier, Make, or another HTTPS URL the app accepts in configuration), the app sends **HTTPS POST** requests to that URL when notifications fire. JSON bodies typically include **event type**, **parent and linked issue keys**, **SLA status and timing**, **message and subject** text from your templates, and **recipient-related fields** where your settings supply them. **Only configure endpoints you trust.** Outbound calls are limited to hosts permitted in the app’s Forge **`external.fetch`** allowlist (`manifest.yml`).
 
 ---
 
@@ -138,7 +138,7 @@ We **do not** claim SOC 2, ISO 27001, or other certifications **unless** you hav
 - **Issue bodies, comments, and history** remain in **Jira** under **your** and **Atlassian’s** controls. The app does **not** copy full issue archives to Tech Cache servers for routine operation.  
 - **Forge KVS:** Configuration, dedupe keys, Slack ID mappings, and similar **persist while the app is installed** (subject to Atlassian’s uninstall/lifecycle behavior).  
 - **Uninstall / subscription end:** Access and app storage follow **Atlassian** processes; disable integrations by removing config before uninstall if your policy requires.  
-- **Support email:** If we retain messages, describe your internal retention (**update** this policy to match practice).
+- **Support email** ([techcache@proton.me](mailto:techcache@proton.me)): Messages are used to respond to you and for **routine business records**. We retain them **only as long as needed** for those purposes—**typically up to 24 months** unless a longer period is required by law or an open issue requires keeping the thread. You may ask us to delete support content **where applicable** by contacting the same address.
 
 ---
 
@@ -153,7 +153,7 @@ We **do not** claim SOC 2, ISO 27001, or other certifications **unless** you hav
 
 ## 15. Your rights & requests
 
-For data **in Jira**, contact your **organization admin** and **Atlassian**. For data Tech Cache holds as controller (e.g. support), contact **[techcache@proton.me](mailto:techcache@proton.me)**. EU/UK business customers may request a **DPA**—see [Terms](/terms).
+For data **in Jira**, contact your **organization admin** and **Atlassian**. For **support mail** or other records Tech Cache holds, contact **[techcache@proton.me](mailto:techcache@proton.me)**. EU/UK business customers may request a **DPA**—see [Terms](/terms) and [Legal information](/legal).
 
 ---
 
@@ -165,10 +165,10 @@ Static hosting (e.g. **GitHub Pages**); may generate **technical/CDN logs**. We 
 
 ## 17. Changes
 
-We will update the **Last updated** date for material changes. **Counsel** should align with Marketplace update practices.
+We will update the **Last updated** date when we make material changes. Significant changes to how the app handles data will also be reflected in Marketplace listing notes or documentation when practical.
 
 ---
 
 ## 18. Contact
 
-**Tech Cache** — [techcache@proton.me](mailto:techcache@proton.me) · [Support & security](/support)
+**Tech Cache** — [techcache@proton.me](mailto:techcache@proton.me) · [Support & security](/support) · [Legal information](/legal)
