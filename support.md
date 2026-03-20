@@ -16,12 +16,12 @@
 
 ## Self-service
 
-- [Product overview](/sla-link-inspector.html)  
-- [Documentation](/docs/sla-link-inspector.html)  
-- **[Legal & trust](/legal/)** — Terms, Privacy, Subprocessors, security overview, and this page in one index  
-- [Privacy Policy](/privacy) · [Terms of Service](/terms) · [Subprocessors](/subprocessors)  
-- [Security overview (Forge app)](/security-review.html)  
-- [Marketplace checklist](/marketplace) (vendors)  
+- [Privacy Policy](/privacy)  
+- [Terms of Service](/terms)  
+- [Subprocessors & infrastructure](/subprocessors)  
+- [Security overview](/security-review.html)  
+- [Product documentation](/docs/sla-link-inspector.html)  
+- **[Legal & trust](/legal/)** — index of the policies above, security overview, and this page  
 
 ---
 
