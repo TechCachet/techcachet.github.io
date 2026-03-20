@@ -20,7 +20,7 @@ permalink: /marketplace/
 | **Support & Security** | `https://techcache.github.io/support` |
 | **Privacy policy URL** | `https://techcache.github.io/privacy` |
 | **Documentation URL** | `https://techcache.github.io/docs/sla-link-inspector.html` |
-| **Security Overview** | `https://techcache.github.io/security-review.html` |
+| **Security Overview** | `https://techcache.github.io/security/` |
 | **Legal & Trust** | `https://techcache.github.io/legal/` (Privacy, Terms, Subprocessors & Infrastructure, Support & Security, Security Overview) |
 | **EULA / legal** | `https://techcache.github.io/terms` (or Atlassian’s flow if you use it—confirm with counsel) |
 | **Paid app** | Set **pricing** in Partner Center; **billing** is typically through **Atlassian** per Marketplace terms |
@@ -31,7 +31,7 @@ permalink: /marketplace/
 
 | Item | Notes |
 |------|--------|
-| **Security / trust** | Link **`/security-review.html`**; [Privacy Policy](/privacy) **§12** (security summary); [Subprocessors & Infrastructure](/subprocessors) |
+| **Security / trust** | Link **`/security/`**; [Privacy Policy](/privacy) **§12** (security summary); [Subprocessors & Infrastructure](/subprocessors) |
 | **Subprocessors** | `https://techcache.github.io/subprocessors` |
 | **DPA** | EU/UK B2B—contact **techcache@proton.me** (see Terms) |
 | **Screenshots / video** | Panel, admin, Slack sample (no real customer PII) |

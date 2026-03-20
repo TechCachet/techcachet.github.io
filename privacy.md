@@ -150,7 +150,7 @@ We **do not** claim SOC 2, ISO 27001, or other certifications **unless** you hav
 - **Issue bodies, comments, and history** remain in **Jira** under **your** and **Atlassian’s** controls. The app does **not** copy full issue archives to Tech Cache servers for routine operation.  
 - **Forge KVS:** Configuration, dedupe keys, Slack ID mappings, and similar **persist while the app is installed** (subject to Atlassian’s uninstall/lifecycle behavior).  
 - **Uninstall / subscription end:** Access and app storage follow **Atlassian** processes; disable integrations by removing config before uninstall if your policy requires.  
-- **Support email** ([techcache@proton.me](mailto:techcache@proton.me)): Messages are used to respond to you and for **routine business records**. We retain them **as long as needed** for **support**, **record-keeping**, and **legal obligations**—**often up to about 24 months** in ordinary cases, unless a longer period is required by law or an open thread reasonably requires keeping the correspondence. You may ask us to delete support content **where applicable** by contacting the same address.
+- **Support email** ([techcache@proton.me](mailto:techcache@proton.me)): Messages are used to respond to you and for **routine business records**. **Emails sent to our support mailbox are retained for up to 2 years and then permanently deleted, unless retention is required by law** (or an open matter reasonably requires keeping the correspondence until resolved). You may ask us to delete support content **where applicable** by contacting the same address.
 
 ---
 

@@ -28,7 +28,7 @@ permalink: /support/
 - [Terms of Service](/terms/)  
 - [Subprocessors & Infrastructure](/subprocessors/)  
 - [Legal & Trust](/legal/) — index of policies, Security Overview, and this page  
-- [Security Overview](/security-review.html) — Forge architecture and optional integrations (we do **not** claim certifications here)  
+- [Security Overview](/security/) — architecture, data handling, disclosure, and incident response (we do **not** claim certifications here)  
 
 ---
 

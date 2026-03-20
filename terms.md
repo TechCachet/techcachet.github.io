@@ -56,19 +56,27 @@ Your right to use the app **ends** if you **uninstall** it, **lose** Marketplace
 
 ---
 
-## 6. Your responsibilities
+## 6. App discontinuation
+
+If Tech Cache decides to **discontinue** Linked SLA Alerts, customers will be given **at least 30 days’ notice** via the **Atlassian Marketplace** listing and by **email** where we have **contact information** available.
+
+When the app is **uninstalled**, **configuration data** stored in **Forge Key-Value Store** is **automatically deleted** by **Atlassian’s platform** according to Atlassian’s processes. **Tech Cache does not retain customer Jira data** after the app is uninstalled.
+
+---
+
+## 7. Your responsibilities
 
 You are responsible for **lawful use**, correct **configuration** (Slack, webhooks, templates, mentions), and **secrets** you enter. You must follow **privacy**, **employment**, and **industry** rules that apply to you. You must respect **Jira permissions** and **email visibility** settings.
 
 ---
 
-## 7. Privacy
+## 8. Privacy
 
 See the **[Privacy Policy](/privacy)**, **[Subprocessors & Infrastructure](/subprocessors)**, and **[Legal & Trust](/legal/)** (index of policies and Security Overview). EU/UK businesses may request a **DPA** at **[techcache@proton.me](mailto:techcache@proton.me)**.
 
 ---
 
-## 8. Support & Security
+## 9. Support & Security
 
 **Email:** [techcache@proton.me](mailto:techcache@proton.me) · Details: **[Support & Security](/support)**  
 
@@ -76,19 +84,19 @@ We do **not** promise a specific response time unless we agree **in writing** wi
 
 ---
 
-## 9. Availability and updates
+## 10. Availability and updates
 
 The app relies on **Forge**, **Jira**, and any **third-party services you turn on**. We do **not** promise **uninterrupted** or **error-free** operation. We may ship **updates** through the Marketplace; important changes may be noted in the listing or docs.
 
 ---
 
-## 10. Disclaimer
+## 11. Disclaimer
 
 **TO THE EXTENT THE LAW ALLOWS**, THE APP IS PROVIDED **“AS IS”** AND **“AS AVAILABLE.”** TECH CACHE DISCLAIMS **ALL IMPLIED WARRANTIES**, INCLUDING **MERCHANTABILITY**, **FITNESS FOR A PARTICULAR PURPOSE**, AND **NON-INFRINGEMENT**.
 
 ---
 
-## 11. Limitation of liability
+## 12. Limitation of liability
 
 **TO THE EXTENT THE LAW ALLOWS**, TECH CACHE IS **NOT LIABLE** FOR **INDIRECT**, **SPECIAL**, **CONSEQUENTIAL**, OR **PUNITIVE** DAMAGES, OR FOR **LOST PROFITS**, **DATA**, OR **GOODWILL**, ARISING FROM USE OF THE APP.
 
@@ -98,13 +106,13 @@ Some states or countries do not allow certain limits; in those cases our limits 
 
 ---
 
-## 12. Indemnity
+## 13. Indemnity
 
 You will **defend and reimburse** Tech Cache for claims caused by **your** misuse of the app, **your** Jira content, or **your** integration settings—except where Tech Cache has engaged in **willful misconduct** (as finally decided by a court).
 
 ---
 
-## 13. Governing law and venue
+## 14. Governing law and venue
 
 These Terms are governed by the laws of the **State of Florida**, without regard to conflict-of-law rules.
 
@@ -112,6 +120,6 @@ You and Tech Cache agree that the **state and federal courts located in Hillsbor
 
 ---
 
-## 14. Contact
+## 15. Contact
 
 **Tech Cache** — [techcache@proton.me](mailto:techcache@proton.me) · [Support & Security](/support)
