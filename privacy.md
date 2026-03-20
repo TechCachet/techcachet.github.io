@@ -11,11 +11,12 @@ This Privacy Policy describes how Linked SLA Alerts accesses, uses, stores, and 
 
 ## 1. Summary
 
-- Linked SLA Alerts runs on **Atlassian Forge**. Core processing and **Forge app storage (Key-Value Store)** are on **Atlassian’s infrastructure**. Tech Cache does **not** operate **long-lived application servers** that host the app’s core logic or store Jira issue bodies for routine operation.
+- Linked SLA Alerts runs on **Atlassian Forge**. Core processing and **Forge app storage (Key-Value Store)** are on **Atlassian’s infrastructure**. Tech Cache does **not** operate **long-lived application servers** that host the app’s core logic or store Jira issue bodies for routine operation **as of the last updated date**. If we add **optional external backends** (for example Forge Remote or other services) later, we will **update this policy** and relevant Marketplace materials.
 - The app reads Jira **issue**, **link**, and (where applicable) **SLA** data to power the issue panel, **comments**, **@mentions**, and **optional** notifications via **Slack** or **customer-configured HTTPS webhooks** (e.g. email automation).
 - **Personal data** is processed where needed for those features—including **Jira account identifiers**, **display names**, **email addresses** when exposed to the app by Jira for permitted APIs, and **work content** in issues referenced in messages.
 - **Data leaves** Atlassian’s Jira/Forge boundary when **your organization** enables integrations and provides destinations (Slack, Zapier/Make, or other URLs). That is **customer-controlled**, not a fixed Tech Cache “data pipeline.”
-- **Billing** for Marketplace apps is typically handled by **Atlassian** (and its payment partners) under **their** terms.
+- **Billing** for Marketplace apps is typically handled by **Atlassian** (and its payment partners) under **their** terms. **Payment card data** and checkout for the Marketplace subscription are handled by **Atlassian** (or its payment partners)—**not** collected or stored by Linked SLA Alerts in the app.
+- **Location / transfers:** Processing on **Forge** and in **Jira** uses **Atlassian’s** global infrastructure. Data may be processed **outside** the country where your organization is located. **Atlassian’s** product terms, privacy policy, and (where applicable) **DPA / SCCs** govern that processing—see your relationship with **Atlassian**.
 
 ---
 
@@ -24,6 +25,8 @@ This Privacy Policy describes how Linked SLA Alerts accesses, uses, stores, and 
 **Tech Cache** develops Linked SLA Alerts.  
 
 **Contact & Support:** [techcache@proton.me](mailto:techcache@proton.me) · [Support & Security](/support)  
+
+Linked SLA Alerts is **not directed at children** and we do **not knowingly** collect personal information from children. It is a **workplace** app for organizations using Jira.
 
 ---
 
@@ -61,6 +64,8 @@ We do **not** describe a **bulk export** of your entire Jira database or a **con
 - **Marketplace** entitlement checks (e.g. to show upgrade prompts or restrict features when no active paid license in production).  
 - **Persist** admin and permitted user settings.
 
+We do **not** use personal data for **solely automated decisions** that produce **legal or similarly significant effects** about individuals (as that phrase is used in some privacy laws). SLA notifications and routing are **operational alerts** based on **your** Jira configuration and rules.
+
 ---
 
 ## 6. Subprocessors vs. customer-configured integrations
@@ -92,13 +97,13 @@ We do **not** describe a **bulk export** of your entire Jira database or a **con
 | **Bot token + channel** | API calls to Slack with your token | Channel ID, message payload; token sent in **Authorization** (HTTPS) |
 | **Direct messages (DMs)** | Slack API to open DM / post as **your** Slack app | Issue/SLA text you put in templates; **Slack user IDs**; may use **email lookup** or **admin/user Slack ID map** |
 
-DMs appear as messages from **your** Slack app/bot. Content may identify individuals through **work context** (assignments, issue keys). **Admin** configures defaults; **users** may map their own Slack ID where the product allows.
+DMs appear as messages from **your** Slack app/bot. Content may identify individuals through **work context** (assignments, issue keys). **Admin** configures defaults; **users** may map their own Slack ID where the product allows. **Admins** can **turn off** self-service Slack ID linking so that only **admin-managed** mappings apply (product setting).
 
 ---
 
 ## 9. Admin-configured integrations (email / webhooks)
 
-If you enable an **email or automation webhook** (e.g. Zapier, Make, or another HTTPS URL the app accepts in configuration), the app sends **HTTPS POST** requests to that URL when notifications fire. JSON bodies typically include **event type**, **parent and linked issue keys**, **SLA status and timing**, **message and subject** text from your templates, and **recipient-related fields** where your settings supply them. **Only configure endpoints you trust.** Outbound calls are limited to hosts permitted in the app’s Forge **`external.fetch`** allowlist (`manifest.yml`).
+If you enable an **email or automation webhook** (e.g. Zapier, Make, or another HTTPS URL the app accepts in configuration), the app sends **HTTPS POST** requests to that URL when notifications fire. JSON bodies typically include **event type**, **parent and linked issue keys**, **SLA status and timing**, **message and subject** text from your templates, and **recipient-related fields** where your settings supply them. **Only configure endpoints you trust.** Outbound calls are limited to hostnames on the Forge **`external.fetch`** allowlist in the **published** **`manifest.yml`** for your app version (exact entries can change between releases—**check the manifest** for the current list). Illustrative categories include **Atlassian** product domains (e.g. `*.atlassian.net`), **Slack** (`hooks.slack.com`, `slack.com`), **Zapier** (`hooks.zapier.com`), and **Make** regional webhook hosts (e.g. `hook.eu1.make.com`, `hook.us1.make.com`—**subject to change** in the manifest).
 
 ---
 
@@ -138,7 +143,7 @@ We **do not** claim SOC 2, ISO 27001, or other certifications **unless** you hav
 - **Issue bodies, comments, and history** remain in **Jira** under **your** and **Atlassian’s** controls. The app does **not** copy full issue archives to Tech Cache servers for routine operation.  
 - **Forge KVS:** Configuration, dedupe keys, Slack ID mappings, and similar **persist while the app is installed** (subject to Atlassian’s uninstall/lifecycle behavior).  
 - **Uninstall / subscription end:** Access and app storage follow **Atlassian** processes; disable integrations by removing config before uninstall if your policy requires.  
-- **Support email** ([techcache@proton.me](mailto:techcache@proton.me)): Messages are used to respond to you and for **routine business records**. We retain them **only as long as needed** for those purposes—**typically up to 24 months** unless a longer period is required by law or an open issue requires keeping the thread. You may ask us to delete support content **where applicable** by contacting the same address.
+- **Support email** ([techcache@proton.me](mailto:techcache@proton.me)): Messages are used to respond to you and for **routine business records**. We retain them **as long as needed** for **support**, **record-keeping**, and **legal obligations**—**often up to about 24 months** in ordinary cases, unless a longer period is required by law or an open thread reasonably requires keeping the correspondence. You may ask us to delete support content **where applicable** by contacting the same address.
 
 ---
 
@@ -146,7 +151,7 @@ We **do not** claim SOC 2, ISO 27001, or other certifications **unless** you hav
 
 - **Jira / Atlassian:** Site admin controls install, scopes upgrade, and org policies (including **email visibility**).  
 - **App admin:** Triggers, templates, Slack/webhook URLs, tokens, mention rules, optional static emails.  
-- **End users:** Where the product allows, self-service Slack ID for DM fallback; admins may override via mapping.  
+- **End users:** Where the product allows, self-service Slack ID for DM fallback—unless **admins** disable self-service mapping (admin-only mode). Admins may override via mapping.  
 - **Disabling outbound data:** Remove or clear Slack/webhook configuration and tokens in the admin UI.
 
 ---
