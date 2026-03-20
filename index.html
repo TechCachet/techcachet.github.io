@@ -343,14 +343,13 @@ body{
   padding-bottom:max(clamp(44px, 8vw, 64px), env(safe-area-inset-bottom));
 }
 
-/* Splash hero (octopus artwork) + subtle motion; see prefers-reduced-motion */
+/* Splash hero — static artwork (no motion; keeps full energy of the image) */
 .hero.splash-hero{
   text-align:center;
   margin-bottom:clamp(24px, 5vw, 36px);
 }
 
 .splash-stage{
-  position:relative;
   margin:0 0 clamp(20px, 4vw, 32px);
   border-radius:clamp(12px, 2vw, 18px);
   overflow:hidden;
@@ -360,45 +359,11 @@ body{
   background:#060a12;
 }
 
-.splash-glow{
-  position:absolute;
-  inset:-25%;
-  z-index:0;
-  pointer-events:none;
-  background:
-    radial-gradient(ellipse 65% 55% at 78% 42%, rgba(56,189,248,0.38) 0%, transparent 52%),
-    radial-gradient(ellipse 45% 45% at 22% 58%, rgba(125,211,252,0.14) 0%, transparent 48%);
-  animation:splash-glow-breathe 5.5s ease-in-out infinite alternate;
-}
-
 .splash-art{
-  position:relative;
-  z-index:1;
   width:100%;
   height:auto;
   display:block;
   vertical-align:bottom;
-  animation:splash-float 8s ease-in-out infinite;
-}
-
-@keyframes splash-glow-breathe{
-  from{
-    opacity:0.72;
-    transform:scale(1) translate3d(0,0,0);
-  }
-  to{
-    opacity:1;
-    transform:scale(1.05) translate3d(0,0,0);
-  }
-}
-
-@keyframes splash-float{
-  0%,100%{
-    transform:translate3d(0,0,0);
-  }
-  50%{
-    transform:translate3d(0,-10px,0);
-  }
 }
 
 .visually-hidden{
@@ -706,11 +671,6 @@ a:hover{
     scroll-behavior:auto;
   }
 
-  .splash-glow,
-  .splash-art{
-    animation:none !important;
-  }
-
   .cta-button,
   .cta-secondary{
     transition:none;
@@ -778,7 +738,6 @@ a:hover{
     </h1>
 
     <div class="splash-stage">
-      <div class="splash-glow" aria-hidden="true"></div>
       <img
         class="splash-art"
         src="assets/splash-octopus.png"
