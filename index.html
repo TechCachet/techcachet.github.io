@@ -339,24 +339,31 @@ body{
   max-width:min(var(--content-max), calc(100vw - 32px));
   width:100%;
   margin:0 auto;
-  padding:clamp(28px, 5vw, 44px) var(--gutter) clamp(44px, 8vw, 64px);
+  /* No padding-top: hero is outside this wrapper; top padding used to sit above the hero (nav gap) */
+  padding:0 var(--gutter) clamp(44px, 8vw, 64px);
   padding-bottom:max(clamp(44px, 8vw, 64px), env(safe-area-inset-bottom));
 }
 
-/* Splash hero — static artwork (no motion; keeps full energy of the image) */
+/* Splash hero — full viewport width, flush under ribbon; no card chrome */
 .hero.splash-hero{
-  text-align:center;
+  width:100%;
+  max-width:100%;
+  margin:0;
   margin-bottom:clamp(24px, 5vw, 36px);
+  padding:0;
+  text-align:center;
 }
 
 .splash-stage{
-  margin:0 0 clamp(20px, 4vw, 32px);
-  border-radius:clamp(12px, 2vw, 18px);
-  overflow:hidden;
-  border:1px solid var(--border);
-  box-shadow:0 16px 52px rgba(0,0,0,0.5);
+  width:100%;
+  max-width:100%;
+  margin:0;
+  padding:0;
+  border:none;
+  border-radius:0;
+  box-shadow:none;
+  background:transparent;
   line-height:0;
-  background:#060a12;
 }
 
 .splash-art{
@@ -629,15 +636,6 @@ a:hover{
     max-width:150px;
   }
 
-  /* Splash edge-to-edge on small screens */
-  .splash-stage{
-    margin-left:calc(-1 * var(--gutter));
-    margin-right:calc(-1 * var(--gutter));
-    width:calc(100% + 2 * var(--gutter));
-    max-width:none;
-    border-radius:clamp(8px, 2vw, 14px);
-  }
-
   .cta-button,
   .cta-secondary{
     width:100%;
@@ -691,7 +689,7 @@ a:hover{
     <div class="ribbon-util-inner">
       <a href="tel:+18139069247">📱 813-906-9247</a>
       <a href="mailto:techcache@proton.me">📧 techcache@proton.me</a>
-      <span class="ribbon-util-note">🕐 Mon-Fri 24/7</span>
+      <span class="ribbon-util-note">🕐 Available 24/7</span>
     </div>
   </div>
 
@@ -728,25 +726,25 @@ a:hover{
   </div>
 </header>
 
+<section class="hero splash-hero" aria-label="Welcome">
+  <h1 class="visually-hidden">
+    Tech Cache — Practical Tools for Atlassian Teams. Built to give your team better visibility, faster response,
+    and automatically keep every linked ticket in the loop. Refuse to let things slip through the cracks.
+    Linked SLA Alerts for Jira.
+  </h1>
+
+  <div class="splash-stage">
+    <img
+      class="splash-art"
+      src="assets/splash-octopus.png"
+      width="1024"
+      height="506"
+      alt="Practical Tools for Atlassian Teams — better visibility, faster response, and linked tickets kept in the loop. Steampunk teal octopus with Jira-style window and Slack bubble."
+    >
+  </div>
+</section>
+
 <main class="container">
-
-  <section class="hero splash-hero" aria-label="Welcome">
-    <h1 class="visually-hidden">
-      Tech Cache — Practical Tools for Atlassian Teams. Built to give your team better visibility, faster response,
-      and automatically keep every linked ticket in the loop. Refuse to let things slip through the cracks.
-      Linked SLA Alerts for Jira.
-    </h1>
-
-    <div class="splash-stage">
-      <img
-        class="splash-art"
-        src="assets/splash-octopus.png"
-        width="1024"
-        height="506"
-        alt="Practical Tools for Atlassian Teams — better visibility, faster response, and linked tickets kept in the loop. Steampunk teal octopus with Jira-style window and Slack bubble."
-      >
-    </div>
-  </section>
 
   <section class="card highlight-card">
     <h2>What Tech Cache Offers</h2>
