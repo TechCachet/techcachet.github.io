@@ -111,12 +111,12 @@ body{
 .ribbon-brand{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:2px;
   text-decoration:none;
   color:var(--text);
   font-weight:700;
-  font-size:clamp(1.45rem, 1.15rem + 1.1vw, 1.95rem);
-  letter-spacing:0.4px;
+  font-size:clamp(1.65rem, 1.35rem + 1.4vw, 2.35rem);
+  letter-spacing:0.35px;
 }
 
 .ribbon-brand:hover{
@@ -134,8 +134,9 @@ body{
 }
 
 .ribbon-brand-text{
-  line-height:1.15;
+  line-height:1.1;
   color:var(--accent);
+  margin-left:-4px; /* tuck against icon; PNG has transparent padding */
 }
 
 .ribbon-brand:hover .ribbon-brand-text{
