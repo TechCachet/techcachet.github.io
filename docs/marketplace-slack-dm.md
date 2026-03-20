@@ -5,7 +5,7 @@
 - Site **[Privacy Policy](/privacy)** (especially §6, §9)  
 - **[Subprocessors & Infrastructure](/subprocessors)**  
 - Forge **`manifest.yml`** (scopes + `external.fetch` allowlist)  
-- **[Marketplace listing checklist](/marketplace)**  
+- **[Marketplace listing checklist](/marketplace/)**  
 
 ## Slack-specific disclosures
 

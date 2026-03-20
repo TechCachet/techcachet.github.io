@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif;line-height:1.65;max-width:46rem;margin:0 auto;padding:1.5rem 1.25rem 3rem;color:#1a1a2e;background:#fafbfc;}
+a{color:#0366d6;}
+code,pre{background:rgba(0,0,0,.06);padding:.15em .35em;border-radius:4px;font-size:.92em;}
+pre{padding:.75rem;overflow:auto;}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.95em;}
+th,td{border:1px solid #d0d7de;padding:.4rem .5rem;text-align:left;}
+@media (prefers-color-scheme: dark){
+  body{background:#0b1020;color:#e8ecf3;}
+  a{color:#7dd3fc;}
+  code,pre{background:rgba(255,255,255,.08);}
+  th,td{border-color:#24304f;}
+}
+</style>
+</head>
+<body>
+{{ content }}
+</body>
+</html>

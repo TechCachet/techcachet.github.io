@@ -1,3 +1,9 @@
+---
+layout: default
+title: Marketplace listing checklist (internal)
+permalink: /marketplace/
+---
+
 # Atlassian Marketplace — listing checklist (Linked SLA Alerts)
 
 **For internal use** when preparing your Marketplace listing. This page is **not** linked from the public site’s customer resources (to keep the main flow policy- and support-focused). **URLs** assume **`https://techcache.github.io`**—adjust if you use a custom domain.

@@ -1,3 +1,9 @@
+---
+layout: default
+title: "Subprocessors & Infrastructure"
+permalink: /subprocessors/
+---
+
 # Subprocessors & Infrastructure
 
 **Last updated:** March 2026  
