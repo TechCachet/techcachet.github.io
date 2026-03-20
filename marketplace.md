@@ -15,7 +15,7 @@
 | **Privacy policy URL** | `https://techcache.github.io/privacy` |
 | **Documentation URL** | `https://techcache.github.io/docs/sla-link-inspector.html` |
 | **Security Overview** | `https://techcache.github.io/security-review.html` |
-| **Legal & Trust** | `https://techcache.github.io/legal/` (Terms, Privacy, Subprocessors & Infrastructure, Security Overview, Support & Security) |
+| **Legal & Trust** | `https://techcache.github.io/legal/` (Privacy, Terms, Subprocessors & Infrastructure, Support & Security, Security Overview) |
 | **EULA / legal** | `https://techcache.github.io/terms` (or Atlassian’s flow if you use it—confirm with counsel) |
 | **Paid app** | Set **pricing** in Partner Center; **billing** is typically through **Atlassian** per Marketplace terms |
 
