@@ -10,45 +10,43 @@ permalink: /support/
 
 ---
 
-## How we support customers
+## Product support
 
-**Linked SLA Alerts** is a **paid app on the Atlassian Marketplace**. **Tech Cache** provides **customer support directly**—there is **no other support channel** on this public site (no separate customer portal or ticket system here).
+**Channel:** **Email only** — [techcache@proton.me](mailto:techcache@proton.me)
 
-**Email:** [techcache@proton.me](mailto:techcache@proton.me) — product questions, configuration help, bug reports, and (with the security subject line below) vulnerability reports.
+**Linked SLA Alerts** is offered on the **Atlassian Marketplace** (paid app). **Tech Cache** answers product questions and configuration help **directly** at the address above. There is **no** customer support portal, ticket queue, or third-party developer forum on this site.
 
-**Scope (typical):** Installation and upgrade questions, permission/consent issues (e.g. new Forge scopes), configuration of triggers, Slack and webhooks, behavior questions, and bug reports. We do **not** guarantee a fixed response time unless agreed in **writing** for your organization.
-
----
-
-## Security reporting
-
-If you believe you have found a **security vulnerability** affecting Linked SLA Alerts, please email **[techcache@proton.me](mailto:techcache@proton.me)** with the subject line **“Security report — Linked SLA Alerts”**. Include enough detail to reproduce or understand the issue; avoid including unrelated personal data.
-
-We use the **same address** for product support and security reports; a clear subject line helps us prioritize security issues.
-
-We do **not** run a public bug-bounty program unless we say so explicitly on this page.
+**Scope (typical):** Installation and upgrades, Forge scopes and consent, triggers, Slack and automation webhooks, behavior questions, and bug reports. We do **not** guarantee a fixed response time unless agreed in **writing** for your organization.
 
 ---
 
 ## Self-service
 
-- [Legal & Trust](/legal/) — hub for policies, Security Overview, and this page  
-- [Privacy Policy](/privacy)  
-- [Terms of Service](/terms)  
-- [Subprocessors & Infrastructure](/subprocessors)  
-- [Security Overview](/security-review.html) — Forge architecture and optional integrations (no certifications claimed)  
-- [Product Documentation](/docs/sla-link-inspector.html)  
 - [Product Overview](/sla-link-inspector.html)  
+- [Product Documentation](/docs/sla-link-inspector.html)  
+- [Privacy Policy](/privacy/)  
+- [Terms of Service](/terms/)  
+- [Subprocessors & Infrastructure](/subprocessors/)  
+- [Legal & Trust](/legal/) — index of policies, Security Overview, and this page  
+- [Security Overview](/security-review.html) — Forge architecture and optional integrations (we do **not** claim certifications here)  
 
 ---
 
-## Data protection & legal
+## Security reporting
 
-**Privacy:** [Privacy Policy](/privacy)  
+Use **the same email:** [techcache@proton.me](mailto:techcache@proton.me)
 
-**Policies index:** [Legal & Trust](/legal/)  
+**Subject line:** **“Security report — Linked SLA Alerts”**
 
-**DPA / EU-UK:** Business customers may request a DPA at **[techcache@proton.me](mailto:techcache@proton.me)** (counsel to finalize).
+Include enough detail to reproduce or understand the issue; avoid unrelated personal data. A clear subject helps us prioritize security work.
+
+We do **not** run a public bug-bounty program unless we state otherwise on this page.
+
+---
+
+## Data protection (DPA)
+
+EU/UK business customers may request a **DPA** at **[techcache@proton.me](mailto:techcache@proton.me)** (finalize wording with your counsel).
 
 ---
 
