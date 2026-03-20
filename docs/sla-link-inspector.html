@@ -234,12 +234,28 @@ From any parent issue with linked tickets, the panel lets you send an on-demand 
 <h2>Security</h2>
 
 <p>
-Linked SLA Alerts runs entirely on Atlassian Forge. No data is sent to or stored on Tech Cache servers.
+Linked SLA Alerts runs on <strong>Atlassian Forge</strong>. Core processing and app configuration use Atlassian infrastructure; Tech Cache does not operate separate long-lived app servers for that core logic.
 </p>
 <ul>
-<li>Configuration is stored in Atlassian Forge Key-Value Store, encrypted at rest.</li>
+<li>Configuration and operational state are stored in <strong>Forge Key-Value Store</strong> (encrypted at rest per Atlassian).</li>
+<li>When you enable <strong>Slack</strong> or <strong>webhook/email</strong> integrations, payloads are sent only to endpoints <strong>you</strong> configure—subject to those providers’ policies.</li>
 <li>Slack bot tokens are masked in API responses and never sent to the browser.</li>
 <li>Tokens can be cleared at any time via <strong>Clear saved token</strong> in the Configurations page.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>Privacy, subprocessors &amp; Marketplace</h2>
+
+<p>
+Linked SLA Alerts is built for the <strong>Atlassian Marketplace</strong> (including as a <strong>paid</strong> app). For data categories, outbound transfers, retention, and listing URLs:</p>
+<ul>
+<li><a href="../privacy">Privacy Policy</a></li>
+<li><a href="../terms">Terms of Service</a></li>
+<li><a href="../subprocessors">Subprocessors &amp; infrastructure</a></li>
+<li><a href="../marketplace">Marketplace listing checklist</a> (for vendors)</li>
 </ul>
 
 </div>
