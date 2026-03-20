@@ -30,8 +30,8 @@ content="Tech Cache builds practical Atlassian tools, including Linked SLA Alert
 
 html{
   scroll-behavior:smooth;
-  /* Offset in-page anchors below sticky ribbon */
-  scroll-padding-top:clamp(88px, 18vw, 118px);
+  /* Offset in-page anchors below sticky ribbon (taller when logo fills nav row) */
+  scroll-padding-top:clamp(112px, 26vw, 168px);
 }
 
 body{
@@ -91,6 +91,9 @@ body{
   background:rgba(15,21,40,0.97);
   backdrop-filter:saturate(1.2) blur(8px);
   border-bottom:1px solid var(--border);
+  /* Logo height fills nav row minus minimal vertical padding (SaaS-style ribbon) */
+  --ribbon-nav-pad-y:5px;
+  --ribbon-logo-size:min(104px, max(72px, 12vmin));
 }
 
 .ribbon-nav-inner{
@@ -99,19 +102,20 @@ body{
   align-items:center;
   justify-content:space-between;
   gap:12px 20px;
-  padding:14px var(--gutter);
+  padding:var(--ribbon-nav-pad-y) var(--gutter);
   max-width:min(var(--content-max), calc(100vw - 32px));
   margin:0 auto;
+  min-height:calc(var(--ribbon-logo-size) + 2 * var(--ribbon-nav-pad-y));
 }
 
 .ribbon-brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px;
   text-decoration:none;
   color:var(--text);
   font-weight:700;
-  font-size:1.2rem;
+  font-size:clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
   letter-spacing:0.5px;
 }
 
@@ -121,10 +125,12 @@ body{
 }
 
 .ribbon-brand img{
-  width:56px;
-  height:56px;
+  width:auto;
+  height:var(--ribbon-logo-size);
+  max-height:100%;
   object-fit:contain;
   flex-shrink:0;
+  display:block;
 }
 
 .ribbon-brand-text{
@@ -300,8 +306,14 @@ body{
     display:flex;
   }
 
+  .ribbon-main{
+    --ribbon-nav-pad-y:6px;
+    --ribbon-logo-size:min(88px, max(52px, 22vw));
+  }
+
   .ribbon-nav-inner{
-    padding:12px var(--gutter);
+    padding:var(--ribbon-nav-pad-y) var(--gutter);
+    min-height:calc(var(--ribbon-logo-size) + 2 * var(--ribbon-nav-pad-y));
   }
 }
 
@@ -318,7 +330,7 @@ body{
 #contact,
 #resources,
 #apps-services{
-  scroll-margin-top:clamp(88px, 18vw, 118px);
+  scroll-margin-top:clamp(112px, 26vw, 168px);
 }
 
 .container{
@@ -695,7 +707,7 @@ a:hover{
     <input type="checkbox" id="ribbon-nav-toggle" class="ribbon-nav-state" tabindex="-1">
     <div class="ribbon-nav-inner">
       <a class="ribbon-brand" href="/" aria-label="Tech Cache home">
-        <img src="assets/icon.png" width="56" height="56" alt="">
+        <img src="assets/icon.png" width="104" height="104" alt="">
         <span class="ribbon-brand-text">Tech Cache</span>
       </a>
 
