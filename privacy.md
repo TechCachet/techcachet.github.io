@@ -14,7 +14,7 @@ This Privacy Policy describes how Linked SLA Alerts accesses, uses, stores, and 
 - Linked SLA Alerts runs on **Atlassian Forge**. Core processing and **Forge app storage (Key-Value Store)** are on **Atlassian’s infrastructure**. Tech Cache does **not** operate **long-lived application servers** that host the app’s core logic or store Jira issue bodies for routine operation **as of the last updated date**. If we add **optional external backends** (for example Forge Remote or other services) later, we will **update this policy** and relevant Marketplace materials.
 - The app reads Jira **issue**, **link**, and (where applicable) **SLA** data to power the issue panel, **comments**, **@mentions**, and **optional** notifications via **Slack** or **customer-configured HTTPS webhooks** (e.g. email automation).
 - **Personal data** is processed where needed for those features—including **Jira account identifiers**, **display names**, **email addresses** when exposed to the app by Jira for permitted APIs, and **work content** in issues referenced in messages.
-- **Data leaves** Atlassian’s Jira/Forge boundary when **your organization** enables integrations and provides destinations (Slack, Zapier/Make, or other URLs). That is **customer-controlled**, not a fixed Tech Cache “data pipeline.”
+- **Data leaves** Atlassian’s Jira/Forge boundary when **your organization** enables integrations to **allowlisted** destinations (Slack, Zapier/Make, etc.—see **`external.fetch`** in **`manifest.yml`**). That is **customer-controlled**, not a fixed Tech Cache “data pipeline.”
 - **Billing** for Marketplace apps is typically handled by **Atlassian** (and its payment partners) under **their** terms. **Payment card data** and checkout for the Marketplace subscription are handled by **Atlassian** (or its payment partners)—**not** collected or stored by Linked SLA Alerts in the app.
 - **Location / transfers:** Processing on **Forge** and in **Jira** uses **Atlassian’s** global infrastructure. Data may be processed **outside** the country where your organization is located. **Atlassian’s** product terms, privacy policy, and (where applicable) **DPA / SCCs** govern that processing—see your relationship with **Atlassian**.
 
@@ -71,7 +71,7 @@ We do **not** use personal data for **solely automated decisions** that produce 
 ## 6. Subprocessors vs. customer-configured integrations
 
 - **Subprocessors / core infrastructure:** **Atlassian** (Jira Cloud, Forge runtime, Forge KVS, Marketplace billing integration) processes data **on your behalf** when you use the app. See **[Subprocessors & Infrastructure](/subprocessors)**.  
-- **Customer-configured integrations:** When you enable **Slack**, **Zapier/Make**, or **custom HTTPS webhooks**, **you** choose the destination. Data is sent **under your configuration**; those providers process data under **their** terms. They are **not** “Tech Cache subprocessors” in the same sense as Atlassian, though your counsel may treat them as **your** subprocessors.
+- **Customer-configured integrations:** When you enable **Slack**, **Zapier/Make**, or another integration whose **API host** is on the app’s **`external.fetch`** allowlist, **you** choose among those permitted destinations. Data is sent **under your configuration**; those providers process data under **their** terms. They are **not** “Tech Cache subprocessors” in the same sense as Atlassian, though your counsel may treat them as **your** subprocessors.
 
 ---
 
@@ -103,7 +103,7 @@ DMs appear as messages from **your** Slack app/bot. Content may identify individ
 
 ## 9. Admin-configured integrations (email / webhooks)
 
-If you enable an **email or automation webhook** (e.g. Zapier, Make, or another HTTPS URL the app accepts in configuration), the app sends **HTTPS POST** requests to that URL when notifications fire. JSON bodies typically include **event type**, **parent and linked issue keys**, **SLA status and timing**, **message and subject** text from your templates, and **recipient-related fields** where your settings supply them. **Only configure endpoints you trust.** Outbound calls are limited to hostnames on the Forge **`external.fetch`** allowlist in the **published** **`manifest.yml`** for your app version (exact entries can change between releases—**check the manifest** for the current list). Illustrative categories include **Atlassian** product domains (e.g. `*.atlassian.net`), **Slack** (`hooks.slack.com`, `slack.com`), **Zapier** (`hooks.zapier.com`), and **Make** regional webhook hosts (e.g. `hook.eu1.make.com`, `hook.us1.make.com`—**subject to change** in the manifest).
+If you enable an **email or automation webhook** via an integration whose **endpoint hostname** is on the app’s Forge **`external.fetch`** allowlist (e.g. **Zapier** or **Make**—not arbitrary URLs), the app sends **HTTPS POST** requests to that endpoint when notifications fire. JSON bodies typically include **event type**, **parent and linked issue keys**, **SLA status and timing**, **message and subject** text from your templates, and **recipient-related fields** where your settings supply them. **Only configure endpoints you trust.** Outbound calls are limited to hostnames on the Forge **`external.fetch`** allowlist in the **published** **`manifest.yml`** for your app version (exact entries can change between releases—**check the manifest** for the current list). Illustrative categories include **Atlassian** product domains (e.g. `*.atlassian.net`), **Slack** (`hooks.slack.com`, `slack.com`), **Zapier** (`hooks.zapier.com`), and **Make** regional webhook hosts (e.g. `hook.eu1.make.com`, `hook.us1.make.com`—**subject to change** in the manifest).
 
 ---
 
@@ -112,7 +112,7 @@ If you enable an **email or automation webhook** (e.g. Zapier, Make, or another 
 | Destination | What may be sent | Control |
 |-------------|------------------|---------|
 | **Slack** | Messages, API payloads (may include email in lookup requests, user IDs, tokens in headers) | Your Slack app, webhook, token, channel, DM settings |
-| **Zapier / Make / custom HTTPS** | JSON webhook body per your config | URL **you** paste |
+| **Zapier / Make** (and any other provider whose **hostname** appears on the **`external.fetch`** allowlist in **`manifest.yml`**) | JSON webhook body per your config | Destination **you** choose **only** among allowlisted hosts (see §9); not a free-form “any HTTPS URL” integration |
 | **Jira Cloud** (`*.atlassian.net`) | Normal API traffic | Core product |
 
 **Forge KVS** holds app settings and operational keys—not a separate Tech Cache issue warehouse.
