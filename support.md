@@ -48,7 +48,7 @@ We do **not** run a public bug-bounty program unless we state otherwise on this 
 
 ## Data protection (DPA)
 
-EU/UK business customers may request a **DPA** at **[techcache@proton.me](mailto:techcache@proton.me)** (finalize wording with your counsel).
+**Published DPA (informational):** **[Data Processing Agreement (DPA)](/dpa/)** — Tech Cache has **not** yet had this reviewed by its own counsel; obtain **your** legal advice before relying on it. For a **custom-signed** DPA or questions: **[techcache@proton.me](mailto:techcache@proton.me)**.
 
 ---
 

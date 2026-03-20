@@ -33,7 +33,7 @@ permalink: /marketplace/
 |------|--------|
 | **Security / trust** | Link **`/security/`**; [Privacy Policy](/privacy) **§12** (security summary); [Subprocessors & Infrastructure](/subprocessors) |
 | **Subprocessors** | `https://techcache.github.io/subprocessors` |
-| **DPA** | EU/UK B2B—contact **techcache@proton.me** (see Terms) |
+| **DPA** | Published (informational): `https://techcache.github.io/dpa/` — custom requests: **techcache@proton.me** |
 | **Screenshots / video** | Panel, admin, Slack sample (no real customer PII) |
 | **Scopes** | Keep **`manifest.yml`** aligned with [Privacy Policy](/privacy) **§11** and the questionnaire |
 

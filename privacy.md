@@ -165,7 +165,7 @@ We **do not** claim SOC 2, ISO 27001, or other certifications **unless** you hav
 
 ## 15. Your rights & requests
 
-For data **in Jira**, contact your **organization admin** and **Atlassian**. For **support mail** or other records Tech Cache holds, contact **[techcache@proton.me](mailto:techcache@proton.me)**. EU/UK business customers may request a **DPA**—see [Terms](/terms) and [Legal & Trust](/legal/).
+For data **in Jira**, contact your **organization admin** and **Atlassian**. For **support mail** or other records Tech Cache holds, contact **[techcache@proton.me](mailto:techcache@proton.me)**. A published **informational** **[DPA](/dpa/)** is available (not yet reviewed by Tech Cache’s counsel—use your own legal advice). See also [Terms](/terms) and [Legal & Trust](/legal/).
 
 ---
 
