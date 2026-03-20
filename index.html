@@ -31,7 +31,7 @@ content="Tech Cache builds practical Atlassian tools, including Linked SLA Alert
 html{
   scroll-behavior:smooth;
   /* Offset in-page anchors below sticky ribbon (taller when logo fills nav row) */
-  scroll-padding-top:clamp(112px, 26vw, 168px);
+  scroll-padding-top:clamp(88px, 20vw, 132px);
 }
 
 body{
@@ -51,39 +51,6 @@ body{
   top:0;
   z-index:200;
   box-shadow:0 4px 24px rgba(0,0,0,0.35);
-}
-
-.ribbon-util{
-  background:#080d18;
-  border-bottom:1px solid #1a2438;
-  color:var(--muted);
-  font-size:0.8125rem;
-}
-
-.ribbon-util-inner{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  gap:10px 22px;
-  padding:10px var(--gutter);
-  max-width:min(var(--content-max), calc(100vw - 32px));
-  margin:0 auto;
-}
-
-.ribbon-util a{
-  color:#c5d0e3;
-  text-decoration:none;
-  white-space:nowrap;
-}
-
-.ribbon-util a:hover{
-  color:var(--accent2);
-  text-decoration:none;
-}
-
-.ribbon-util-note{
-  color:var(--muted);
-  white-space:nowrap;
 }
 
 .ribbon-main{
@@ -331,7 +298,7 @@ body{
 #contact,
 #resources,
 #apps-services{
-  scroll-margin-top:clamp(112px, 26vw, 168px);
+  scroll-margin-top:clamp(88px, 20vw, 132px);
 }
 
 .container{
@@ -687,14 +654,6 @@ a:hover{
 <body>
 
 <header class="site-ribbon" role="banner">
-  <div class="ribbon-util">
-    <div class="ribbon-util-inner">
-      <a href="tel:+18139069247">📱 813-906-9247</a>
-      <a href="mailto:techcache@proton.me">📧 techcache@proton.me</a>
-      <span class="ribbon-util-note">🕐 Available 24/7</span>
-    </div>
-  </div>
-
   <div class="ribbon-main">
     <input type="checkbox" id="ribbon-nav-toggle" class="ribbon-nav-state" tabindex="-1">
     <div class="ribbon-nav-inner">
