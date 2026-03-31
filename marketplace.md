@@ -19,7 +19,7 @@ permalink: /marketplace/
 | **Support email** | techcache@proton.me |
 | **Support & Security** | `https://techcache.github.io/support` |
 | **Privacy policy URL** | `https://techcache.github.io/privacy` |
-| **Documentation URL** | `https://techcache.github.io/docs/sla-link-inspector.html` |
+| **Documentation URL** | `https://techcache.github.io/docs/linked-sla-alerts.html` |
 | **Security Overview** | `https://techcache.github.io/security/` |
 | **Legal & Trust** | `https://techcache.github.io/legal/` (Privacy, Terms, Subprocessors & Infrastructure, Support & Security, Security Overview) |
 | **EULA / legal** | `https://techcache.github.io/terms` (or Atlassian’s flow if you use it—confirm with counsel) |

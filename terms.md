@@ -20,7 +20,7 @@ By **installing**, **configuring**, or **using** the app, you confirm that you h
 
 **Linked SLA Alerts** runs on **Atlassian Forge**. It reads Jira **issue** and **SLA** data (including **linked issues**), may **post comments** and **@mentions** on linked issues, and may send **optional** notifications via **Slack** or **HTTPS webhooks** you configure in the admin UI. **Configurable** SLA notifications are **evaluated when someone opens or refreshes** the **Linked SLA Alerts** issue **panel** on the parent issue (not on a Forge **scheduled** trigger or background cron); **Send SLA Alert to Linked Tickets** is **on-demand** when you use that action in the panel.
 
-**Docs:** [Product Overview](/sla-link-inspector.html) · [Product Documentation](/docs/sla-link-inspector.html) · [Privacy Policy](/privacy)
+**Docs:** [Product Overview](/linked-sla-alerts.html) · [Product Documentation](/docs/linked-sla-alerts.html) · [Privacy Policy](/privacy)
 
 ---
 

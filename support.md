@@ -22,8 +22,8 @@ permalink: /support/
 
 ## Self-service
 
-- [Product Overview](/sla-link-inspector.html)  
-- [Product Documentation](/docs/sla-link-inspector.html)  
+- [Product Overview](/linked-sla-alerts.html)  
+- [Product Documentation](/docs/linked-sla-alerts.html)  
 - [Privacy Policy](/privacy/)  
 - [Terms of Service](/terms/)  
 - [Subprocessors & Infrastructure](/subprocessors/)  
