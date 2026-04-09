@@ -14,9 +14,9 @@ Only the **latest published version** of Linked SLA Alerts on the **Atlassian Ma
 
 ## Reporting a vulnerability
 
-Send reports **only** to **techcache@proton.me** (private email). Do **not** open public GitHub issues or use a public bug tracker for vulnerability details—we handle reports **confidentially** through this address. You are **not** required to publish vulnerabilities.
+Send reports **only** to **techcachet@gmail.com** (private email). Do **not** open public GitHub issues or use a public bug tracker for vulnerability details—we handle reports **confidentially** through this address. You are **not** required to publish vulnerabilities.
 
-Email **techcache@proton.me** with:
+Email **techcachet@gmail.com** with:
 
 1. A **description** of the vulnerability  
 2. **Steps to reproduce**  
@@ -43,14 +43,17 @@ We follow **coordinated disclosure**. Please **do not publicly disclose** detail
 
 **In scope:** Security vulnerabilities in the **Linked SLA Alerts** Forge app (as distributed via the Atlassian Marketplace).
 
-**Out of scope for technical vulnerability reports:** The static **GitHub Pages** site (**techcache.github.io**) and general use of the **support email** (e.g. routine support mail handling). If you find something that is clearly **abuse** of those channels, you may still email **techcache@proton.me** with a short description.
+**Out of scope for technical vulnerability reports:** The static **GitHub Pages** site (**techcachet.github.io**) and general use of the **support email** (e.g. routine support mail handling). If you find something that is clearly **abuse** of those channels, you may still email **techcachet@gmail.com** with a short description.
 
 ---
 
 ## Contact
 
-**techcache@proton.me**
+**techcachet@gmail.com**
 
-For a customer-facing **security overview** (architecture, data handling, incident response), see **https://techcache.github.io/security/**
+For a customer-facing **security overview** (architecture, data handling, incident response), see **https://techcachet.github.io/security/**
 
-The same vulnerability disclosure text is published at **https://techcache.github.io/vulnerability-disclosure/** — keep that page and this file in sync when you change policy wording.
+The same vulnerability disclosure text is published at **https://techcachet.github.io/vulnerability-disclosure/** — keep that page and this file in sync when you change policy wording.
+
+
+

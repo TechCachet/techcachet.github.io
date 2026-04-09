@@ -6,15 +6,15 @@ permalink: /support/
 
 # Support & Security
 
-**Linked SLA Alerts** · Tech Cache  
+**Linked SLA Alerts** · Tech Cachet  
 
 ---
 
 ## Product support
 
-**Channel:** **Email only** — [techcache@proton.me](mailto:techcache@proton.me)
+**Channel:** **Email only** — [techcachet@gmail.com](mailto:techcachet@gmail.com)
 
-**Linked SLA Alerts** is offered on the **Atlassian Marketplace** (paid app). **Tech Cache** answers product questions and configuration help **directly** at the address above. There is **no** customer support portal, ticket queue, or third-party developer forum on this site.
+**Linked SLA Alerts** is offered on the **Atlassian Marketplace** (paid app). **Tech Cachet** answers product questions and configuration help **directly** at the address above. There is **no** customer support portal, ticket queue, or third-party developer forum on this site.
 
 **Scope (typical):** Installation and upgrades, Forge scopes and consent, triggers, Slack and automation webhooks, behavior questions, and bug reports. We do **not** guarantee a fixed response time unless agreed in **writing** for your organization.
 
@@ -34,7 +34,7 @@ permalink: /support/
 
 ## Security reporting
 
-**Channel:** **Private email only** — [techcache@proton.me](mailto:techcache@proton.me)
+**Channel:** **Private email only** — [techcachet@gmail.com](mailto:techcachet@gmail.com)
 
 **Subject line:** **“Security report — Linked SLA Alerts”** (helps us triage quickly)
 
@@ -48,8 +48,11 @@ We do **not** run a public bug-bounty program unless we state otherwise on this 
 
 ## Data protection (DPA)
 
-**Published DPA (informational):** **[Data Processing Agreement (DPA)](/dpa/)** — Tech Cache has **not** yet had this reviewed by its own counsel; obtain **your** legal advice before relying on it. For a **custom-signed** DPA or questions: **[techcache@proton.me](mailto:techcache@proton.me)**.
+**Published DPA (informational):** **[Data Processing Agreement (DPA)](/dpa/)** — Tech Cachet has **not** yet had this reviewed by its own counsel; obtain **your** legal advice before relying on it. For a **custom-signed** DPA or questions: **[techcachet@gmail.com](mailto:techcachet@gmail.com)**.
 
 ---
 
-**Tech Cache** — Tampa, Florida · [techcache@proton.me](mailto:techcache@proton.me)
+**Tech Cachet** — Tampa, Florida · [techcachet@gmail.com](mailto:techcachet@gmail.com)
+
+
+

@@ -9,7 +9,7 @@
 
 ## Slack-specific disclosures
 
-- **Bot / app identity:** Messages appear as the customer’s Slack app/bot, not as Tech Cache impersonating the user.  
+- **Bot / app identity:** Messages appear as the customer’s Slack app/bot, not as Tech Cachet impersonating the user.  
 - **Content:** Payloads may include **issue keys**, **SLA status text**, **links to Jira**, and **@mentions** consistent with templates—i.e. **work context** that may identify individuals.  
 - **User matching:** The app may use **email** (via Jira APIs, where visible) and/or **Slack member IDs** supplied by admins or self-service from the issue panel. Not every Jira user may resolve in Slack.  
 - **Secrets:** **Bot tokens** and **webhook URLs** are customer-supplied and stored in **Forge app storage**; customers are responsible for Slack app configuration and revocation.
@@ -19,3 +19,4 @@ If you publish a **separate Slack app directory listing**, use the same **Privac
 ---
 
 *This file is operational guidance, not legal advice.*
+

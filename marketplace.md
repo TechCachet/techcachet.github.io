@@ -6,7 +6,7 @@ permalink: /marketplace/
 
 # Atlassian Marketplace — listing checklist (Linked SLA Alerts)
 
-**For internal use** when preparing your Marketplace listing. This page is **not** linked from the public site’s customer resources (to keep the main flow policy- and support-focused). **URLs** assume **`https://techcache.github.io`**—adjust if you use a custom domain.
+**For internal use** when preparing your Marketplace listing. This page is **not** linked from the public site’s customer resources (to keep the main flow policy- and support-focused). **URLs** assume **`https://techcachet.github.io`**—adjust if you use a custom domain.
 
 ---
 
@@ -15,14 +15,14 @@ permalink: /marketplace/
 | Item | Suggested value / location |
 |------|----------------------------|
 | **App name** | Linked SLA Alerts |
-| **Vendor** | Tech Cache |
-| **Support email** | techcache@proton.me |
-| **Support & Security** | `https://techcache.github.io/support` |
-| **Privacy policy URL** | `https://techcache.github.io/privacy` |
-| **Documentation URL** | `https://techcache.github.io/docs/linked-sla-alerts.html` |
-| **Security Overview** | `https://techcache.github.io/security/` |
-| **Legal & Trust** | `https://techcache.github.io/legal/` (Privacy, Terms, Subprocessors & Infrastructure, Support & Security, Security Overview) |
-| **EULA / legal** | `https://techcache.github.io/terms` (or Atlassian’s flow if you use it—confirm with counsel) |
+| **Vendor** | Tech Cachet |
+| **Support email** | techcachet@gmail.com |
+| **Support & Security** | `https://techcachet.github.io/support` |
+| **Privacy policy URL** | `https://techcachet.github.io/privacy` |
+| **Documentation URL** | `https://techcachet.github.io/docs/linked-sla-alerts.html` |
+| **Security Overview** | `https://techcachet.github.io/security/` |
+| **Legal & Trust** | `https://techcachet.github.io/legal/` (Privacy, Terms, Subprocessors & Infrastructure, Support & Security, Security Overview) |
+| **EULA / legal** | `https://techcachet.github.io/terms` (or Atlassian’s flow if you use it—confirm with counsel) |
 | **Paid app** | Set **pricing** in Partner Center; **billing** is typically through **Atlassian** per Marketplace terms |
 
 ---
@@ -32,8 +32,8 @@ permalink: /marketplace/
 | Item | Notes |
 |------|--------|
 | **Security / trust** | Link **`/security/`**; [Privacy Policy](/privacy) **§12** (security summary); [Subprocessors & Infrastructure](/subprocessors) |
-| **Subprocessors** | `https://techcache.github.io/subprocessors` |
-| **DPA** | Published (informational): `https://techcache.github.io/dpa/` — custom requests: **techcache@proton.me** |
+| **Subprocessors** | `https://techcachet.github.io/subprocessors` |
+| **DPA** | Published (informational): `https://techcachet.github.io/dpa/` — custom requests: **techcachet@gmail.com** |
 | **Screenshots / video** | Panel, admin, Slack sample (no real customer PII) |
 | **Scopes** | Keep **`manifest.yml`** aligned with [Privacy Policy](/privacy) **§11** and the questionnaire |
 
@@ -65,7 +65,10 @@ An internal development repository may use a different **codename** (e.g. `sla-l
 - [Privacy Policy](/privacy) · [Terms of Service](/terms) · [Legal & Trust](/legal/) · [Subprocessors & Infrastructure](/subprocessors)  
 - `docs/marketplace-slack-dm.md` in this repository (Slack/DM notes for listing prep)  
 - Forge **`manifest.yml`** (scopes + `external.fetch` allowlist)  
-- Whether **Tech Cache** receives any **direct** customer payments or only via **Atlassian** (affects liability context in Terms)  
+- Whether **Tech Cachet** receives any **direct** customer payments or only via **Atlassian** (affects liability context in Terms)  
 - Whether you **log PII** in Forge (audit `console.log` / APM)
 
-**Contact:** [techcache@proton.me](mailto:techcache@proton.me)
+**Contact:** [techcachet@gmail.com](mailto:techcachet@gmail.com)
+
+
+

@@ -8,7 +8,7 @@ permalink: /terms/
 
 **Last updated:** March 2026  
 
-These Terms of Service (“**Terms**”) govern use of **Linked SLA Alerts**, a **Jira Cloud** app published by **Tech Cache** and offered through the **Atlassian Marketplace** (including as a **paid** app).
+These Terms of Service (“**Terms**”) govern use of **Linked SLA Alerts**, a **Jira Cloud** app published by **Tech Cachet** and offered through the **Atlassian Marketplace** (including as a **paid** app).
 
 By **installing**, **configuring**, or **using** the app, you confirm that you have authority to bind the **organization** whose Jira site the app is installed on, and you agree to these Terms. If you do not agree, do not use the app.
 
@@ -32,7 +32,7 @@ You must be allowed to install **Marketplace apps** on your Jira Cloud site and 
 
 ## 3. License to use
 
-Subject to these Terms and a **valid Marketplace entitlement** (paid subscription or **trial**, if Atlassian offers one), Tech Cache grants your organization a **limited, non-exclusive, non-transferable, revocable** right to use the app **only** in **your** Jira Cloud site(s) for **internal business use**.
+Subject to these Terms and a **valid Marketplace entitlement** (paid subscription or **trial**, if Atlassian offers one), Tech Cachet grants your organization a **limited, non-exclusive, non-transferable, revocable** right to use the app **only** in **your** Jira Cloud site(s) for **internal business use**.
 
 You may not: misuse the app; reverse engineer it beyond what the law allows; use it to build a competing product; strip legal notices; break the law or Atlassian’s rules; or overload systems.
 
@@ -43,14 +43,14 @@ You may not: misuse the app; reverse engineer it beyond what the law allows; use
 - **Prices and plans** are set on the **Atlassian Marketplace** (and may change for **new** purchases as Atlassian allows).  
 - **Charges, invoices, refunds, and taxes** are handled under **Atlassian’s** checkout and Marketplace terms—not summarized here.  
 - **Trials** follow **Atlassian’s** trial rules, if available.  
-- **Renewal and cancellation** are managed in **Atlassian** account / Marketplace controls, unless you have a **separate written agreement** with Tech Cache.  
+- **Renewal and cancellation** are managed in **Atlassian** account / Marketplace controls, unless you have a **separate written agreement** with Tech Cachet.  
 - The app may check **Marketplace license status** through Forge (for example, `getAppContext().license`) to show or enforce paid access in **production**.
 
 ---
 
 ## 5. End of use (uninstall, expiry, breach)
 
-Your right to use the app **ends** if you **uninstall** it, **lose** Marketplace entitlement, **Atlassian** ends the install, or you **break** these Terms. Tech Cache may **stop offering** the app where required by law or Atlassian policy.
+Your right to use the app **ends** if you **uninstall** it, **lose** Marketplace entitlement, **Atlassian** ends the install, or you **break** these Terms. Tech Cachet may **stop offering** the app where required by law or Atlassian policy.
 
 **When the app stops:** Features that need a **valid license** may **stop working**. Settings in **Forge** storage follow **Atlassian’s** rules for app data. **Turn off** Slack and webhooks in the admin UI if you need integrations to stop immediately. Export any configuration **your policies require** before uninstall.
 
@@ -58,9 +58,9 @@ Your right to use the app **ends** if you **uninstall** it, **lose** Marketplace
 
 ## 6. App discontinuation
 
-If Tech Cache decides to **discontinue** Linked SLA Alerts, customers will be given **at least 30 days’ notice** via the **Atlassian Marketplace** listing and by **email** where we have **contact information** available.
+If Tech Cachet decides to **discontinue** Linked SLA Alerts, customers will be given **at least 30 days’ notice** via the **Atlassian Marketplace** listing and by **email** where we have **contact information** available.
 
-When the app is **uninstalled**, **configuration data** stored in **Forge Key-Value Store** is **automatically deleted** by **Atlassian’s platform** according to Atlassian’s processes. **Tech Cache does not retain customer Jira data** after the app is uninstalled.
+When the app is **uninstalled**, **configuration data** stored in **Forge Key-Value Store** is **automatically deleted** by **Atlassian’s platform** according to Atlassian’s processes. **Tech Cachet does not retain customer Jira data** after the app is uninstalled.
 
 ---
 
@@ -72,13 +72,13 @@ You are responsible for **lawful use**, correct **configuration** (Slack, webhoo
 
 ## 8. Privacy
 
-See the **[Privacy Policy](/privacy)**, **[Subprocessors & Infrastructure](/subprocessors)**, **[Data Processing Agreement (DPA)](/dpa/)** (informational; not yet reviewed by Tech Cache’s counsel), and **[Legal & Trust](/legal/)** (index of policies and Security Overview). For **custom** DPA requests: **[techcache@proton.me](mailto:techcache@proton.me)**.
+See the **[Privacy Policy](/privacy)**, **[Subprocessors & Infrastructure](/subprocessors)**, **[Data Processing Agreement (DPA)](/dpa/)** (informational; not yet reviewed by Tech Cachet’s counsel), and **[Legal & Trust](/legal/)** (index of policies and Security Overview). For **custom** DPA requests: **[techcachet@gmail.com](mailto:techcachet@gmail.com)**.
 
 ---
 
 ## 9. Support & Security
 
-**Email:** [techcache@proton.me](mailto:techcache@proton.me) · Details: **[Support & Security](/support)**  
+**Email:** [techcachet@gmail.com](mailto:techcachet@gmail.com) · Details: **[Support & Security](/support)**  
 
 Report security issues **only** through that **private email** channel as described there—not via public GitHub issues or a public tracker.
 
@@ -94,15 +94,15 @@ The app relies on **Forge**, **Jira**, and any **third-party services you turn o
 
 ## 11. Disclaimer
 
-**TO THE EXTENT THE LAW ALLOWS**, THE APP IS PROVIDED **“AS IS”** AND **“AS AVAILABLE.”** TECH CACHE DISCLAIMS **ALL IMPLIED WARRANTIES**, INCLUDING **MERCHANTABILITY**, **FITNESS FOR A PARTICULAR PURPOSE**, AND **NON-INFRINGEMENT**.
+**TO THE EXTENT THE LAW ALLOWS**, THE APP IS PROVIDED **“AS IS”** AND **“AS AVAILABLE.”** TECH CACHET DISCLAIMS **ALL IMPLIED WARRANTIES**, INCLUDING **MERCHANTABILITY**, **FITNESS FOR A PARTICULAR PURPOSE**, AND **NON-INFRINGEMENT**.
 
 ---
 
 ## 12. Limitation of liability
 
-**TO THE EXTENT THE LAW ALLOWS**, TECH CACHE IS **NOT LIABLE** FOR **INDIRECT**, **SPECIAL**, **CONSEQUENTIAL**, OR **PUNITIVE** DAMAGES, OR FOR **LOST PROFITS**, **DATA**, OR **GOODWILL**, ARISING FROM USE OF THE APP.
+**TO THE EXTENT THE LAW ALLOWS**, TECH CACHET IS **NOT LIABLE** FOR **INDIRECT**, **SPECIAL**, **CONSEQUENTIAL**, OR **PUNITIVE** DAMAGES, OR FOR **LOST PROFITS**, **DATA**, OR **GOODWILL**, ARISING FROM USE OF THE APP.
 
-TECH CACHE’S **TOTAL LIABILITY** FOR CLAIMS ABOUT THE APP IN ANY **12-MONTH PERIOD** IS LIMITED TO THE **GREATER OF** (A) **ONE HUNDRED U.S. DOLLARS (USD $100)** OR (B) **FEES YOU PAID DIRECTLY TO TECH CACHE** FOR THE APP IN THAT PERIOD. If you **only** pay through **Atlassian** and owe **nothing** directly to Tech Cache, (B) is **zero**, so the cap is **USD $100**.
+TECH CACHET'S **TOTAL LIABILITY** FOR CLAIMS ABOUT THE APP IN ANY **12-MONTH PERIOD** IS LIMITED TO THE **GREATER OF** (A) **ONE HUNDRED U.S. DOLLARS (USD $100)** OR (B) **FEES YOU PAID DIRECTLY TO TECH CACHET** FOR THE APP IN THAT PERIOD. If you **only** pay through **Atlassian** and owe **nothing** directly to Tech Cachet, (B) is **zero**, so the cap is **USD $100**.
 
 Some states or countries do not allow certain limits; in those cases our limits apply **only as far as the law allows**.
 
@@ -110,7 +110,7 @@ Some states or countries do not allow certain limits; in those cases our limits 
 
 ## 13. Indemnity
 
-You will **defend and reimburse** Tech Cache for claims caused by **your** misuse of the app, **your** Jira content, or **your** integration settings—except where Tech Cache has engaged in **willful misconduct** (as finally decided by a court).
+You will **defend and reimburse** Tech Cachet for claims caused by **your** misuse of the app, **your** Jira content, or **your** integration settings—except where Tech Cachet has engaged in **willful misconduct** (as finally decided by a court).
 
 ---
 
@@ -118,10 +118,14 @@ You will **defend and reimburse** Tech Cache for claims caused by **your** misus
 
 These Terms are governed by the laws of the **State of Florida**, without regard to conflict-of-law rules.
 
-You and Tech Cache agree that the **state and federal courts located in Hillsborough County, Florida** have **exclusive jurisdiction** over disputes arising from these Terms or the app, **except** where applicable law requires a different forum.
+You and Tech Cachet agree that the **state and federal courts located in Hillsborough County, Florida** have **exclusive jurisdiction** over disputes arising from these Terms or the app, **except** where applicable law requires a different forum.
 
 ---
 
 ## 15. Contact
 
-**Tech Cache** — [techcache@proton.me](mailto:techcache@proton.me) · [Support & Security](/support)
+**Tech Cachet** — [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](/support)
+
+
+
+

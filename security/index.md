@@ -5,7 +5,7 @@ title: "Security Overview"
 
 # Security Overview
 
-**Linked SLA Alerts** (Atlassian Forge app for Jira Cloud) · **Tech Cache**
+**Linked SLA Alerts** (Atlassian Forge app for Jira Cloud) · **Tech Cachet**
 
 This page is a concise summary for **enterprise admins** and **security reviewers**. It is **not** a certification, penetration test, or legal document. For full privacy and data practices, see the **[Privacy Policy](/privacy/)**.
 
@@ -13,13 +13,13 @@ This page is a concise summary for **enterprise admins** and **security reviewer
 
 ## Architecture
 
-The app runs **entirely on Atlassian Forge**. Tech Cache does **not** operate separate **application servers** or **external databases** for core app logic. Processing and **Forge app storage (Key-Value Store)** use **Atlassian’s** infrastructure.
+The app runs **entirely on Atlassian Forge**. Tech Cachet does **not** operate separate **application servers** or **external databases** for core app logic. Processing and **Forge app storage (Key-Value Store)** use **Atlassian’s** infrastructure.
 
 ---
 
 ## Data handling
 
-The app accesses **Jira** data (issues, links, SLA-related fields, users, and configuration) **only within the permissions** of the installed app and the **user’s** Jira access. We do **not** maintain a separate Tech Cache copy of your Jira database for routine operation. **Customer Jira content** remains under **your** and **Atlassian’s** control.
+The app accesses **Jira** data (issues, links, SLA-related fields, users, and configuration) **only within the permissions** of the installed app and the **user’s** Jira access. We do **not** maintain a separate Tech Cachet copy of your Jira database for routine operation. **Customer Jira content** remains under **your** and **Atlassian’s** control.
 
 ---
 
@@ -43,7 +43,7 @@ Outbound calls from the app are limited to **hostnames allowed** in the publishe
 
 ## Vulnerability disclosure
 
-To report a security issue in the **Linked SLA Alerts** app, email **techcache@proton.me** (subject **“Security report — Linked SLA Alerts”**) with a description, reproduction steps, and impact. Reports are handled **privately** through this mailbox—**not** via a public tracker and **not** by posting to **GitHub**; you are **not** required to publish vulnerabilities.
+To report a security issue in the **Linked SLA Alerts** app, email **techcachet@gmail.com** (subject **“Security report — Linked SLA Alerts”**) with a description, reproduction steps, and impact. Reports are handled **privately** through this mailbox—**not** via a public tracker and **not** by posting to **GitHub**; you are **not** required to publish vulnerabilities.
 
 **Full policy** (supported versions, timelines, scope, coordinated disclosure): **[Vulnerability disclosure policy](/vulnerability-disclosure/)**.
 
@@ -51,16 +51,19 @@ To report a security issue in the **Linked SLA Alerts** app, email **techcache@p
 
 ## Incident response
 
-If Tech Cache identifies a **security incident** that **affects customer data** in a way that requires customer notification, we will notify **affected customers by email** within **72 hours** of becoming **aware** of the incident (subject to **lawful** instructions and the need to **preserve** an investigation).
+If Tech Cachet identifies a **security incident** that **affects customer data** in a way that requires customer notification, we will notify **affected customers by email** within **72 hours** of becoming **aware** of the incident (subject to **lawful** instructions and the need to **preserve** an investigation).
 
-Notifications will aim to include: **what happened**, **what categories of data** were involved, **steps we are taking**, and **how to contact** Tech Cache with questions.
+Notifications will aim to include: **what happened**, **what categories of data** were involved, **steps we are taking**, and **how to contact** Tech Cachet with questions.
 
-**Contact:** [techcache@proton.me](mailto:techcache@proton.me)
+**Contact:** [techcachet@gmail.com](mailto:techcachet@gmail.com)
 
 ---
 
 ## Contact (general security questions)
 
-**techcache@proton.me** — use subject line **“Security report — Linked SLA Alerts”** for vulnerabilities; **private email only** (see **[Vulnerability disclosure policy](/vulnerability-disclosure/)**).
+**techcachet@gmail.com** — use subject line **“Security report — Linked SLA Alerts”** for vulnerabilities; **private email only** (see **[Vulnerability disclosure policy](/vulnerability-disclosure/)**).
 
 For product support and policy links, see **[Support & Security](/support/)** and **[Legal & Trust](/legal/)**.
+
+
+

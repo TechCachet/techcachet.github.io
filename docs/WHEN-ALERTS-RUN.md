@@ -18,4 +18,6 @@ Teams that want timely trigger-based notifications should **open the parent issu
 
 ---
 
-*Maintainer note: keep aligned with the public FAQ **“When do configured SLA alerts run?”** on [Product Documentation](https://techcache.github.io/docs/linked-sla-alerts.html#when-do-sla-alerts-run). If the app later adds a Forge scheduled job, update this file and all customer-facing copy.*
+*Maintainer note: keep aligned with the public FAQ **“When do configured SLA alerts run?”** on [Product Documentation](https://techcachet.github.io/docs/linked-sla-alerts.html#when-do-sla-alerts-run). If the app later adds a Forge scheduled job, update this file and all customer-facing copy.*
+
+
