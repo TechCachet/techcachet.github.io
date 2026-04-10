@@ -8,11 +8,13 @@ permalink: /privacy/
 
 **Last updated:** March 2026  
 
-**App:** Linked SLA Alerts (Atlassian Forge app for Jira Cloud).
+> **Portfolio update:** Tech Cachet, LLC is refreshing this policy for our active roadmap (**Audit & Risk Insights**, **Auto Issue Intake**, **Secrets Finder**). The substantive sections below still describe **Linked SLA Alerts** in detail; that app is **not** featured on our homepage while development is on hold. For questions, contact [techcachet@gmail.com](mailto:techcachet@gmail.com). **Not legal advice**—involve counsel for multi-product wording, EU/UK roles, and enterprise procurement.
 
-**Publisher:** Tech Cachet.
+**App (detailed below):** Linked SLA Alerts (Atlassian Forge app for Jira Cloud).
 
-This Privacy Policy describes how Linked SLA Alerts accesses, uses, stores, and shares information when a customer installs and uses the app in their Jira Cloud site. It also briefly describes our marketing site (this site). **This document supports transparency and Marketplace review; it is not legal advice—involve counsel for DPA wording, EU/UK roles, and enterprise procurement.**
+**Publisher:** Tech Cachet, LLC.
+
+This Privacy Policy describes how Linked SLA Alerts accesses, uses, stores, and shares information when a customer installs and uses the app in their Jira Cloud site. It also briefly describes our marketing site (this site). **This document supports transparency and future Marketplace review; it is not legal advice—involve counsel for DPA wording, EU/UK roles, and enterprise procurement.**
 
 ---
 

@@ -6,10 +6,10 @@
 <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/assets/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
-<title>Tech Cachet | Atlassian Apps</title>
+<title>Tech Cachet, LLC | Atlassian Forge apps for Jira</title>
 
 <meta name="description"
-content="Tech Cachet builds practical Atlassian tools, including Linked SLA Alerts for Jira: relay parent SLA status to linked tickets when the issue panel evaluates triggers (open/refresh), on-demand Send SLA Alert, and optional Slack or email—no Forge scheduled trigger/cron.">
+content="Tech Cachet, LLC builds Jira Cloud apps on Atlassian Forge: Audit &amp; Risk Insights, Auto Issue Intake, and Secrets Finder—practical visibility, intake, and security in the tools your teams already use.">
 
 <style>
 :root{
@@ -304,8 +304,37 @@ body{
 
 #contact,
 #resources,
-#apps-services{
+#products{
   scroll-margin-top:clamp(88px, 20vw, 132px);
+}
+
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:16px;
+  align-items:stretch;
+}
+
+@media (max-width:900px){
+  .grid-3{
+    grid-template-columns:1fr;
+  }
+}
+
+.splash-stage--text{
+  line-height:1.65;
+  padding:clamp(28px, 5vw, 52px) clamp(20px, 4vw, 40px);
+  text-align:center;
+}
+
+.splash-stage--text .tagline{
+  margin-bottom:14px;
+}
+
+.splash-stage--text .subtext{
+  margin-left:auto;
+  margin-right:auto;
+  max-width:52ch;
 }
 
 .container{
@@ -408,6 +437,11 @@ h1{
   margin:0 0 10px;
   font-size:2.5rem;
   color:white;
+}
+
+.hero.splash-hero .splash-stage--text h1{
+  font-size:clamp(1.65rem, 4vw, 2.35rem);
+  margin:0 0 12px;
 }
 
 .tagline{
@@ -690,9 +724,9 @@ a:hover{
       </a>
 
       <nav class="ribbon-desktop-nav" aria-label="Primary">
-        <a href="#apps-services">Apps</a>
+        <a href="#products">Products</a>
         <a href="#resources">Resources</a>
-        <a href="#contact">Contacts</a>
+        <a href="#contact">Contact</a>
       </nav>
 
       <a class="ribbon-cta ribbon-desktop-cta" href="#contact">Contact</a>
@@ -704,9 +738,9 @@ a:hover{
 
     <div class="ribbon-flyout" id="ribbon-flyout-panel">
       <nav class="ribbon-flyout-nav" aria-label="Mobile primary">
-        <a href="#apps-services">Apps</a>
+        <a href="#products">Products</a>
         <a href="#resources">Resources</a>
-        <a href="#contact">Contacts</a>
+        <a href="#contact">Contact</a>
         <a class="ribbon-flyout-cta" href="#contact">Contact</a>
         <label for="ribbon-nav-toggle" class="ribbon-flyout-close">Close menu</label>
       </nav>
@@ -714,26 +748,20 @@ a:hover{
   </div>
 </header>
 
-<section class="hero splash-hero" aria-label="Welcome">
-  <h1 class="visually-hidden">
-    Tech Cachet — Built for Atlassian teams. Keep every linked Jira ticket moving together.
-    Turn SLA pressure into coordinated action: configurable SLA notifications when someone opens or refreshes the Linked SLA Alerts panel on the parent issue, plus on-demand Send SLA Alert; Jira comments and mentions; optional Slack and email. No background scheduler or Forge cron.
-    Less chasing, less manual follow-up, more teams staying aligned. Linked SLA Alerts for Jira.
-  </h1>
-
-  <div class="splash-stage">
-    <!-- Hero art: Linked SLA Alerts marketing banner v3 (add hero-banner@2x.png + srcset when a 2× export is available) -->
-    <img
-      class="splash-art"
-      src="assets/hero-banner.png"
-      srcset="assets/hero-banner.png 1024w"
-      sizes="(max-width: 768px) calc(100vw - 48px), min(1320px, calc(100vw - 80px))"
-      width="1024"
-      height="434"
-      alt="Linked SLA Alerts by Tech Cachet: Built for Atlassian teams — Keep every linked Jira ticket moving together. Parent ticket at risk with SLA time flowing to linked issues (on track, at risk, breached). Configurable notifications when the issue panel runs on the parent; on-demand Send SLA Alert; Jira comments and mentions; optional Slack and email."
-      decoding="sync"
-      fetchpriority="high"
-    >
+<section class="hero splash-hero" aria-labelledby="hero-heading">
+  <div class="splash-stage splash-stage--text">
+    <p class="tagline">Tech Cachet, LLC</p>
+    <h1 id="hero-heading">Jira apps for visibility, intake, and safer work</h1>
+    <p class="subtext">
+      We build Atlassian Forge apps for Jira Cloud—dashboard insight, structured intake, and sensitive-data awareness—so operations and delivery teams get clearer signal without heavier process.
+    </p>
+    <p class="subtext small-note" style="margin-top:8px;">
+      Apps are in active development; none are listed on the Atlassian Marketplace yet.
+    </p>
+    <div class="cta-wrap">
+      <a class="cta-button" href="#products">Explore products</a>
+      <a class="cta-secondary" href="#contact">Get in touch</a>
+    </div>
   </div>
 </section>
 
@@ -742,46 +770,55 @@ a:hover{
   <section class="card highlight-card">
     <h2>What Tech Cachet Offers</h2>
     <p>
-      Tech Cachet builds software for teams that need better visibility and faster
-      coordination on the work they already track in Jira. The goal is practical
-      improvements with clear value: less manual checking, clearer handoffs, and
-      timely SLA visibility on linked work when your team uses the issue panel and on-demand actions.
+      <strong>Tech Cachet, LLC</strong> builds focused Jira Cloud apps on <strong>Atlassian Forge</strong> for teams that want
+      better visibility into queues and risk, smoother paths for work to enter Jira, and help catching
+      sensitive data before it spreads. The aim is practical tools with a small surface area and clear value—not complexity for its own sake.
     </p>
   </section>
 
-  <section class="card" id="apps-services">
-    <h2>Apps</h2>
-
-    <!--
-      Website Security Snapshot (paused): previously a second column here linking to Security Overview
-    -->
-    <div>
-      <div class="service featured">
-        <div class="badge">Atlassian App</div>
-        <h3>Linked SLA Alerts</h3>
+  <section class="card" id="products">
+    <h2>Products</h2>
+    <p class="small-note" style="margin:0 0 18px;">
+      Three pillars in development. Details and docs will expand as each app nears release.
+    </p>
+    <div class="grid-3">
+      <div class="service">
+        <div class="badge">In development</div>
+        <h3>Audit &amp; Risk Insights</h3>
         <p>
-          Helps linked tickets stay informed about the parent issue’s SLA. The app lives on
-          the parent Jira issue that has the SLA; that issue can have linked
-          issues. The app uses the parent’s SLA only—linked tickets don’t need
-          their own SLA. Use <strong>Send SLA Alert to Linked Tickets</strong> on demand, or rely on
-          <strong>configurable triggers</strong> evaluated when someone <strong>opens or refreshes</strong> the Linked SLA Alerts <strong>panel</strong> on the parent (not a Forge scheduled job or cron). Comments + @mentions on linked tickets; optional Slack or email.
+          Insight-first <strong>Jira dashboard</strong> app that surfaces queue risk, SLA exposure, and workflow bottlenecks—so managers see what to act on instead of drowning in charts.
         </p>
         <ul>
-          <li>Panel: “Send SLA Alert to Linked Tickets” — choose all or specific linked tickets, then post a comment on each with the parent’s SLA status and expiry; optional Slack with clickable Jira links (on-demand)</li>
-          <li>Configurable SLA notifications: when you <strong>open or refresh</strong> the panel on the parent, the app evaluates your configured triggers (at risk, breached, or time-left thresholds—e.g. 30 minutes remaining—with separate recipient sets per rule where supported). If conditions match and deduping (Forge KVS) allows, it posts a comment on each linked ticket and @mentions that ticket’s assignee, reporter, watchers, and configurable fields (e.g. Request Participants). Teams often rely on natural visits to the parent issue so the panel runs.</li>
-          <li>Admin: triggers, who to @mention per trigger, Jira comment / Slack (webhook or Bot + channel) / email webhook, and two configurable message templates</li>
-          <li>Optional SLA field override; Slack token stored securely in Forge (masked, clearable)</li>
+          <li>Forge on Jira Cloud; dashboard gadget and custom UI</li>
+          <li>Search-backed analysis plus an insight engine tuned to real queues</li>
         </ul>
-        <p style="margin-top:12px;font-size:0.95rem;color:var(--muted);">
-          <strong>Marketplace &amp; support:</strong> Install from the Atlassian Marketplace (paid app). Product support from Tech Cachet is <strong>by email</strong>—see <a href="support/">Support &amp; Security</a> and <a href="legal/">Legal &amp; Trust</a>.
+      </div>
+      <div class="service">
+        <div class="badge">In development</div>
+        <h3>Auto Issue Intake</h3>
+        <p>
+          Forge app for <strong>structured intake</strong>—turning how requests and findings enter Jira into repeatable create-or-update decisions, with less duplicate work and clearer ownership.
         </p>
-        <p style="margin-top:14px;">
-          <a href="linked-sla-alerts.html">
-          Learn more →
-          </a>
+        <ul>
+          <li>Configuration-driven flows; preview before issues are created or updated</li>
+          <li>Built to reduce ticket sprawl for high-volume or scanner-driven inputs</li>
+        </ul>
+      </div>
+      <div class="service">
+        <div class="badge">In development</div>
+        <h3>Secrets Finder</h3>
+        <p>
+          Scans Jira issue content for <strong>likely exposed secrets</strong> and sensitive data—summary, description, comments, selected fields, and attachments—with OCR for screenshots and admin-level reporting.
         </p>
+        <ul>
+          <li>Issue panel plus admin settings and batch scans; deterministic, explainable findings</li>
+          <li>Roadmap: organization-specific rules for terms and patterns that matter in your environment</li>
+        </ul>
       </div>
     </div>
+    <p style="margin-top:18px;font-size:0.95rem;color:var(--muted);">
+      Questions or early access: <a href="support/">Support &amp; Security</a> · <a href="mailto:techcachet@gmail.com">techcachet@gmail.com</a>
+    </p>
   </section>
 
   <section class="card">
@@ -808,15 +845,14 @@ a:hover{
       <li><a href="terms/">Terms of Service</a></li>
       <li><a href="subprocessors/">Subprocessors &amp; Infrastructure</a></li>
       <li><a href="security/">Security Overview</a></li>
-      <li><a href="docs/linked-sla-alerts.html">Product Documentation</a></li>
       <li><a href="support/">Support &amp; Security</a> · <a href="mailto:techcachet@gmail.com">techcachet@gmail.com</a></li>
     </ul>
   </section>
 
   <section class="card contact-box" id="contact">
-    <h2>Contact Tech Cachet</h2>
+    <h2>Contact Tech Cachet, LLC</h2>
     <p>
-      Questions about the app or support? Reach out directly.
+      Questions about our products, this site, or security? Reach out directly.
     </p>
 
     <div class="contact-info">
@@ -838,7 +874,7 @@ a:hover{
       <a href="security/">Security Overview</a> ·
       <a href="support/">Support</a>
     </p>
-    © 2026 Tech Cachet — Practical tools for Atlassian teams.
+    © 2026 Tech Cachet, LLC — Atlassian Forge apps for Jira Cloud.
   </div>
 
 </main>

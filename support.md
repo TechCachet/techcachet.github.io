@@ -6,7 +6,7 @@ permalink: /support/
 
 # Support & Security
 
-**Linked SLA Alerts** · Tech Cachet  
+**Tech Cachet, LLC**
 
 ---
 
@@ -14,16 +14,15 @@ permalink: /support/
 
 **Channel:** **Email only** — [techcachet@gmail.com](mailto:techcachet@gmail.com)
 
-**Linked SLA Alerts** is offered on the **Atlassian Marketplace** (paid app). **Tech Cachet** answers product questions and configuration help **directly** at the address above. There is **no** customer support portal, ticket queue, or third-party developer forum on this site.
+Our Jira Cloud apps (**Audit & Risk Insights**, **Auto Issue Intake**, **Secrets Finder**) are **in development** and are **not** yet listed on the **Atlassian Marketplace**. **Tech Cachet, LLC** answers questions about direction, early access, and this site **directly** at the address above. There is **no** customer support portal, ticket queue, or third-party developer forum on this site.
 
-**Scope (typical):** Installation and upgrades, Forge scopes and consent, triggers, Slack and automation webhooks, behavior questions, and bug reports. We do **not** guarantee a fixed response time unless agreed in **writing** for your organization.
+**Scope (typical):** Product direction, Forge and Jira Cloud questions, planned behavior, and security reports. We do **not** guarantee a fixed response time unless agreed in **writing** for your organization.
 
 ---
 
 ## Self-service
 
-- [Product Overview](/linked-sla-alerts.html)  
-- [Product Documentation](/docs/linked-sla-alerts.html)  
+- [Tech Cachet home](/) — product overview  
 - [Privacy Policy](/privacy/)  
 - [Terms of Service](/terms/)  
 - [Subprocessors & Infrastructure](/subprocessors/)  
@@ -36,7 +35,7 @@ permalink: /support/
 
 **Channel:** **Private email only** — [techcachet@gmail.com](mailto:techcachet@gmail.com)
 
-**Subject line:** **“Security report — Linked SLA Alerts”** (helps us triage quickly)
+**Subject line:** **“Security report — Tech Cachet”** (include the app or site area if known—helps us triage quickly)
 
 Send findings **directly to us by email**. We handle them **confidentially** through this address—**not** via a public bug tracker, **not** by opening issues or posting details on **GitHub** (our repositories are private; there is **no** expectation or requirement that you publish vulnerabilities publicly). The coordinated disclosure rules in our **[Vulnerability disclosure policy](/vulnerability-disclosure/)** describe **your** responsibility not to disclose before a fix where applicable; they do **not** mean you must file anything in public.
 
@@ -48,11 +47,11 @@ We do **not** run a public bug-bounty program unless we state otherwise on this 
 
 ## Data protection (DPA)
 
-**Published DPA (informational):** **[Data Processing Agreement (DPA)](/dpa/)** — Tech Cachet has **not** yet had this reviewed by its own counsel; obtain **your** legal advice before relying on it. For a **custom-signed** DPA or questions: **[techcachet@gmail.com](mailto:techcachet@gmail.com)**.
+**Published DPA (informational):** **[Data Processing Agreement (DPA)](/dpa/)** — Tech Cachet, LLC has **not** yet had this reviewed by its own counsel; obtain **your** legal advice before relying on it. For a **custom-signed** DPA or questions: **[techcachet@gmail.com](mailto:techcachet@gmail.com)**.
 
 ---
 
-**Tech Cachet** — Tampa, Florida · [techcachet@gmail.com](mailto:techcachet@gmail.com)
+**Tech Cachet, LLC** — Tampa, Florida · [techcachet@gmail.com](mailto:techcachet@gmail.com)
 
 
 
