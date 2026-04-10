@@ -387,8 +387,12 @@ body{
     0 0 48px -8px rgba(56,189,248,0.22),
     0 32px 72px -12px rgba(0,0,0,0.65);
   background:rgba(5,8,16,0.45);
-  line-height:0;
   overflow:hidden;
+}
+
+/* Image-only heroes use tight line-height; text hero uses .splash-stage--text line-height */
+.splash-stage:not(.splash-stage--text){
+  line-height:0;
 }
 
 .splash-art{
