@@ -43,7 +43,7 @@ Outbound calls from the app are limited to **hostnames allowed** in the publishe
 
 ## Vulnerability disclosure
 
-To report a security issue in the **Linked SLA Alerts** app, email **techcachet@gmail.com** (subject **“Security report — Linked SLA Alerts”**) with a description, reproduction steps, and impact. Reports are handled **privately** through this mailbox—**not** via a public tracker and **not** by posting to **GitHub**; you are **not** required to publish vulnerabilities.
+To report a security issue in the **Linked SLA Alerts** app, email **techcachet@gmail.com** (subject **“Security report: Linked SLA Alerts”**) with a description, reproduction steps, and impact. Reports are handled **privately** through this mailbox, **not** via a public tracker and **not** by posting to **GitHub**; you are **not** required to publish vulnerabilities.
 
 **Full policy** (supported versions, timelines, scope, coordinated disclosure): **[Vulnerability disclosure policy](/vulnerability-disclosure/)**.
 
@@ -61,7 +61,7 @@ Notifications will aim to include: **what happened**, **what categories of data*
 
 ## Contact (general security questions)
 
-**techcachet@gmail.com** — use subject line **“Security report — Linked SLA Alerts”** for vulnerabilities; **private email only** (see **[Vulnerability disclosure policy](/vulnerability-disclosure/)**).
+**techcachet@gmail.com**: use subject line **“Security report: Linked SLA Alerts”** for vulnerabilities; **private email only** (see **[Vulnerability disclosure policy](/vulnerability-disclosure/)**).
 
 For product support and policy links, see **[Support & Security](/support/)** and **[Legal & Trust](/legal/)**.
 

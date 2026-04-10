@@ -473,7 +473,7 @@
       timerEl.textContent = label;
       timerEl.classList.toggle('warn', remaining <= 120 && remaining > 0);
       warnEl.textContent =
-        'This code expires in ' + label + ' — exchange it now';
+        'This code expires in ' + label + ': exchange it now';
       if (remaining <= 0) {
         clearInterval(timerInterval);
         timerEl.textContent = '0:00';
@@ -574,7 +574,7 @@
       '  <button type="button" class="btn btn-secondary" id="copyCode">Copy code</button>' +
       '</div>' +
       '<p class="timer" id="countdownDisplay">10:00</p>' +
-      '<p class="hint" id="countdownWarn">This code expires in 10:00 — exchange it now</p>' +
+      '<p class="hint" id="countdownWarn">This code expires in 10:00: exchange it now</p>' +
       '<details class="manual">' +
       '  <summary>Manual exchange (terminal)</summary>' +
       '  <div class="manual-body">' +
@@ -605,7 +605,7 @@
     clientSecretGroup.classList.remove('hidden');
     document.getElementById('clientSecret').required = true;
     exchangeStatus.innerHTML =
-      '<div class="msg msg-warning">Auto-exchange failed — use the manual options below.</div>' +
+      '<div class="msg msg-warning">Auto-exchange failed: use the manual options below.</div>' +
       (extraHint ? '<p class="hint">' + extraHint + '</p>' : '');
   }
 

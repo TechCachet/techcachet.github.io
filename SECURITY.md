@@ -1,4 +1,4 @@
-# Security policy — Linked SLA Alerts
+# Security policy: Linked SLA Alerts
 
 **Vulnerability disclosure** for the **Linked SLA Alerts** Atlassian Forge app.
 
@@ -14,7 +14,7 @@ Only the **latest published version** of Linked SLA Alerts on the **Atlassian Ma
 
 ## Reporting a vulnerability
 
-Send reports **only** to **techcachet@gmail.com** (private email). Do **not** open public GitHub issues or use a public bug tracker for vulnerability details—we handle reports **confidentially** through this address. You are **not** required to publish vulnerabilities.
+Send reports **only** to **techcachet@gmail.com** (private email). Do **not** open public GitHub issues or use a public bug tracker for vulnerability details, we handle reports **confidentially** through this address. You are **not** required to publish vulnerabilities.
 
 Email **techcachet@gmail.com** with:
 
@@ -35,7 +35,7 @@ Email **techcachet@gmail.com** with:
 
 ## Disclosure policy
 
-We follow **coordinated disclosure**. Please **do not publicly disclose** details before a **fix is available**, unless **90 days** have passed **without a substantive response** from us—in which case you may disclose responsibly. We appreciate working with reporters to protect users.
+We follow **coordinated disclosure**. Please **do not publicly disclose** details before a **fix is available**, unless **90 days** have passed **without a substantive response** from us, in which case you may disclose responsibly. We appreciate working with reporters to protect users.
 
 ---
 
@@ -53,7 +53,7 @@ We follow **coordinated disclosure**. Please **do not publicly disclose** detail
 
 For a customer-facing **security overview** (architecture, data handling, incident response), see **https://techcachet.github.io/security/**
 
-The same vulnerability disclosure text is published at **https://techcachet.github.io/vulnerability-disclosure/** — keep that page and this file in sync when you change policy wording.
+The same vulnerability disclosure text is published at **https://techcachet.github.io/vulnerability-disclosure/**: keep that page and this file in sync when you change policy wording.
 
 
 

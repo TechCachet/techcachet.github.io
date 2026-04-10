@@ -6,13 +6,13 @@ permalink: /dpa/
 
 # Data Processing Agreement
 
-**Linked SLA Alerts** — Tech Cachet  
+**Linked SLA Alerts**: Tech Cachet  
 
 **Effective date:** Upon installation of the app (or first use after this version is published), unless you and Tech Cachet agree otherwise in writing.
 
 ---
 
-## Important — read before relying on this document
+## Important: read before relying on this document
 
 - This Data Processing Agreement (**“DPA”**) is published for **transparency** and to support **EU/UK and similar** procurement conversations.  
 - **Tech Cachet has not yet had this DPA reviewed by its own legal counsel.** It is **not legal advice**. **Customers should consult their own counsel** before relying on it or signing counterpart-specific versions.  
@@ -147,7 +147,7 @@ Where Tech Cachet processes personal data **outside** the EEA, UK, or Switzerlan
 
 ## 9. Security measures (summary)
 
-- **Forge-native storage** for app configuration and secrets (e.g. Slack token) in **Atlassian**-managed storage—not in a separate Tech Cachet application database for core app operation as described in the **[Privacy Policy](/privacy/)**.  
+- **Forge-native storage** for app configuration and secrets (e.g. Slack token) in **Atlassian**-managed storage, not in a separate Tech Cachet application database for core app operation as described in the **[Privacy Policy](/privacy/)**.  
 - **Token masking** in configuration surfaces where implemented; Customers may **clear** tokens when the product allows.  
 - **Least privilege:** Jira/Forge permissions limited to what the App requires (see published **`manifest.yml`**).  
 - Further detail: **[Security Overview](/security/)** · **[Vulnerability disclosure policy](/vulnerability-disclosure/)**
@@ -182,7 +182,7 @@ This DPA is governed by the laws applicable to the **underlying commercial relat
 ---
 
 *This DPA was last updated: **March 2026**.*  
-*Tech Cachet — Practical tools for Atlassian teams.*
+*Tech Cachet: Practical tools for Atlassian teams.*
 
 
 

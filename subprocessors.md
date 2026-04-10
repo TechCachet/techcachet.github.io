@@ -8,9 +8,9 @@ permalink: /subprocessors/
 
 **Last updated:** March 2026  
 
-This page supports **[Privacy Policy](/privacy)** disclosures for **Linked SLA Alerts**. It separates **(A)** infrastructure that always applies, **(B)** services Tech Cachet uses for **our business** (not the app runtime), and **(C)** destinations **you** configure—which are **not** Tech Cachet subprocessors in the usual sense.
+This page supports **[Privacy Policy](/privacy)** disclosures for **Linked SLA Alerts**. It separates **(A)** infrastructure that always applies, **(B)** services Tech Cachet uses for **our business** (not the app runtime), and **(C)** destinations **you** configure, which are **not** Tech Cachet subprocessors in the usual sense.
 
-**Classification (processor / subprocessor / conduit)** depends on your jurisdiction and contracts—**confirm with counsel**.
+**Classification (processor / subprocessor / conduit)** depends on your jurisdiction and contracts, **confirm with counsel**.
 
 ---
 
@@ -31,7 +31,7 @@ These support **Tech Cachet the company** (website, email). They do **not** repl
 | Provider / surface | Role | Relation to app data |
 |--------------------|------|----------------------|
 | **GitHub Pages** (or similar) | Hosts **techcachet.github.io** static marketing pages | **No** Jira issue database; may have CDN/host **technical logs** |
-| **Support mailbox** ([techcachet@gmail.com](mailto:techcachet@gmail.com), via **Gmail**) | Support and security reports | May contain **PII you include** in email—retention per **our** internal policy |
+| **Support mailbox** ([techcachet@gmail.com](mailto:techcachet@gmail.com), via **Gmail**) | Support and security reports | May contain **PII you include** in email, retention per **our** internal policy |
 
 If you add **ticketing**, **analytics**, or **CRM**, update this table and the Privacy Policy.
 
@@ -39,13 +39,13 @@ If you add **ticketing**, **analytics**, or **CRM**, update this table and the P
 
 ## C. Customer-configured third parties (optional; not “Tech Cachet subprocessors”)
 
-When **your organization** turns on integrations in the app UI, data flows **you initiate** may go to **allowlisted** destinations only—the Forge app calls **only** hostnames permitted in **`external.fetch`** in the published **`manifest.yml`** (e.g. `*.atlassian.net`, Slack, Zapier, Make regional webhook hosts—not free-form “any HTTPS URL”).
+When **your organization** turns on integrations in the app UI, data flows **you initiate** may go to **allowlisted** destinations only, the Forge app calls **only** hostnames permitted in **`external.fetch`** in the published **`manifest.yml`** (e.g. `*.atlassian.net`, Slack, Zapier, Make regional webhook hosts, not free-form “any HTTPS URL”).
 
 | Type | Examples | Notes |
 |------|----------|--------|
 | **Slack** | `slack.com`, `hooks.slack.com`, etc. | Message content, API calls, tokens **you** supply |
-| **Automation / webhooks** | Zapier, Make, and other providers whose **hostnames** are on the **`external.fetch`** allowlist | JSON payloads to **permitted** endpoints **you** configure within that allowlist—see **[Privacy Policy](/privacy)** §9–10 |
-| **Jira Cloud** | `*.atlassian.net` | Core APIs—not optional third party |
+| **Automation / webhooks** | Zapier, Make, and other providers whose **hostnames** are on the **`external.fetch`** allowlist | JSON payloads to **permitted** endpoints **you** configure within that allowlist, see **[Privacy Policy](/privacy)** §9–10 |
+| **Jira Cloud** | `*.atlassian.net` | Core APIs, not optional third party |
 
 Tech Cachet **does not sell** personal data from the app to data brokers.
 

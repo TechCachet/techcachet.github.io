@@ -12,7 +12,7 @@ These Terms of Service (“**Terms**”) govern use of **Linked SLA Alerts**, a 
 
 By **installing**, **configuring**, or **using** the app, you confirm that you have authority to bind the **organization** whose Jira site the app is installed on, and you agree to these Terms. If you do not agree, do not use the app.
 
-**Atlassian:** Atlassian’s **Marketplace Terms of Use**, **product terms**, and **privacy policies** also apply. **Billing, payment, tax, trials, renewals, cancellations, and refunds** are typically handled by **Atlassian** (or its payment partners) under **their** terms. **These Terms add to—not replace—Atlassian’s terms.** If anything here conflicts with Atlassian on **payment or Marketplace rules**, **Atlassian’s terms control** for those topics.
+**Atlassian:** Atlassian’s **Marketplace Terms of Use**, **product terms**, and **privacy policies** also apply. **Billing, payment, tax, trials, renewals, cancellations, and refunds** are typically handled by **Atlassian** (or its payment partners) under **their** terms. **These Terms add to, not replace, Atlassian’s terms.** If anything here conflicts with Atlassian on **payment or Marketplace rules**, **Atlassian’s terms control** for those topics.
 
 ---
 
@@ -41,7 +41,7 @@ You may not: misuse the app; reverse engineer it beyond what the law allows; use
 ## 4. Paid access, billing, trials, renewals, and cancellation
 
 - **Prices and plans** are set on the **Atlassian Marketplace** (and may change for **new** purchases as Atlassian allows).  
-- **Charges, invoices, refunds, and taxes** are handled under **Atlassian’s** checkout and Marketplace terms—not summarized here.  
+- **Charges, invoices, refunds, and taxes** are handled under **Atlassian’s** checkout and Marketplace terms, not summarized here.  
 - **Trials** follow **Atlassian’s** trial rules, if available.  
 - **Renewal and cancellation** are managed in **Atlassian** account / Marketplace controls, unless you have a **separate written agreement** with Tech Cachet.  
 - The app may check **Marketplace license status** through Forge (for example, `getAppContext().license`) to show or enforce paid access in **production**.
@@ -80,7 +80,7 @@ See the **[Privacy Policy](/privacy)**, **[Subprocessors & Infrastructure](/subp
 
 **Email:** [techcachet@gmail.com](mailto:techcachet@gmail.com) · Details: **[Support & Security](/support)**  
 
-Report security issues **only** through that **private email** channel as described there—not via public GitHub issues or a public tracker.
+Report security issues **only** through that **private email** channel as described there, not via public GitHub issues or a public tracker.
 
 We do **not** promise a specific response time unless we agree **in writing** with your organization.
 
@@ -110,7 +110,7 @@ Some states or countries do not allow certain limits; in those cases our limits 
 
 ## 13. Indemnity
 
-You will **defend and reimburse** Tech Cachet for claims caused by **your** misuse of the app, **your** Jira content, or **your** integration settings—except where Tech Cachet has engaged in **willful misconduct** (as finally decided by a court).
+You will **defend and reimburse** Tech Cachet for claims caused by **your** misuse of the app, **your** Jira content, or **your** integration settings, except where Tech Cachet has engaged in **willful misconduct** (as finally decided by a court).
 
 ---
 
@@ -124,7 +124,7 @@ You and Tech Cachet agree that the **state and federal courts located in Hillsbo
 
 ## 15. Contact
 
-**Tech Cachet** — [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](/support)
+**Tech Cachet**: [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](/support)
 
 
 
