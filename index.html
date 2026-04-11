@@ -300,9 +300,12 @@ body{
 }
 
 #contact,
-#resources,
-#products{
-  scroll-margin-top:clamp(88px, 20vw, 132px);
+#resources {
+  scroll-margin-top: clamp(70px, 15vw, 110px);
+}
+
+#products {
+  scroll-margin-top: clamp(10px, 4vw, 20px); /* Minimal margin to push it to the header */
 }
 
 .grid-3{
@@ -596,6 +599,14 @@ li{
   border-radius:12px;
   background:rgba(255,255,255,0.02);
   height:100%;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.service-content{
+  flex: 1;
 }
 
 .service.featured{
@@ -603,18 +614,139 @@ li{
   background:rgba(59,130,246,0.08);
 }
 
-.service h3{
-  margin:0 0 8px;
-  color:var(--accent);
-  font-size:clamp(1rem, 2.2vw, 1.1rem);
+/* ----- Interactive Product Showcase ----- */
+.product-showcase {
+  text-align: center;
+  padding: 40px 0;
 }
 
-.service-logo{
+.product-selector {
+  display: flex;
+  justify-content: center;
+  gap: clamp(20px, 8vw, 60px);
+  margin-bottom: 40px;
+}
+
+.product-trigger {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.product-trigger:hover {
+  transform: translateY(-5px);
+}
+
+.logo-wrapper {
+  position: relative;
+  width: 140px; /* Increased from 100px */
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The "In Progress" Pulsing Circle */
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px dashed var(--accent); /* Slightly thicker line */
+  border-radius: 50%;
+  animation: rotateRing 10s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.product-trigger:hover .progress-ring {
+  opacity: 1;
+  border-style: solid;
+  box-shadow: 0 0 20px var(--accent);
+}
+
+.product-trigger .service-logo {
+  width: 100px; /* Increased from 70px */
+  height: 100px;
+  margin: 0; 
+  z-index: 2;
+  transition: filter 0.3s ease, transform 0.3s ease;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  padding: 8px;
+  box-shadow: 0 0 15px rgba(125, 211, 252, 0.2);
+}
+
+/* Hover Title Reveal */
+.hover-title {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+  pointer-events: none;
+}
+
+.product-trigger:active {
+  transform: scale(0.95); /* Visual feedback for touch */
+}
+
+/* Ensure title is visible for the active selection on mobile */
+.product-trigger.active-trigger .hover-title {
+  opacity: 1;
+  bottom: -35px;
+}
+
+.product-trigger.active-trigger .progress-ring {
+  opacity: 1;
+  border-style: solid;
+  box-shadow: 0 0 20px var(--accent);
+}
+
+/* Dynamic Detail Card */
+.product-detail-area {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 200px;
+}
+
+.detail-card {
+  display: none; /* Hidden by default */
+  animation: fadeInSlide 0.4s ease forwards;
+}
+
+.detail-card.active {
   display: block;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 16px;
-  object-fit: contain;
+}
+
+@keyframes fadeInSlide {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .product-selector {
+    gap: 30px;
+  }
+  .logo-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+  .product-trigger .service-logo {
+    width: 55px;
+    height: 55px;
+  }
 }
 
 .price{
@@ -634,6 +766,13 @@ li{
   color:var(--accent);
   font-size:0.85rem;
   font-weight:700;
+}
+
+.badge.platform-badge {
+  background: rgba(0, 82, 204, 0.15);
+  border-color: rgba(0, 82, 204, 0.4);
+  color: #4c9aff; /* Atlassian Blue */
+  margin-left: 6px;
 }
 
 .link-list{
@@ -679,12 +818,19 @@ a:hover{
 
 /* Tablet and below: single-column grids */
 @media (max-width:768px){
-  .grid-2{
+  .grid-2, .grid-3{
     grid-template-columns:1fr;
   }
 
   .service{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     padding:clamp(14px, 3vw, 18px);
+  }
+
+  .service-logo{
+    margin-bottom: 12px;
   }
 
   .contact-info{
@@ -846,7 +992,7 @@ a:hover{
 <main class="container">
 
   <section class="card highlight-card">
-    <h2>What Tech Cachet Offers</h2>
+    <h2>What Tech Cachet Offers <span class="badge platform-badge" style="margin-left:10px; vertical-align:middle;">Built on Atlassian Forge</span></h2>
     <p>
       <strong>Tech Cachet, LLC</strong> builds focused Jira Cloud apps on <strong>Atlassian Forge</strong> for teams that want
       better visibility into queues and risk, smoother paths for work to enter Jira, and help catching
@@ -857,50 +1003,89 @@ a:hover{
   <section class="card" id="products">
     <h2>Products</h2>
     <p class="small-note" style="margin:0 0 18px;">
-      Three pillars in development. Details and docs will expand as each app nears release.
+      Explore our pillars. Click a logo to see details.
     </p>
-    <div class="grid-3">
-      <div class="service">
-        <img src="assets/aari.png" alt="Audit & Risk Insights Logo" class="service-logo">
-        <div class="badge">In development</div>
-        <h3>Audit &amp; Risk Insights</h3>
-        <p>
-          Insight-first <strong>Jira dashboard</strong> app that surfaces queue risk, SLA exposure, and workflow bottlenecks, so managers see what to act on instead of drowning in charts.
-        </p>
-        <ul>
-          <li>Forge on Jira Cloud; dashboard gadget and custom UI</li>
-          <li>Search-backed analysis plus an insight engine tuned to real queues</li>
-        </ul>
+
+    <div class="product-showcase">
+      <!-- Logo Selectors -->
+      <div class="product-selector">
+        <div class="product-trigger" onclick="showProduct('aari')">
+          <div class="logo-wrapper">
+            <div class="progress-ring"></div>
+            <img src="assets/aari.png" alt="Audit & Risk Insights" class="service-logo">
+          </div>
+          <span class="hover-title">Audit & Risk</span>
+        </div>
+
+        <div class="product-trigger" onclick="showProduct('intake')">
+          <div class="logo-wrapper">
+            <div class="progress-ring"></div>
+            <img src="assets/Issue Intake.png" alt="Auto Issue Intake" class="service-logo">
+          </div>
+          <span class="hover-title">Auto Intake</span>
+        </div>
+
+        <div class="product-trigger" onclick="showProduct('secrets')">
+          <div class="logo-wrapper">
+            <div class="progress-ring"></div>
+            <img src="assets/SS Icon.png" alt="Secrets Finder" class="service-logo">
+          </div>
+          <span class="hover-title">Secrets Finder</span>
+        </div>
       </div>
-      <div class="service">
-        <img src="assets/Issue Intake.png" alt="Auto Issue Intake Logo" class="service-logo">
-        <div class="badge">In development</div>
-        <h3>Auto Issue Intake</h3>
-        <p>
-          Forge app for <strong>structured intake</strong>: turning how requests and findings enter Jira into repeatable create-or-update decisions, with less duplicate work and clearer ownership.
-        </p>
-        <ul>
-          <li>Configuration-driven flows; preview before issues are created or updated</li>
-          <li>Built to reduce ticket sprawl for high-volume or scanner-driven inputs</li>
-        </ul>
-      </div>
-      <div class="service">
-        <img src="assets/SS Icon.png" alt="Secrets Finder Logo" class="service-logo">
-        <div class="badge">In development</div>
-        <h3>Secrets Finder</h3>
-        <p>
-          Scans Jira issue content for <strong>likely exposed secrets</strong> and sensitive data (summary, description, comments, selected fields, and attachments), with OCR for screenshots and admin-level reporting.
-        </p>
-        <ul>
-          <li>Issue panel plus admin settings and batch scans; deterministic, explainable findings</li>
-          <li>Roadmap: organization-specific rules for terms and patterns that matter in your environment</li>
-        </ul>
+
+      <!-- Detail Area -->
+      <div class="product-detail-area">
+        <!-- Audit & Risk -->
+        <div id="product-aari" class="detail-card active">
+          <div class="badge">In development</div>
+          <h3>Audit &amp; Risk Insights</h3>
+          <p>
+            Insight-first <strong>Jira dashboard</strong> app that surfaces queue risk, SLA exposure, and workflow bottlenecks, so managers see what to act on instead of drowning in charts.
+          </p>
+        </div>
+
+        <!-- Intake -->
+        <div id="product-intake" class="detail-card">
+          <div class="badge">In development</div>
+          <h3>Auto Issue Intake</h3>
+          <p>
+            Forge app for <strong>structured intake</strong>: turning how requests and findings enter Jira into repeatable create-or-update decisions, with less duplicate work and clearer ownership.
+          </p>
+        </div>
+
+        <!-- Secrets -->
+        <div id="product-secrets" class="detail-card">
+          <div class="badge">In development</div>
+          <h3>Secrets Finder</h3>
+          <p>
+            Scans Jira issue content for <strong>likely exposed secrets</strong> and sensitive data (summary, description, comments, selected fields, and attachments), with OCR for screenshots and admin-level reporting.
+          </p>
+        </div>
       </div>
     </div>
+
     <p style="margin-top:18px;font-size:0.95rem;color:var(--muted);">
       Questions or early access: <a href="support/">Support &amp; Security</a> · <a href="mailto:techcachet@gmail.com">techcachet@gmail.com</a>
     </p>
   </section>
+
+  <script>
+    function showProduct(productId) {
+      // Hide all cards
+      document.querySelectorAll('.detail-card').forEach(card => {
+        card.classList.remove('active');
+      });
+      // Show selected card
+      document.getElementById('product-' + productId).classList.add('active');
+      
+      // Optional: Add 'active' styling to the trigger
+      document.querySelectorAll('.product-trigger').forEach(trigger => {
+        trigger.style.opacity = '0.5';
+      });
+      event.currentTarget.style.opacity = '1';
+    }
+  </script>
 
   <section class="card">
     <h2>Built With Practicality in Mind</h2>
