@@ -337,6 +337,47 @@ body{
   max-width:52ch;
 }
 
+/* Hero: full-width banner image + centered copy overlay */
+.splash-stage-hero-combo{
+  position:relative;
+}
+
+.splash-hero-banner-img{
+  width:100%;
+  height:auto;
+  display:block;
+  vertical-align:bottom;
+}
+
+.splash-hero-copy{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  box-sizing:border-box;
+  background:linear-gradient(180deg, rgba(5,8,16,0.2) 0%, rgba(5,8,16,0.55) 100%);
+  pointer-events:none;
+}
+
+.splash-hero-copy .cta-wrap,
+.splash-hero-copy a{
+  pointer-events:auto;
+}
+
+.splash-hero-copy h1{
+  text-shadow:0 2px 24px rgba(0,0,0,0.75);
+}
+
+.splash-hero-copy .tagline,
+.splash-hero-copy .subtext{
+  text-shadow:0 1px 14px rgba(0,0,0,0.65);
+}
+
 .container{
   /* Fill more of the screen on large monitors; cap width for readability */
   max-width:min(var(--content-max), calc(100vw - 32px));
@@ -753,18 +794,30 @@ a:hover{
 </header>
 
 <section class="hero splash-hero" aria-labelledby="hero-heading">
-  <div class="splash-stage splash-stage--text">
-    <p class="tagline">Tech Cachet, LLC</p>
-    <h1 id="hero-heading">Jira apps for visibility, intake, and safer work</h1>
-    <p class="subtext">
-      We build Atlassian Forge apps for Jira Cloud: dashboard insight, structured intake, and sensitive-data awareness, so operations and delivery teams get clearer signal without heavier process.
-    </p>
-    <p class="subtext small-note" style="margin-top:8px;">
-      Apps are in active development; none are listed on the Atlassian Marketplace yet.
-    </p>
-    <div class="cta-wrap">
-      <a class="cta-button" href="#products">Explore products</a>
-      <a class="cta-secondary" href="#contact">Get in touch</a>
+  <div class="splash-stage splash-stage-hero-combo">
+    <img
+      class="splash-art splash-hero-banner-img"
+      src="assets/hero-banner-2026.png"
+      width="2400"
+      height="1000"
+      sizes="(max-width: 768px) calc(100vw - 48px), min(1320px, calc(100vw - 80px))"
+      alt="Dark navy hero graphic with cyan glow and abstract workflow lines."
+      decoding="async"
+      fetchpriority="high"
+    >
+    <div class="splash-hero-copy splash-stage--text">
+      <p class="tagline">Tech Cachet, LLC</p>
+      <h1 id="hero-heading">Jira apps for visibility, intake, and safer work</h1>
+      <p class="subtext">
+        We build Atlassian Forge apps for Jira Cloud: dashboard insight, structured intake, and sensitive-data awareness, so operations and delivery teams get clearer signal without heavier process.
+      </p>
+      <p class="subtext small-note" style="margin-top:8px;">
+        Apps are in active development; none are listed on the Atlassian Marketplace yet.
+      </p>
+      <div class="cta-wrap">
+        <a class="cta-button" href="#products">Explore products</a>
+        <a class="cta-secondary" href="#contact">Get in touch</a>
+      </div>
     </div>
   </div>
 </section>
