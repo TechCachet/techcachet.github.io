@@ -1,0 +1,39 @@
+<svg width="2400" height="1000" viewBox="0 0 2400 1000" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2400" height="1000" fill="#0b1020" />
+  
+  <!-- Central Command Octopus -->
+  <g id="octopus-command" fill="none" stroke="#7dd3fc" stroke-width="2" opacity="0.8">
+    <!-- Body/Head -->
+    <path d="M1100,300 Q1200,200 1300,300 Q1350,450 1200,500 Q1050,450 1100,300 Z" fill="#0b1020" stroke-width="3"/>
+    <!-- Eyes (Nodes) -->
+    <circle cx="1160" cy="350" r="5" fill="#7dd3fc" />
+    <circle cx="1240" cy="350" r="5" fill="#7dd3fc" />
+    
+    <!-- Tentacles - Symmetrical Outreach -->
+    <!-- Left Upper -->
+    <path d="M1120,400 Q1000,350 800,250" />
+    <circle cx="800" cy="250" r="4" fill="#7dd3fc" />
+    <!-- Left Mid -->
+    <path d="M1110,440 Q900,440 650,450" />
+    <circle cx="650" cy="450" r="4" fill="#7dd3fc" />
+    <!-- Left Lower -->
+    <path d="M1140,480 Q1000,600 800,750" />
+    <circle cx="800" cy="750" r="4" fill="#7dd3fc" />
+    
+    <!-- Right Upper -->
+    <path d="M1280,400 Q1400,350 1600,250" />
+    <circle cx="1600" cy="250" r="4" fill="#7dd3fc" />
+    <!-- Right Mid -->
+    <path d="M1290,440 Q1500,440 1750,450" />
+    <circle cx="1750" cy="450" r="4" fill="#7dd3fc" />
+    <!-- Right Lower -->
+    <path d="M1260,480 Q1400,600 1600,750" />
+    <circle cx="1600" cy="750" r="4" fill="#7dd3fc" />
+  </g>
+
+  <!-- Network Background (Faint) -->
+  <g stroke="#1e293b" stroke-width="1" fill="none" opacity="0.3">
+    <path d="M0,200 L800,250 M0,500 L650,450 M0,800 L800,750" />
+    <path d="M2400,200 L1600,250 M2400,500 L1750,450 M2400,800 L1600,750" />
+  </g>
+</svg>

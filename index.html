@@ -742,6 +742,31 @@ a:hover{
     transform:none;
   }
 }
+#vanta-hero {
+  min-height: clamp(400px, 50vh, 600px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b1020;
+  position: relative;
+  overflow: hidden;
+}
+
+#particleCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.splash-hero-banner-img {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
 </style>
 </head>
 
@@ -782,7 +807,8 @@ a:hover{
 </header>
 
 <section class="hero splash-hero" aria-labelledby="hero-heading">
-  <div class="splash-stage splash-stage-hero-combo">
+  <div id="vanta-hero" class="splash-stage splash-stage-hero-combo">
+    <canvas id="particleCanvas"></canvas>
     <img
       class="splash-art splash-hero-banner-img"
       src="assets/hero-banner-clean.png"
@@ -924,6 +950,89 @@ a:hover{
 </main>
 
 <script>
+  const canvas = document.getElementById('particleCanvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  const particleCount = 80;
+  const connectionDistance = 150;
+  const mouse = { x: null, y: null };
+
+  window.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+
+  function resize() {
+    const container = document.getElementById('vanta-hero');
+    if (!container) return;
+    canvas.width = container.offsetWidth;
+    canvas.height = container.offsetHeight;
+  }
+
+  window.addEventListener('resize', resize);
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 1;
+      this.speedX = (Math.random() - 0.5) * 0.8;
+      this.speedY = (Math.random() - 0.5) * 0.8;
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x > canvas.width) this.x = 0;
+      else if (this.x < 0) this.x = canvas.width;
+      if (this.y > canvas.height) this.y = 0;
+      else if (this.y < 0) this.y = canvas.height;
+    }
+    draw() {
+      ctx.fillStyle = 'rgba(125, 211, 252, 0.8)';
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function init() {
+    particles = [];
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+      for (let j = i; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < connectionDistance) {
+          ctx.strokeStyle = `rgba(125, 211, 252, ${1 - distance / connectionDistance})`;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('load', () => {
+    resize();
+    init();
+    animate();
+  });
+</script>
+
+<script>
 (function(){
   var toggle = document.getElementById('ribbon-nav-toggle');
   var flyout = document.querySelector('.ribbon-flyout');
@@ -957,6 +1066,3 @@ a:hover{
 
 </body>
 </html>
-
-
-
