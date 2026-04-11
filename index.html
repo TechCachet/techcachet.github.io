@@ -360,7 +360,7 @@ body{
   justify-content:center;
   align-items:center;
   box-sizing:border-box;
-  background:linear-gradient(180deg, rgba(5,8,16,0.2) 0%, rgba(5,8,16,0.55) 100%);
+  background:rgba(5,8,16,0.38);
   pointer-events:none;
 }
 
@@ -373,7 +373,6 @@ body{
   text-shadow:0 2px 24px rgba(0,0,0,0.75);
 }
 
-.splash-hero-copy .tagline,
 .splash-hero-copy .subtext{
   text-shadow:0 1px 14px rgba(0,0,0,0.65);
 }
@@ -388,7 +387,7 @@ body{
   padding-bottom:max(clamp(44px, 8vw, 64px), env(safe-area-inset-bottom));
 }
 
-/* Splash hero: same column as cards; ambient glow + framed stage (polished, no motion) */
+/* Splash hero: framed stage (no extra radial flare behind the section) */
 .hero.splash-hero{
   position:relative;
   isolation:isolate;
@@ -399,21 +398,6 @@ body{
   padding:clamp(16px, 3vw, 28px) var(--gutter) clamp(8px, 1.5vw, 16px);
   text-align:center;
   box-sizing:border-box;
-}
-
-.hero.splash-hero::before{
-  content:"";
-  position:absolute;
-  z-index:-1;
-  left:0;
-  right:0;
-  top:-20px;
-  bottom:-16px;
-  pointer-events:none;
-  background:
-    radial-gradient(ellipse 85% 65% at 50% 28%, var(--splash-glow) 0%, transparent 58%),
-    radial-gradient(ellipse 55% 50% at 85% 45%, var(--splash-glow-soft) 0%, transparent 50%),
-    radial-gradient(ellipse 45% 40% at 12% 55%, var(--splash-glow-soft) 0%, transparent 48%);
 }
 
 .splash-stage{
@@ -429,6 +413,13 @@ body{
     0 32px 72px -12px rgba(0,0,0,0.65);
   background:rgba(5,8,16,0.45);
   overflow:hidden;
+}
+
+/* Hero card: drop cyan halo so the top does not read as a separate flare */
+.splash-stage.splash-stage-hero-combo{
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.4),
+    0 24px 56px -18px rgba(0,0,0,0.6);
 }
 
 /* Image-only heroes use tight line-height; text hero uses .splash-stage--text line-height */
@@ -801,12 +792,11 @@ a:hover{
       width="2400"
       height="1000"
       sizes="(max-width: 768px) calc(100vw - 48px), min(1320px, calc(100vw - 80px))"
-      alt="Dark navy hero graphic with cyan glow and abstract workflow lines."
+      alt="Dark navy hero graphic with abstract workflow lines."
       decoding="async"
       fetchpriority="high"
     >
     <div class="splash-hero-copy splash-stage--text">
-      <p class="tagline">Tech Cachet, LLC</p>
       <h1 id="hero-heading">Jira apps for visibility, intake, and safer work</h1>
       <p class="subtext">
         We build Atlassian Forge apps for Jira Cloud: dashboard insight, structured intake, and sensitive-data awareness, so operations and delivery teams get clearer signal without heavier process.
