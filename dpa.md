@@ -33,11 +33,11 @@ This DPA is entered into between:
 
 This DPA applies where Tech Cachet processes personal data **on behalf of the Customer** in connection with the Customer’s use of any **Tech Cachet** app (the **“App”**), an Atlassian Marketplace application built on **Atlassian Forge**.
 
-The App provides SLA-related workflows for **Jira** and **Jira Service Management**, including:
+The App provides workflow, visibility, and automation features for **Jira** and **Jira Service Management**, including:
 
-- **Evaluating** the parent issue’s SLA state when a user **opens or refreshes** the **Linked SLA Alerts** issue **panel** on the parent issue (there is **no** Forge **scheduled trigger** or background cron for this evaluation).  
-- **On-demand** **Send SLA Alert to Linked Tickets** when the Customer uses that action in the panel.  
-- Posting **comments** and **@mentions** on **linked** Jira tickets when notifications are sent per the Customer’s configuration.  
+- **Evaluating** issue data and state when a user **interacts with the App’s UI** (e.g. issue panels, dashboard gadgets).
+- **On-demand** actions triggered by the Customer within the App UI.  
+- Posting **comments** and **@mentions** on Jira tickets when notifications are sent per the Customer’s configuration.  
 - Sending **optional** notifications via **Slack** (channel posts or direct messages) when enabled by the Customer.  
 - Sending **optional** payloads to **customer-configured HTTPS webhook** endpoints on the App’s Forge **`external.fetch`** allowlist (e.g. **Zapier**, **Make**) when enabled by the Customer.
 
