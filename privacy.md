@@ -10,23 +10,23 @@ permalink: /privacy/
 
 **Publisher:** Tech Cachet, LLC.
 
-This Privacy Policy describes how Tech Cachet apps access, use, store, and share information when a customer installs and uses our apps in their Jira Cloud site. It also describes our marketing site.
+This Privacy Policy describes how Tech Cachet apps access, use, store, and share information when a customer installs and uses our apps in their Jira Cloud site.
 
 ---
 
 ## 1. Summary
 
-- Tech Cachet apps run **entirely on Atlassian Forge**. Core processing and **Forge app storage** are on **Atlassian’s infrastructure**. Tech Cachet does **not** operate separate **application servers** or **external databases** for core app logic. If we add **optional external backends** (e.g. Forge Remote or other services) later, we will **update this policy** and relevant Marketplace materials.
-- Our apps read Jira **issue** data to power dashboards, intake workflows, and security scans. Processing is typically event-driven (e.g., when a user interacts with a gadget or issue panel), not a **scheduled** background job watching issues in the background.
-- **Personal data** is processed where needed for features, including **Jira account identifiers**, **display names**, and **work content** in issues.
-- **Billing** is handled by **Atlassian**. Payment card data is handled by **Atlassian**, **not** collected or stored by Tech Cachet.
-- **Location / transfers:** Processing on **Forge** uses **Atlassian’s** global infrastructure.
+- **Architecture:** Tech Cachet apps run **entirely on Atlassian Forge**. Core processing and **Forge app storage** are on **Atlassian’s infrastructure**. Tech Cachet does **not** operate separate **application servers** or **external databases** for core app logic.
+- **Data Access:** Our apps read Jira **issue metadata** (e.g., status, dates, priorities) to power dashboards and security scans. This data is processed **transiently** to generate insights and is not persisted by Tech Cachet outside of the Atlassian perimeter.
+- **No External Egress:** Our current apps do **not** send data to third-party services (such as Slack or external webhooks). All analysis and visualization happen within your Jira instance.
+- **Personal Data:** We minimize the use of personal data. We do **not** collect or store Jira user account IDs or email addresses in any external Tech Cachet database.
+- **Billing:** Handled exclusively by **Atlassian**. Tech Cachet never sees or stores your payment card information.
 
 ---
 
 ## 2. Who we are
 
-**Tech Cachet, LLC** develops Jira Cloud apps.
+**Tech Cachet, LLC** builds practical tools for Atlassian teams.
 
 **Contact & Support:** [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](/support)
 
@@ -34,9 +34,7 @@ This Privacy Policy describes how Tech Cachet apps access, use, store, and share
 
 ## 3. Data Processing
 
-For processing **inside your Jira Cloud tenant** to provide our apps, Tech Cachet typically acts as a **processor**. **Your organization** and **Atlassian** shape the compliance picture.
-
-Tech Cachet may act as a **controller** for **narrow** activities (e.g. **this marketing site**, **support email**, or **our own business records**).
+For processing **inside your Jira Cloud tenant**, Tech Cachet acts as a **processor**. Data handling is governed by your agreement with **Atlassian**. Tech Cachet does not maintain off-site replicas of your Jira content.
 
 ---
 
@@ -44,49 +42,40 @@ Tech Cachet may act as a **controller** for **narrow** activities (e.g. **this m
 
 | Category | Source | Use |
 |----------|--------|-----|
-| **Jira issue / work item data** | Jira REST APIs | Dashboard insights, intake, and security scanning |
-| **Jira user identifiers** | Jira API | Identification, audit logging, and workflow assignment |
-| **Secrets & integration config** | Admin UI | Stored in **Forge `storage:app`** |
-| **Invoking user context** | Forge | Who ran an action |
+| **Jira issue metadata** | Jira REST APIs | Dashboard insights and risk analysis |
+| **Jira user identifiers** | Jira API | Transient display of assignees in the app UI |
+| **App configuration** | Admin UI | Stored in **Forge secure storage** |
 
 ---
 
 ## 5. Purposes of processing
 
-- Powering **Jira dashboard gadgets** and **issue panels**.
-- Performing **security scans** (e.g., Secrets Finder) within the Atlassian perimeter.
-- Maintaining **app configuration** and **entitlement** status via Forge Key-Value Store.
-- Providing **support** via email.
+- To provide **real-time dashboard insights** into queue health and workflow risks.
+- To detect **sensitive data** (e.g., Secrets Finder) within the Atlassian perimeter.
+- To maintain **app settings** and user preferences.
 
 ---
 
-## 6. Sub-processors vs. customer-configured integrations
+## 6. Sub-processors
 
-- **Core infrastructure:** **Atlassian** (Jira Cloud, Forge runtime, Forge KVS, Marketplace billing) processes data **on your behalf**. See **[Subprocessors & Infrastructure](/subprocessors)**.
-- **Customer integrations:** If you configure an app to talk to a third-party service (e.g., via a configured webhook), that processing is **your** instruction.
+Tech Cachet relies on **Atlassian** (Jira Cloud, Forge runtime, Forge KVS) to process data on your behalf. We do **not** share your Jira data with any other third-party analytics or marketing providers.
 
 ---
 
 ## 7. Data storage and retention
 
-- **Jira issue data:** Remains in **Jira** under **your** control. We do not copy full issue archives to external servers.
-- **Forge KVS:** Stores configuration and temporary operational data. Persists while the app is installed.
-- **Support email:** ([techcachet@gmail.com](mailto:techcachet@gmail.com)): Retained for up to 2 years for routine business records, unless legal retention requires otherwise.
+- **Operational Data:** Issue bodies and metadata remain in **Jira**.
+- **Forge KVS:** Stores your specific app configurations (e.g., JQL filters and thresholds).
+- **Support email:** Correspondence is retained for up to 2 years for routine business records.
 
 ---
 
-## 8. Your rights & requests
+## 8. Marketing site (techcachet.github.io)
 
-For data **in Jira**, contact your **organization admin** and **Atlassian**. For **support mail** or other records Tech Cachet holds, contact **[techcachet@gmail.com](mailto:techcachet@gmail.com)**. A published **informational** **[DPA](/dpa/)** is available. See also [Terms](/terms) and [Legal & Trust](/legal/).
-
----
-
-## 9. Marketing site (techcachet.github.io)
-
-Static hosting (e.g., **GitHub Pages**). We do **not** use advertising cookies or third-party analytics.
+This site is a static site hosted on **GitHub Pages**. We do **not** use tracking cookies or third-party analytics on this site.
 
 ---
 
-## 10. Changes
+## 9. Changes
 
-We will update the **Last updated** date when we make material changes.
+We will update the **Last updated** date when we make material changes to how our apps handle data.
