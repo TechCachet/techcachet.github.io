@@ -6,44 +6,37 @@ permalink: /privacy/
 
 # Privacy Policy
 
-**Last updated:** March 2026  
-
-> **Portfolio update:** Tech Cachet, LLC is refreshing this policy for our active roadmap (**Audit & Risk Insights**, **Auto Issue Intake**, **Secrets Finder**). The substantive sections below still describe **Linked SLA Alerts** in detail; that app is **not** featured on our homepage while development is on hold. For questions, contact [techcachet@gmail.com](mailto:techcachet@gmail.com). **Not legal advice.** Involve counsel for multi-product wording, EU/UK roles, and enterprise procurement.
-
-**App (detailed below):** Linked SLA Alerts (Atlassian Forge app for Jira Cloud).
+**Last updated:** April 2026
 
 **Publisher:** Tech Cachet, LLC.
 
-This Privacy Policy describes how Linked SLA Alerts accesses, uses, stores, and shares information when a customer installs and uses the app in their Jira Cloud site. It also briefly describes our marketing site (this site). **This document supports transparency and future Marketplace review; it is not legal advice. Involve counsel for DPA wording, EU/UK roles, and enterprise procurement.**
+This Privacy Policy describes how Tech Cachet apps access, use, store, and share information when a customer installs and uses our apps in their Jira Cloud site. It also describes our marketing site.
 
 ---
 
 ## 1. Summary
 
-- Linked SLA Alerts runs on **Atlassian Forge**. Core processing and **Forge app storage (Key-Value Store)** are on **Atlassian’s infrastructure**. Tech Cachet does **not** operate **long-lived application servers** that host the app’s core logic or store Jira issue bodies for routine operation **as of the last updated date**. If we add **optional external backends** (for example Forge Remote or other services) later, we will **update this policy** and relevant Marketplace materials.
-- The app reads Jira **issue**, **link**, and (where applicable) **SLA** data to power the issue panel, **comments**, **@mentions**, and **optional** notifications via **Slack** or **customer-configured HTTPS webhooks** (e.g. email automation), typically when someone **opens or refreshes** the panel on the parent issue (configurable triggers + deduping) or uses **on-demand Send SLA Alert**, not on a Forge **scheduled** background job.
-- **Personal data** is processed where needed for those features, including **Jira account identifiers**, **display names**, **email addresses** when exposed to the app by Jira for permitted APIs, and **work content** in issues referenced in messages.
-- **Data leaves** Atlassian’s Jira/Forge boundary when **your organization** enables integrations to **allowlisted** destinations (Slack, Zapier/Make, etc., see **`external.fetch`** in **`manifest.yml`**). That is **customer-controlled**, not a fixed Tech Cachet “data pipeline.”
-- **Billing** for Marketplace apps is typically handled by **Atlassian** (and its payment partners) under **their** terms. **Payment card data** and checkout for the Marketplace subscription are handled by **Atlassian** (or its payment partners), **not** collected or stored by Linked SLA Alerts in the app.
-- **Location / transfers:** Processing on **Forge** and in **Jira** uses **Atlassian’s** global infrastructure. Data may be processed **outside** the country where your organization is located. **Atlassian’s** product terms, privacy policy, and (where applicable) **DPA / SCCs** govern that processing. See your relationship with **Atlassian**.
+- Tech Cachet apps run **entirely on Atlassian Forge**. Core processing and **Forge app storage** are on **Atlassian’s infrastructure**. Tech Cachet does **not** operate separate **application servers** or **external databases** for core app logic. If we add **optional external backends** (e.g. Forge Remote or other services) later, we will **update this policy** and relevant Marketplace materials.
+- Our apps read Jira **issue** data to power dashboards, intake workflows, and security scans. Processing is typically event-driven (e.g., when a user interacts with a gadget or issue panel), not a **scheduled** background job watching issues in the background.
+- **Personal data** is processed where needed for features, including **Jira account identifiers**, **display names**, and **work content** in issues.
+- **Billing** is handled by **Atlassian**. Payment card data is handled by **Atlassian**, **not** collected or stored by Tech Cachet.
+- **Location / transfers:** Processing on **Forge** uses **Atlassian’s** global infrastructure.
 
 ---
 
 ## 2. Who we are
 
-**Tech Cachet** develops Linked SLA Alerts.  
+**Tech Cachet, LLC** develops Jira Cloud apps.
 
-**Contact & Support:** [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](/support)  
-
-Linked SLA Alerts is **not directed at children** and we do **not knowingly** collect personal information from children. It is a **workplace** app for organizations using Jira.
+**Contact & Support:** [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](/support)
 
 ---
 
-## 3. Roles (controller / processor), high level
+## 3. Data Processing
 
-For processing **inside your Jira Cloud tenant** to provide the app, Tech Cachet typically acts as a **processor** (or subprocessor in relation to your Atlassian relationship). **Your organization** and **Atlassian** shape much of the compliance picture.  
+For processing **inside your Jira Cloud tenant** to provide our apps, Tech Cachet typically acts as a **processor**. **Your organization** and **Atlassian** shape the compliance picture.
 
-Tech Cachet may act as a **controller** for **narrow** activities (e.g. **this marketing site**, **support email**, or **our own business records**). **Confirm with counsel**, especially for EU/UK B2B and DPA needs.
+Tech Cachet may act as a **controller** for **narrow** activities (e.g. **this marketing site**, **support email**, or **our own business records**).
 
 ---
 
@@ -51,141 +44,49 @@ Tech Cachet may act as a **controller** for **narrow** activities (e.g. **this m
 
 | Category | Source | Use |
 |----------|--------|-----|
-| **Jira issue / work item data** | Jira REST APIs as the installed app | SLA on the **parent** issue, linked keys, summaries, fields for comments/templates; **JSM request SLA** where `read:request.sla:jira-service-management` applies |
-| **Jira user identifiers & profile fields** | Jira (assignee, reporter, watchers, users from custom “notify from field” rules) | @mentions, templates, Slack matching |
-| **Email addresses** | Jira user/email APIs and issue expand (subject to visibility) | Slack **users.lookupByEmail** and related flows; optional **static** addresses in admin config; webhook payloads **you** configure |
-| **Slack member IDs** | Admin mapping and/or self-service from the issue panel | DMs and mentions **without** email for mapped users |
-| **Secrets & integration config** | Admin UI | Slack bot token, webhook URLs, channel IDs, templates, triggers, stored in **Forge `storage:app`** |
-| **Forge Key-Value Store** | Runtime | Admin config, dedupe keys, Slack ID map, Marketplace license status used for entitlement checks |
-| **Invoking user context** | Forge / `asUser` where used | Who ran an action; test flows (e.g. **/myself**) |
-
-We do **not** describe a **bulk export** of your entire Jira database or a **continuous off-site replica** of Jira; processing is **event-driven**, primarily when a user **opens or refreshes** the **Linked SLA Alerts** issue **panel** on the parent issue (and when you use **on-demand Send SLA Alert**), plus admin configuration saves, not a Forge **scheduled** job watching issues in the background.
+| **Jira issue / work item data** | Jira REST APIs | Dashboard insights, intake, and security scanning |
+| **Jira user identifiers** | Jira API | Identification, audit logging, and workflow assignment |
+| **Secrets & integration config** | Admin UI | Stored in **Forge `storage:app`** |
+| **Invoking user context** | Forge | Who ran an action |
 
 ---
 
 ## 5. Purposes of processing
 
-- Show **linked issues** and **SLA** context in the **issue panel**.  
-- **Post comments** on linked issues (including optional **@mentions**).  
-- **Notify** recipients when **configured SLA conditions match** during a **panel evaluation** (typically when someone **opens or refreshes** the Linked SLA Alerts **panel** on the parent issue; deduping in **Forge KVS**), or when you use **on-demand Send SLA Alert**, via **Jira**, **Slack** (channel or DM), or **webhook** payloads.  
-- **Match** Jira users to Slack (**email** and/or **Slack member ID**).  
-- **Deduplicate** notifications (KVS).  
-- **Marketplace** entitlement checks (e.g. to show upgrade prompts or restrict features when no active paid license in production).  
-- **Persist** admin and permitted user settings.
-
-We do **not** use personal data for **solely automated decisions** that produce **legal or similarly significant effects** about individuals (as that phrase is used in some privacy laws). SLA notifications and routing are **operational alerts** based on **your** Jira configuration and rules.
+- Powering **Jira dashboard gadgets** and **issue panels**.
+- Performing **security scans** (e.g., Secrets Finder) within the Atlassian perimeter.
+- Maintaining **app configuration** and **entitlement** status via Forge Key-Value Store.
+- Providing **support** via email.
 
 ---
 
-## 6. Subprocessors vs. customer-configured integrations
+## 6. Sub-processors vs. customer-configured integrations
 
-- **Subprocessors / core infrastructure:** **Atlassian** (Jira Cloud, Forge runtime, Forge KVS, Marketplace billing integration) processes data **on your behalf** when you use the app. See **[Subprocessors & Infrastructure](/subprocessors)**.  
-- **Customer-configured integrations:** When you enable **Slack**, **Zapier/Make**, or another integration whose **API host** is on the app’s **`external.fetch`** allowlist, **you** choose among those permitted destinations. Data is sent **under your configuration**; those providers process data under **their** terms. They are **not** “Tech Cachet subprocessors” in the same sense as Atlassian, though your counsel may treat them as **your** subprocessors.
-
----
-
-## 7. Email address access
-
-**Why the app accesses email:** Primarily to **match Jira users to Slack accounts** (e.g. Slack **users.lookupByEmail**) when DMs or Slack delivery depend on email, and to include **recipient-related fields** in **email-style webhook** payloads **you** enable.
-
-**How:** Through **Jira Cloud REST APIs** permitted by install scopes (including **`read:email-address:jira`** where declared). Visibility of email is controlled by **Atlassian**, **organization**, and **user** settings; some users may have **no email** visible to the app.
-
-**Stored vs. transient:**
-
-- **Transient / in-memory:** Email values read from Jira during a resolver or job may be used only for that operation (e.g. a Slack API call) and are **not** written to a Tech Cachet–operated database outside Forge.  
-- **Stored in Forge KVS:** **Admin configuration** you save, such as optional **“always notify”** email lists or similar fields, is **persisted** in **Forge app storage** as part of **your** settings blob.  
-- **Not stored by Tech Cachet off-Forge:** We do **not** operate a separate Tech Cachet database of Jira issue content or user emails for core app operation as described here.
+- **Core infrastructure:** **Atlassian** (Jira Cloud, Forge runtime, Forge KVS, Marketplace billing) processes data **on your behalf**. See **[Subprocessors & Infrastructure](/subprocessors)**.
+- **Customer integrations:** If you configure an app to talk to a third-party service (e.g., via a configured webhook), that processing is **your** instruction.
 
 ---
 
-## 8. Slack: webhooks, bot/token features, and direct messages
+## 7. Data storage and retention
 
-| Configuration | What happens | Data that may leave Atlassian |
-|---------------|--------------|-------------------------------|
-| **Incoming webhook** | POST to URL you provide | Message text, issue keys, links, formatting you configured |
-| **Bot token + channel** | API calls to Slack with your token | Channel ID, message payload; token sent in **Authorization** (HTTPS) |
-| **Direct messages (DMs)** | Slack API to open DM / post as **your** Slack app | Issue/SLA text you put in templates; **Slack user IDs**; may use **email lookup** or **admin/user Slack ID map** |
-
-DMs appear as messages from **your** Slack app/bot. Content may identify individuals through **work context** (assignments, issue keys). **Admin** configures defaults; **users** may map their own Slack ID where the product allows. **Admins** can **turn off** self-service Slack ID linking so that only **admin-managed** mappings apply (product setting).
+- **Jira issue data:** Remains in **Jira** under **your** control. We do not copy full issue archives to external servers.
+- **Forge KVS:** Stores configuration and temporary operational data. Persists while the app is installed.
+- **Support email:** ([techcachet@gmail.com](mailto:techcachet@gmail.com)): Retained for up to 2 years for routine business records, unless legal retention requires otherwise.
 
 ---
 
-## 9. Admin-configured integrations (email / webhooks)
+## 8. Your rights & requests
 
-If you enable an **email or automation webhook** via an integration whose **endpoint hostname** is on the app’s Forge **`external.fetch`** allowlist (e.g. **Zapier** or **Make**, not arbitrary URLs), the app sends **HTTPS POST** requests to that endpoint when a **notification is actually sent** (after a panel evaluation or on-demand action matches your rules and deduping). JSON bodies typically include **event type**, **parent and linked issue keys**, **SLA status and timing**, **message and subject** text from your templates, and **recipient-related fields** where your settings supply them. **Only configure endpoints you trust.** Outbound calls are limited to hostnames on the Forge **`external.fetch`** allowlist in the **published** **`manifest.yml`** for your app version (exact entries can change between releases, **check the manifest** for the current list). Illustrative categories include **Atlassian** product domains (e.g. `*.atlassian.net`), **Slack** (`hooks.slack.com`, `slack.com`), **Zapier** (`hooks.zapier.com`), and **Make** regional webhook hosts (e.g. `hook.eu1.make.com`, `hook.us1.make.com`, **subject to change** in the manifest).
-
----
-
-## 10. When data is sent outside Atlassian (overview)
-
-| Destination | What may be sent | Control |
-|-------------|------------------|---------|
-| **Slack** | Messages, API payloads (may include email in lookup requests, user IDs, tokens in headers) | Your Slack app, webhook, token, channel, DM settings |
-| **Zapier / Make** (and any other provider whose **hostname** appears on the **`external.fetch`** allowlist in **`manifest.yml`**) | JSON webhook body per your config | Destination **you** choose **only** among allowlisted hosts (see §9); not a free-form “any HTTPS URL” integration |
-| **Jira Cloud** (`*.atlassian.net`) | Normal API traffic | Core product |
-
-**Forge KVS** holds app settings and operational keys, not a separate Tech Cachet issue warehouse.
+For data **in Jira**, contact your **organization admin** and **Atlassian**. For **support mail** or other records Tech Cachet holds, contact **[techcachet@gmail.com](mailto:techcachet@gmail.com)**. A published **informational** **[DPA](/dpa/)** is available. See also [Terms](/terms) and [Legal & Trust](/legal/).
 
 ---
 
-## 11. App permissions (Forge / Jira scopes)
+## 9. Marketing site (techcachet.github.io)
 
-Exact scopes and **external fetch** allowlist are in your **`manifest.yml`** (keep this policy and the Marketplace listing aligned). Illustrative permissions:
-
-- `read:jira-work`, `read:jira-user`, `read:email-address:jira`, `write:jira-work`, `storage:app`, `read:request.sla:jira-service-management` (if JSM SLA is used)
+Static hosting (e.g., **GitHub Pages**). We do **not** use advertising cookies or third-party analytics.
 
 ---
 
-## 12. Security practices (summary)
+## 10. Changes
 
-- **HTTPS** to Slack and customer webhooks.  
-- **Secrets** in **Forge app storage**; **encryption at rest** per **Atlassian**; tokens **masked** in browser-facing API responses where designed; **clear** in admin UI where offered.  
-- **Logging:** Aim to avoid logging **secrets** or unnecessary personal data in production, **verify** in your deployment.  
-- **Least privilege:** Integrations are **opt-in** via admin configuration.
-
-We **do not** claim SOC 2, ISO 27001, or other certifications **unless** you have actually achieved them and list them accurately.
-
----
-
-## 13. Data storage and retention (including issue content)
-
-- **Issue bodies, comments, and history** remain in **Jira** under **your** and **Atlassian’s** controls. The app does **not** copy full issue archives to Tech Cachet servers for routine operation.  
-- **Forge KVS:** Configuration, dedupe keys, Slack ID mappings, and similar **persist while the app is installed** (subject to Atlassian’s uninstall/lifecycle behavior).  
-- **Uninstall / subscription end:** Access and app storage follow **Atlassian** processes; disable integrations by removing config before uninstall if your policy requires.  
-- **Support email** ([techcachet@gmail.com](mailto:techcachet@gmail.com)): Messages are used to respond to you and for **routine business records**. **Emails sent to our support mailbox are retained for up to 2 years and then permanently deleted, unless retention is required by law** (or an open matter reasonably requires keeping the correspondence until resolved). You may ask us to delete support content **where applicable** by contacting the same address.
-
----
-
-## 14. Customer controls
-
-- **Jira / Atlassian:** Site admin controls install, scopes upgrade, and org policies (including **email visibility**).  
-- **App admin:** Triggers, templates, Slack/webhook URLs, tokens, mention rules, optional static emails.  
-- **End users:** Where the product allows, self-service Slack ID for DM fallback, unless **admins** disable self-service mapping (admin-only mode). Admins may override via mapping.  
-- **Disabling outbound data:** Remove or clear Slack/webhook configuration and tokens in the admin UI.
-
----
-
-## 15. Your rights & requests
-
-For data **in Jira**, contact your **organization admin** and **Atlassian**. For **support mail** or other records Tech Cachet holds, contact **[techcachet@gmail.com](mailto:techcachet@gmail.com)**. A published **informational** **[DPA](/dpa/)** is available (not yet reviewed by Tech Cachet’s counsel, use your own legal advice). See also [Terms](/terms) and [Legal & Trust](/legal/).
-
----
-
-## 16. Marketing site (techcachet.github.io)
-
-Static hosting (e.g. **GitHub Pages**); may generate **technical/CDN logs**. We do **not** intend to use **advertising cookies** or third-party **analytics** on this site **as of the last updated date**; if that changes, we will update this policy.
-
----
-
-## 17. Changes
-
-We will update the **Last updated** date when we make material changes. Significant changes to how the app handles data will also be reflected in Marketplace listing notes or documentation when practical.
-
----
-
-## 18. Contact
-
-**Tech Cachet**: [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](/support) · [Legal & Trust](/legal/)
-
-
-
+We will update the **Last updated** date when we make material changes.
