@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Security Overview"
+permalink: /security/
 ---
 
 # Security Overview

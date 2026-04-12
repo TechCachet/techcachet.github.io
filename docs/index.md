@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Documentation"
+permalink: /docs/
 ---
 
 # Audit & Risk Insights: Documentation
