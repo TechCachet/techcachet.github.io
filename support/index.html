@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & Security | Tech Cachet, LLC</title>
+    <style>
+        :root {
+            --bg: #0b1020;
+            --text: #e8ecf3;
+            --accent: #7dd3fc;
+            --border: #24304f;
+        }
+        body { font-family: Arial, sans-serif; background: var(--bg); color: var(--text); padding: 40px; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: var(--accent); }
+        h2 { margin-top: 30px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        a { color: var(--accent); }
+        .card { background: rgba(18, 25, 51, 0.9); border: 1px solid var(--border); padding: 20px; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Support & Security</h1>
+        
+        <section class="card">
+            <h2>Support</h2>
+            <p>If you encounter an issue or have questions about your Tech Cachet apps, please reach out. We aim to respond within 48 hours.</p>
+            <p><strong>Email:</strong> <a href="mailto:techcachet@gmail.com">techcachet@gmail.com</a></p>
+            <h3>Reporting a Bug</h3>
+            <p>To help us resolve issues faster, please include the following details in your report:</p>
+            <ul>
+                <li>The name of the app and your Jira version.</li>
+                <li>The JQL filter you are using in the gadget configuration.</li>
+                <li>A screenshot of the issue (please mask any sensitive PII).</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Security Policy</h2>
+            <p>We take your data security seriously. All Tech Cachet apps are built using <strong>Atlassian Forge</strong>, ensuring your data remains within the secure Atlassian Cloud perimeter.</p>
+            <p>We do not collect or store issue data on external servers. All processing happens within your Jira instance.</p>
+            <p>For more information, please visit our <a href="/security/">Vulnerability Disclosure Policy</a>.</p>
+        </section>
+
+        <p><a href="/">← Back to Home</a></p>
+    </div>
+</body>
+</html>
