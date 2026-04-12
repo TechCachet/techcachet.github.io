@@ -47,24 +47,21 @@ The App provides workflow, visibility, and automation features for **Jira** and 
 
 ### 3.1 Categories of data subjects
 
-Jira users associated with linked (and parent) issues, including:
-
-- Assignees  
-- Reporters  
-- Watchers  
-- Request Participants (Jira Service Management projects, where applicable)
+Jira users associated with linked (and parent) issues, including assignees, reporters, and watchers.
 
 ### 3.2 Categories of personal data processed
 
-The App accesses and processes the following personal data **solely** to provide its core functionality:
+The App minimizes data processing to provide its core functionality. We do **not** persist, store, or create databases of Jira user profiles, email addresses, or account IDs on Tech Cachet systems.
 
-| Data type | Purpose |
-|-----------|---------|
-| Jira user identifiers (e.g. display name, **account ID**, **email** where visible to the App via Jira APIs) | To **@mention** and notify the correct individuals on linked tickets; optional Slack matching |
-| Jira issue metadata (e.g. issue key, SLA status, timing / expiry, fields used in templates) | To build accurate SLA messages |
-| Slack bot token (Customer-provided) | To authenticate Slack delivery when enabled (stored in **Forge** secure storage; **masked** in UI where implemented) |
-| Webhook / automation endpoint configuration (Customer-provided URLs on allowlisted hosts) | To deliver payloads when those channels are enabled |
-| Custom message templates (Customer-configured) | To format messages for **panel-evaluated** notifications and **on-demand** Send SLA Alert |
+| Data type | Purpose | Notes |
+|-----------|---------|-------|
+| Jira user identifiers (e.g. account ID) | Transient UI display | Not persisted by Tech Cachet |
+| Jira issue metadata | Transient analysis | App evaluates state; does not store issue bodies |
+| Integration configuration | App settings | Stored in **Forge** secure storage |
+
+### 3.3 Data Minimization
+
+The App is designed to minimize the collection of personal data. Where possible, it operates using temporary, transient references to Jira data required for the active user session or configured webhook delivery. It does **not** maintain a persistent data warehouse of your Jira content.
 
 ### 3.3 Sensitive data
 
