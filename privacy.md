@@ -28,7 +28,7 @@ This Privacy Policy describes how Tech Cachet apps access, use, store, and share
 
 **Tech Cachet, LLC** builds practical tools for Atlassian teams.
 
-**Contact & Support:** [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](/support)
+**Contact & Support:** [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](https://techcachet.github.io/support/)
 
 ---
 
@@ -58,7 +58,7 @@ For processing **inside your Jira Cloud tenant**, Tech Cachet acts as a **proces
 
 ## 6. Sub-processors
 
-Tech Cachet relies on **Atlassian** (Jira Cloud, Forge runtime, Forge KVS) to process data on your behalf. We do **not** share your Jira data with any other third-party analytics or marketing providers.
+Tech Cachet relies on **Atlassian** (Jira Cloud, Forge runtime, Forge KVS) to process data on your behalf. We do **not** share your Jira data with any other third-party analytics or marketing providers. See our **[Subprocessors & Infrastructure](https://techcachet.github.io/subprocessors/)**.
 
 ---
 
