@@ -11,7 +11,7 @@ Welcome to the official documentation for Audit & Risk Insights. This guide will
 
 1. Navigate to your Jira Dashboard.
 2. Click the 'Add gadget' button.
-3. Search for 'Audit & Risk Insights' and add it to your dashboard.
+3. Search for 'Tech Cachet: Audit & Risk Insights' and add it to your dashboard.
 4. Click the 'Edit' button on the gadget to configure your JQL filter and risk thresholds.
 
 ## Configuration Guide
