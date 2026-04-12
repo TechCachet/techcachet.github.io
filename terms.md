@@ -6,21 +6,21 @@ permalink: /terms/
 
 # Terms of Service
 
-**Last updated:** March 2026  
+**Last updated:** April 2026
 
-These Terms of Service (“**Terms**”) govern use of **Linked SLA Alerts**, a **Jira Cloud** app published by **Tech Cachet** and offered through the **Atlassian Marketplace** (including as a **paid** app).
+These Terms of Service (“**Terms**”) govern use of **Tech Cachet** apps for **Jira Cloud** (including Audit & Risk Insights, Auto Issue Intake, Secrets Finder, and other tools), published by **Tech Cachet** and offered through the **Atlassian Marketplace** (including as **paid** apps).
 
-By **installing**, **configuring**, or **using** the app, you confirm that you have authority to bind the **organization** whose Jira site the app is installed on, and you agree to these Terms. If you do not agree, do not use the app.
+By **installing**, **configuring**, or **using** any Tech Cachet app, you confirm that you have authority to bind the **organization** whose Jira site the app is installed on, and you agree to these Terms. If you do not agree, do not use the app.
 
 **Atlassian:** Atlassian’s **Marketplace Terms of Use**, **product terms**, and **privacy policies** also apply. **Billing, payment, tax, trials, renewals, cancellations, and refunds** are typically handled by **Atlassian** (or its payment partners) under **their** terms. **These Terms add to, not replace, Atlassian’s terms.** If anything here conflicts with Atlassian on **payment or Marketplace rules**, **Atlassian’s terms control** for those topics.
 
 ---
 
-## 1. The application
+## 1. The applications
 
-**Linked SLA Alerts** runs on **Atlassian Forge**. It reads Jira **issue** and **SLA** data (including **linked issues**), may **post comments** and **@mentions** on linked issues, and may send **optional** notifications via **Slack** or **HTTPS webhooks** you configure in the admin UI. **Configurable** SLA notifications are **evaluated when someone opens or refreshes** the **Linked SLA Alerts** issue **panel** on the parent issue (not on a Forge **scheduled** trigger or background cron); **Send SLA Alert to Linked Tickets** is **on-demand** when you use that action in the panel.
+**Tech Cachet** apps run on **Atlassian Forge**. They access Jira **issue**, **link**, and (where applicable) **configuration** data, and may perform actions or notifications (e.g., comments, @mentions, webhooks, or integration payloads) that **you configure** in the app admin UI. Features are evaluated according to the specific design of each app (e.g., panel evaluation, configuration saves, or on-demand actions).
 
-**Docs:** [Product Overview](/linked-sla-alerts.html) · [Product Documentation](/docs/linked-sla-alerts.html) · [Privacy Policy](/privacy)
+**Docs:** [Product Documentation](/docs/) · [Privacy Policy](/privacy)
 
 ---
 
@@ -32,9 +32,9 @@ You must be allowed to install **Marketplace apps** on your Jira Cloud site and 
 
 ## 3. License to use
 
-Subject to these Terms and a **valid Marketplace entitlement** (paid subscription or **trial**, if Atlassian offers one), Tech Cachet grants your organization a **limited, non-exclusive, non-transferable, revocable** right to use the app **only** in **your** Jira Cloud site(s) for **internal business use**.
+Subject to these Terms and a **valid Marketplace entitlement** (paid subscription or **trial**, if Atlassian offers one), Tech Cachet grants your organization a **limited, non-exclusive, non-transferable, revocable** right to use our apps **only** in **your** Jira Cloud site(s) for **internal business use**.
 
-You may not: misuse the app; reverse engineer it beyond what the law allows; use it to build a competing product; strip legal notices; break the law or Atlassian’s rules; or overload systems.
+You may not: misuse the apps; reverse engineer them beyond what the law allows; use them to build a competing product; strip legal notices; break the law or Atlassian’s rules; or overload systems.
 
 ---
 
@@ -44,24 +44,23 @@ You may not: misuse the app; reverse engineer it beyond what the law allows; use
 - **Charges, invoices, refunds, and taxes** are handled under **Atlassian’s** checkout and Marketplace terms, not summarized here.  
 - **Trials** follow **Atlassian’s** trial rules, if available.  
 - **Renewal and cancellation** are managed in **Atlassian** account / Marketplace controls, unless you have a **separate written agreement** with Tech Cachet.  
-- The app may check **Marketplace license status** through Forge (for example, `getAppContext().license`) to show or enforce paid access in **production**.
+- Apps may check **Marketplace license status** through Forge (for example, `getAppContext().license`) to show or enforce paid access in **production**.
 
 ---
 
 ## 5. End of use (uninstall, expiry, breach)
 
-Your right to use the app **ends** if you **uninstall** it, **lose** Marketplace entitlement, **Atlassian** ends the install, or you **break** these Terms. Tech Cachet may **stop offering** the app where required by law or Atlassian policy.
+Your right to use our apps **ends** if you **uninstall** them, **lose** Marketplace entitlement, **Atlassian** ends the install, or you **break** these Terms. Tech Cachet may **stop offering** apps where required by law or Atlassian policy.
 
-**When the app stops:** Features that need a **valid license** may **stop working**. Settings in **Forge** storage follow **Atlassian’s** rules for app data. **Turn off** Slack and webhooks in the admin UI if you need integrations to stop immediately. Export any configuration **your policies require** before uninstall.
+**When apps stop:** Features that need a **valid license** may **stop working**. Settings in **Forge** storage follow **Atlassian’s** rules for app data. **Turn off** configured integrations in the admin UI if you need them to stop immediately. Export any configuration **your policies require** before uninstall.
 
 ---
 
 ## 6. App discontinuation
 
-If Tech Cachet decides to **discontinue** Linked SLA Alerts, customers will be given **at least 30 days’ notice** via the **Atlassian Marketplace** listing and by **email** where we have **contact information** available.
+If Tech Cachet decides to **discontinue** an app, customers will be given **at least 30 days’ notice** via the **Atlassian Marketplace** listing and by **email** where we have **contact information** available.
 
-When the app is **uninstalled**, **configuration data** stored in **Forge Key-Value Store** is **automatically deleted** by **Atlassian’s platform** according to Atlassian’s processes. **Tech Cachet does not retain customer Jira data** after the app is uninstalled.
-
+When an app is **uninstalled**, **configuration data** stored in **Forge Key-Value Store** is **automatically deleted** by **Atlassian’s platform** according to Atlassian’s processes. **Tech Cachet does not retain customer Jira data** after the app is uninstalled.
 ---
 
 ## 7. Your responsibilities
