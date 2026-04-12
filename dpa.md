@@ -6,9 +6,9 @@ permalink: /dpa/
 
 # Data Processing Agreement
 
-**Linked SLA Alerts**: Tech Cachet  
+**Tech Cachet** (Atlassian Forge apps for Jira Cloud)
 
-**Effective date:** Upon installation of the app (or first use after this version is published), unless you and Tech Cachet agree otherwise in writing.
+**Effective date:** Upon installation of any Tech Cachet app (or first use after this version is published), unless you and Tech Cachet agree otherwise in writing.
 
 ---
 
@@ -24,14 +24,14 @@ permalink: /dpa/
 
 This DPA is entered into between:
 
-- **Controller:** The customer or organization that installs and uses Linked SLA Alerts (**“Customer”** or **“Controller”**).  
-- **Processor:** **Tech Cachet**, provider of Linked SLA Alerts (**“Tech Cachet”** or **“Processor”**).
+- **Controller:** The customer or organization that installs and uses Tech Cachet apps (**“Customer”** or **“Controller”**).  
+- **Processor:** **Tech Cachet**, provider of Tech Cachet apps (**“Tech Cachet”** or **“Processor”**).
 
 ---
 
 ## 2. Scope and purpose
 
-This DPA applies where Tech Cachet processes personal data **on behalf of the Customer** in connection with the Customer’s use of **Linked SLA Alerts** (the **“App”**), an Atlassian Marketplace application built on **Atlassian Forge**.
+This DPA applies where Tech Cachet processes personal data **on behalf of the Customer** in connection with the Customer’s use of any **Tech Cachet** app (the **“App”**), an Atlassian Marketplace application built on **Atlassian Forge**.
 
 The App provides SLA-related workflows for **Jira** and **Jira Service Management**, including:
 
