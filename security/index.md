@@ -61,7 +61,7 @@ In the event of a security incident, Tech Cachet follows a structured response p
 For questions regarding our security practices or to report a security concern, please contact:
 
 **Security Team**  
-Email: [techcachet@gmail.com](mailto:techcachet@gmail.com)  
+Email: [security@techcachet.com](mailto:security@techcachet.com)  
 Subject: "Security Inquiry" or "Security Report"
 
 ---

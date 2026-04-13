@@ -67,4 +67,4 @@ These Terms are governed by the laws of the **State of Florida**, without regard
 
 ## 9. Contact
 
-**Tech Cachet**: [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](https://techcachet.github.io/support/)
+**Tech Cachet**: [support@techcachet.com](mailto:support@techcachet.com) · [Support & Security](https://techcachet.com/support/)

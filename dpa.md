@@ -108,5 +108,5 @@ This DPA is effective for the duration of the Customer’s use of the App and te
 ## 10. Contact
 
 **Tech Cachet**  
-Email: [techcachet@gmail.com](mailto:techcachet@gmail.com)  
-Website: [techcachet.github.io](https://techcachet.github.io)
+Email: [privacy@techcachet.com](mailto:privacy@techcachet.com)  
+Website: [techcachet.com](https://techcachet.com)

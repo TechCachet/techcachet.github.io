@@ -28,8 +28,8 @@ These services support the **Tech Cachet** company operations but do not process
 
 | Provider | Role | Relation to app data |
 |----------|------|----------------------|
-| **GitHub Pages** | Hosts **techcachet.github.io** | No Jira data access |
-| **Google (Gmail)** | Support mailbox ([techcachet@gmail.com](mailto:techcachet@gmail.com)) | Contains only data you include in support emails |
+| **GitHub Pages** | Hosts **techcachet.com** | No Jira data access |
+| **Google (Gmail)** | Support mailbox ([support@techcachet.com](mailto:support@techcachet.com)) | Contains only data you include in support emails |
 
 ---
 
@@ -37,4 +37,4 @@ These services support the **Tech Cachet** company operations but do not process
 
 Our current apps (such as Audit & Risk Insights) are **network-isolated** and do not transmit data to third-party services. If we add optional integrations in the future, they will be listed here.
 
-**Contact:** [techcachet@gmail.com](mailto:techcachet@gmail.com) · [Support & Security](https://techcachet.github.io/support/)
+**Contact:** [support@techcachet.com](mailto:support@techcachet.com) · [Support & Security](https://techcachet.com/support/)
